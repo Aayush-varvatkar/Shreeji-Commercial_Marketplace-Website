@@ -41,31 +41,31 @@ const LeadForm = () => {
   };
 
   return (
-    <div className="w-full h-full bg-[#141414] text-white p-5 sm:p-6 lg:p-7 flex flex-col justify-center relative overflow-hidden border-l border-white/5">
+    <div className="w-full h-full bg-[#F7EEE8] text-slate-900 p-5 sm:p-6 lg:p-7 flex flex-col justify-center relative overflow-hidden border-l border-slate-300/60 shadow-inner">
       
       {/* Subtle decorative glow */}
-      <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#C07858]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#B86B4B]/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* TOP SUBHEADER */}
       <div className="text-center mb-1">
-        <span className="text-xs sm:text-sm font-semibold tracking-widest text-[#C07858] uppercase font-sans">
+        <span className="text-xs sm:text-sm font-bold tracking-widest text-[#B86B4B] uppercase font-sans">
           {projectDetails.taglineSub}
         </span>
       </div>
 
       {/* MAIN TITLE */}
-      <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-center tracking-tight text-white mb-2">
+      <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-center tracking-tight text-slate-900 mb-2">
         {projectDetails.name}
       </h1>
 
       {/* SUBTITLE */}
-      <p className="text-slate-300 text-xs sm:text-sm text-center font-medium mb-1">
+      <p className="text-slate-700 text-xs sm:text-sm text-center font-medium mb-1">
         {projectDetails.subheading}
       </p>
 
       {/* BOUTIQUE TWIN TOWERS HIGHLIGHT */}
       <div className="text-center my-1">
-        <span className="text-2xl sm:text-2xl font-bold tracking-wide text-[#C07858] drop-shadow-sm font-serif uppercase">
+        <span className="text-xl sm:text-2xl font-bold tracking-wide text-[#6D281D] drop-shadow-sm font-serif uppercase">
           Boutique Twin Towers
         </span>
       </div>
@@ -73,13 +73,13 @@ const LeadForm = () => {
       {/* DIVIDER & WALKTHROUGH SUBTITLE */}
       <div className="relative my-4 flex items-center justify-center">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-white/10" />
+          <div className="w-full border-t border-slate-300/80" />
         </div>
-        <div className="relative bg-[#141414] px-4 text-center">
-          <span className="block text-xs font-bold tracking-widest text-slate-200 uppercase font-sans">
+        <div className="relative bg-[#F7EEE8] px-4 text-center">
+          <span className="block text-xs font-bold tracking-widest text-slate-800 uppercase font-sans">
             GET LUXURY WALKTHROUGH
           </span>
-          <span className="block text-[11px] text-[#C07858] font-medium tracking-wide">
+          <span className="block text-[11px] text-[#B86B4B] font-medium tracking-wide">
             Tailored For You
           </span>
         </div>
@@ -87,19 +87,19 @@ const LeadForm = () => {
 
       {/* SUCCESS MESSAGE OR FORM */}
       {isSubmitted ? (
-        <div className="bg-[#1F1F1F] border border-[#C07858]/30 rounded p-6 text-center space-y-3">
-          <CheckCircle2 className="w-12 h-12 text-[#C07858] mx-auto" />
-          <h3 className="text-xl font-serif font-bold text-white">Inquiry Submitted!</h3>
-          <p className="text-sm text-slate-300">
-            Thank you, <span className="text-[#C07858] font-semibold">{formData.name || 'Valued Buyer'}</span>. Our direct representative will contact you on{' '}
-            <span className="text-[#C07858] font-semibold">{formData.countryCode} {formData.phone}</span>.
+        <div className="bg-white border border-[#B86B4B]/30 rounded p-6 text-center space-y-3 shadow-md">
+          <CheckCircle2 className="w-12 h-12 text-[#B86B4B] mx-auto" />
+          <h3 className="text-xl font-serif font-bold text-slate-900">Inquiry Submitted!</h3>
+          <p className="text-sm text-slate-600">
+            Thank you, <span className="text-[#6D281D] font-semibold">{formData.name || 'Valued Buyer'}</span>. Our direct representative will contact you on{' '}
+            <span className="text-[#6D281D] font-semibold">{formData.countryCode} {formData.phone}</span>.
           </p>
           <button
             onClick={() => {
               setIsSubmitted(false);
               setFormData({ name: '', email: '', countryCode: '+91', phone: '', consent: true });
             }}
-            className="mt-2 text-xs text-[#C07858] underline hover:text-white cursor-pointer"
+            className="mt-2 text-xs text-[#B86B4B] underline hover:text-[#6D281D] cursor-pointer font-bold"
           >
             Submit another inquiry
           </button>
@@ -115,7 +115,7 @@ const LeadForm = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Name"
-              className="w-full bg-[#FAF7F2] text-slate-900 placeholder-slate-500 text-sm px-4 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C07858] transition-all"
+              className="w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#B86B4B] transition-all font-medium shadow-sm"
             />
           </div>
 
@@ -127,7 +127,7 @@ const LeadForm = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Email (optional)"
-              className="w-full bg-[#FAF7F2] text-slate-900 placeholder-slate-500 text-sm px-4 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C07858] transition-all"
+              className="w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#B86B4B] transition-all font-medium shadow-sm"
             />
           </div>
 
@@ -137,7 +137,7 @@ const LeadForm = () => {
               name="countryCode"
               value={formData.countryCode}
               onChange={handleChange}
-              className="bg-[#FAF7F2] text-slate-900 text-sm px-3 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C07858] cursor-pointer font-medium"
+              className="bg-white text-slate-900 text-sm px-3 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#B86B4B] cursor-pointer font-bold shadow-sm"
             >
               <option value="+91">India (+91)</option>
               <option value="+1">USA (+1)</option>
@@ -151,7 +151,7 @@ const LeadForm = () => {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Mobile Number *"
-              className="w-full bg-[#FAF7F2] text-slate-900 placeholder-slate-500 text-sm px-4 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C07858] transition-all"
+              className="w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#B86B4B] transition-all font-medium shadow-sm"
             />
           </div>
 
@@ -163,11 +163,11 @@ const LeadForm = () => {
               name="consent"
               checked={formData.consent}
               onChange={handleChange}
-              className="mt-1 w-4 h-4 text-[#6B241A] bg-[#FAF7F2] border-slate-400 rounded focus:ring-[#C07858] accent-[#6B241A] cursor-pointer"
+              className="mt-1 w-4 h-4 text-[#6D281D] bg-white border-slate-400 rounded focus:ring-[#B86B4B] accent-[#6D281D] cursor-pointer"
             />
-            <label htmlFor="consent" className="text-[11px] leading-tight text-slate-300">
+            <label htmlFor="consent" className="text-[11px] leading-tight text-slate-600 font-medium">
               I consent to the use of provided data in accordance with the{' '}
-              <a href="#privacy" className="underline hover:text-[#C07858] transition-colors">
+              <a href="#privacy" className="underline hover:text-[#6D281D] transition-colors font-bold">
                 privacy policy
               </a>
             </label>
@@ -177,7 +177,7 @@ const LeadForm = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-2 bg-[#6B241A] hover:bg-[#521c14] text-white font-extrabold py-3.5 px-6 rounded-sm tracking-widest text-xs sm:text-sm uppercase shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 active:scale-[0.99]"
+            className="w-full mt-2 bg-gradient-to-r from-[#C47A5A] to-[#9E4B2F] hover:from-[#b36b4b] hover:to-[#873e24] text-white font-extrabold py-3.5 px-6 rounded-sm tracking-widest text-xs sm:text-sm uppercase shadow-md hover:shadow-xl transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 active:scale-[0.99] border border-amber-300/20"
           >
             {loading ? (
               <span className="inline-block animate-pulse">Processing...</span>
@@ -189,8 +189,8 @@ const LeadForm = () => {
       )}
 
       {/* BOTTOM TRUST BADGE */}
-      <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-center gap-1.5 text-[11px] text-slate-400">
-        <ShieldCheck className="w-3.5 h-3.5 text-[#C07858]" />
+      <div className="mt-4 pt-3 border-t border-slate-300/70 flex items-center justify-center gap-1.5 text-[11px] text-slate-600 font-medium">
+        <ShieldCheck className="w-3.5 h-3.5 text-[#B86B4B]" />
         <span>100% Privacy Guaranteed & Direct Developer Support</span>
       </div>
 

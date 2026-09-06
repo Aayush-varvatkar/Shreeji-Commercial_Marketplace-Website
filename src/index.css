@@ -8,7 +8,7 @@
   
   body {
     background-color: #FAF7F2;
-    color: #1E1E1E;
+    color: #1A1A1A;
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.01em;
   }
@@ -18,32 +18,59 @@
   }
 }
 
-/* Color Tokens & Custom Styles */
+/* Premium Brochure Color Tokens */
+:root {
+  --copper-light: #D48A6A;
+  --copper-main: #B86B4B;
+  --copper-dark: #6D281D;
+  --cream-bg: #FAF7F2;
+  --cream-card: #F5EFE6;
+  --charcoal-dark: #121212;
+  --charcoal-card: #181818;
+}
+
+/* Custom Color Utilities */
 .bg-cream-light {
   background-color: #FAF7F2;
 }
 
+.bg-cream-card {
+  background-color: #F5EFE6;
+}
+
 .bg-copper-accent {
-  background-color: #C07858;
+  background-color: #B86B4B;
 }
 
 .bg-dark-terracotta {
-  background-color: #6B241A;
+  background-color: #6D281D;
 }
 
 .text-copper-accent {
-  color: #C07858;
+  color: #B86B4B;
+}
+
+.text-copper-light {
+  color: #D48A6A;
 }
 
 .text-dark-terracotta {
-  color: #6B241A;
+  color: #6D281D;
 }
 
 .border-copper-accent {
-  border-color: #C07858;
+  border-color: #B86B4B;
 }
 
-/* Custom Scrollbar */
+.gradient-copper {
+  background: linear-gradient(135deg, #C47A5A 0%, #9E4B2F 100%);
+}
+
+.gradient-copper-hover:hover {
+  background: linear-gradient(135deg, #b36b4b 0%, #873e24 100%);
+}
+
+/* Custom Luxury Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -51,9 +78,9 @@
   background: #FAF7F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C07858;
+  background: #B86B4B;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6B241A;
+  background: #6D281D;
 }

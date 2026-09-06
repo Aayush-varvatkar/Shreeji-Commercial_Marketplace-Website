@@ -6,4 +6,4 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
 })
-
+// Configured for Vite React with TailwindCSS

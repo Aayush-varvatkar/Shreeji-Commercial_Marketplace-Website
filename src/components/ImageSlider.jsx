@@ -27,13 +27,12 @@ const ImageSlider = () => {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-            index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
         >
           <img
             src={slide.image}
-            alt={slide.title}
+            alt={slide.title || 'Hero Slide'}
             className="w-full h-full object-cover object-center"
           />
           {/* Subtle gradient overlay at bottom for slider text */}
@@ -78,11 +77,10 @@ const ImageSlider = () => {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-              index === currentIndex
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${index === currentIndex
                 ? 'bg-white w-6'
                 : 'bg-white/50 hover:bg-white/80'
-            }`}
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

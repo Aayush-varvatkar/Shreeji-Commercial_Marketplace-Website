@@ -38,24 +38,24 @@ const AmenitiesSection = () => {
   return (
     <section id="amenities" className="w-full bg-[#FAF7F2] py-16 sm:py-24 border-b border-[#E8E2D8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* DESKTOP HEADER SECTION */}
+
+        {/* DESKTOP HEADER SECTION (UNCHANGED) */}
         <div className="hidden md:block text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="text-xs font-bold tracking-widest text-[#C07858] uppercase font-sans mb-2 block">
-            EXPERIENCE THE BEST
+            LIFESTYLE AMENITIES
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-3">
-            World-Class Lifestyle
+            Designed for Better Living
           </h2>
-          <p className="text-slate-600 text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-            {projectDetails.subName || 'Benchmark Greens'} is designed with a premium selection of lifestyle amenities. Enjoy the perfect balance of fitness, spirituality, recreation, and leisure directly inside your complex.
+          <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
+            Enjoy thoughtfully planned spaces for fitness, relaxation, recreation and quality family time.
           </p>
         </div>
 
-        {/* MOBILE VIEW: STICKY HEADING & SCROLL-UNDER CARDS */}
+        {/* MOBILE VIEW: STICKY HEADING & CARDS SCROLLING UNDERNEATH */}
         <div className="md:hidden">
-          {/* MOBILE STICKY HEADER (STICKS JUST BELOW NAVBAR AT TOP-20 Z-30) */}
-          <div className="sticky top-20 z-30 bg-[#FAF7F2] pt-3 pb-4 px-2 text-left border-b border-[#E8E2D8]/80 shadow-sm mb-6">
+          {/* STICKY HEADING (PINNED BELOW NAVBAR AT TOP-20, Z-30) */}
+          <div className="sticky top-20 z-30 bg-[#FAF7F2] pt-4 pb-4 px-4 text-left border-b border-[#E8E2D8]/80 shadow-sm mb-6">
             <span className="text-xs font-bold tracking-widest text-[#0D2B45] uppercase font-sans mb-1 block">
               EXPERIENCE THE BEST
             </span>
@@ -67,7 +67,7 @@ const AmenitiesSection = () => {
             </p>
           </div>
 
-          {/* CARDS LIST THAT SCROLLS UNDER THE STICKY HEADING (Z-10) */}
+          {/* CARDS LIST IN NORMAL FLOW (Z-10) THAT SCROLL UP AND TUCK UNDER STICKY HEADING */}
           <div className="space-y-6 pb-8 relative z-10 px-1">
             {amenitiesList.map((item) => (
               <div
@@ -75,7 +75,7 @@ const AmenitiesSection = () => {
                 className="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200/80 flex flex-col transition-all duration-300"
               >
                 {/* IMAGE CONTAINER */}
-                <div className="relative h-52 overflow-hidden bg-slate-900">
+                <div className="relative h-56 overflow-hidden bg-slate-900">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -85,10 +85,10 @@ const AmenitiesSection = () => {
 
                 {/* TEXT CONTENT BOX */}
                 <div className="p-5 bg-white text-left flex flex-col flex-grow">
-                  <h3 className="font-serif text-lg font-bold text-[#0D2B45] mb-2">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0D2B45] mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-slate-600 text-xs leading-relaxed font-normal">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>

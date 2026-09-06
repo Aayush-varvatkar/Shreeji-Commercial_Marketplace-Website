@@ -15,19 +15,19 @@ const AboutSection = ({ onExploreAmenities }) => {
           <div className="lg:col-span-6 relative max-w-lg mx-auto lg:max-w-none w-full">
             
             {/* OFFSET COPPER OUTLINE FRAME */}
-            <div className="absolute -top-5 -left-5 sm:-top-7 sm:-left-7 w-full h-full border-2 border-[#C07858]/80 pointer-events-none rounded-sm hidden sm:block z-0" />
+            <div className="absolute -top-5 -left-5 sm:-top-7 sm:-left-7 w-full h-full border-2 border-[#C47A5A]/80 pointer-events-none rounded-sm hidden sm:block z-0" />
 
             {/* MAIN IMAGE CONTAINER */}
             <div className="relative z-10 rounded-sm overflow-hidden shadow-2xl border border-white/60">
               <img
-                src="/hero_twin_towers.jpg"
-                alt="Benchmark Greens - The Livin Twin Towers"
+                src="/images/Aerial view.jpg"
+                alt="Benchmark Greens - The Livin Twin Towers Aerial View"
                 className="w-full h-[420px] sm:h-[520px] lg:h-[560px] object-cover object-center transform hover:scale-105 transition-transform duration-700"
               />
             </div>
 
             {/* OVERLAPPING CORNER BADGE (1 & 2 BHK PREMIUM RESIDENCES) */}
-            <div className="absolute -bottom-6 -right-2 sm:right-6 z-20 bg-[#6B241A] text-white px-6 py-5 sm:px-8 sm:py-6 shadow-2xl rounded-sm border border-amber-900/30 text-center transform hover:scale-105 transition-transform">
+            <div className="absolute -bottom-6 -right-2 sm:right-6 z-20 bg-[#6D281D] text-white px-6 py-5 sm:px-8 sm:py-6 shadow-2xl rounded-sm border border-amber-900/30 text-center transform hover:scale-105 transition-transform">
               <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wider block text-white drop-shadow">
                 {about.badgeTitle}
               </span>
@@ -43,8 +43,8 @@ const AboutSection = ({ onExploreAmenities }) => {
             
             {/* SUBHEADER */}
             <div className="flex items-center gap-2">
-              <span className="h-0.5 w-6 bg-[#C07858]" />
-              <span className="text-xs sm:text-sm font-bold tracking-widest text-[#C07858] uppercase font-sans">
+              <span className="h-0.5 w-6 bg-[#B86B4B]" />
+              <span className="text-xs sm:text-sm font-bold tracking-widest text-[#B86B4B] uppercase font-sans">
                 {about.subtitle}
               </span>
             </div>
@@ -68,7 +68,7 @@ const AboutSection = ({ onExploreAmenities }) => {
             <div className="space-y-3.5 pt-2">
               {about.features.map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-3 group">
-                  <div className="w-5 h-5 rounded-full bg-[#C07858] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-[#6B241A] transition-colors">
+                  <div className="w-5 h-5 rounded-full bg-[#B86B4B] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-[#6D281D] transition-colors">
                     <Check className="w-3.5 h-3.5 stroke-[3]" />
                   </div>
                   <span className="text-slate-800 text-xs sm:text-sm font-semibold tracking-wide">
@@ -83,7 +83,7 @@ const AboutSection = ({ onExploreAmenities }) => {
               <a
                 href="#amenities"
                 onClick={onExploreAmenities}
-                className="inline-block bg-[#6B241A] hover:bg-[#521c14] text-white px-8 py-3.5 rounded-sm font-bold text-xs sm:text-sm tracking-widest uppercase transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer active:scale-95"
+                className="inline-block bg-[#6D281D] hover:bg-[#521C14] text-white px-8 py-3.5 rounded-sm font-bold text-xs sm:text-sm tracking-widest uppercase transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer active:scale-95 border border-amber-300/20"
               >
                 {about.buttonText}
               </a>

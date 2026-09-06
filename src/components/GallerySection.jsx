@@ -1,64 +1,63 @@
 import React, { useState } from 'react';
 import { X, ZoomIn } from 'lucide-react';
-import { projectDetails } from '../data/projectData';
 
-const galleryCategories = ["All", "Exterior", "Interior", "Amenities", "Aerial View"];
+const galleryCategories = ["All", "Exterior", "Amenities", "Infrastructure", "Location"];
 
 const galleryItems = [
   {
     id: 1,
-    title: "Boutique Twin Towers - Main Elevation",
+    title: "Boutique Twin Towers Aerial View",
     category: "Exterior",
-    image: "/hero_twin_towers.jpg",
+    image: "/images/Aerial view.jpg",
     type: "featured"
   },
   {
     id: 2,
-    title: "Landscaped Garden & Water Fountain",
+    title: "Landscaped Central Park",
     category: "Amenities",
-    image: "/gallery_garden_fountain.jpg",
+    image: "/images/Park.jpg",
     type: "top_right_1"
   },
   {
     id: 3,
-    title: "Architectural Exterior View",
-    category: "Exterior",
-    image: "/hero_twin_towers.jpg",
+    title: "Fully Equipped Fitness Gymnasium",
+    category: "Amenities",
+    image: "/images/Gym.jpg",
     type: "top_right_2"
   },
   {
     id: 4,
-    title: "Luxury Living Room with Balcony",
-    category: "Interior",
-    image: "/gallery_interior_living.jpg",
+    title: "Peaceful Yoga & Meditation Zone",
+    category: "Amenities",
+    image: "/images/Meditation.jpg",
     type: "bottom_1"
   },
   {
     id: 5,
-    title: "Modern Modular Kitchen",
-    category: "Interior",
-    image: "/gallery_interior_kitchen.jpg",
+    title: "Indoor Recreation & Game Zone",
+    category: "Amenities",
+    image: "/images/Game_Zone.jpeg",
     type: "bottom_2"
   },
   {
     id: 6,
-    title: "Indoor Games & Recreational Area",
-    category: "Amenities",
-    image: "/gallery_indoor_games.jpg",
+    title: "EV Charging Station Facility",
+    category: "Infrastructure",
+    image: "/images/EV_Charging_point.jpg",
     type: "bottom_3"
   },
   {
     id: 7,
-    title: "Rooftop Yoga & Relaxation Deck",
-    category: "Aerial View",
-    image: "/hero_rooftop_deck.jpg",
+    title: "Prime Metro Connectivity Access",
+    category: "Location",
+    image: "/images/Metro_connectivity.jpg",
     type: "extra"
   },
   {
     id: 8,
-    title: "Lavish Entrance Lobby",
-    category: "Interior",
-    image: "/hero_luxury_lobby.jpg",
+    title: "24/7 CCTV & Security Gated Complex",
+    category: "Infrastructure",
+    image: "/images/surveillance_Security.jpeg",
     type: "extra"
   }
 ];
@@ -72,33 +71,33 @@ const GallerySection = () => {
     ? galleryItems
     : galleryItems.filter(item => item.category === activeFilter);
 
-  // Specific items for desktop matching exact image layout
+  // Specific items for desktop featured grid
   const mainExterior = galleryItems[0];
-  const gardenFountain = galleryItems[1];
-  const exteriorAngle = galleryItems[2];
-  const livingRoom = galleryItems[3];
-  const kitchen = galleryItems[4];
-  const indoorGames = galleryItems[5];
+  const parkImage = galleryItems[1];
+  const gymImage = galleryItems[2];
+  const meditationImage = galleryItems[3];
+  const gameZoneImage = galleryItems[4];
+  const evChargingImage = galleryItems[5];
 
   return (
     <section id="gallery" className="w-full bg-[#FAF7F2] py-16 sm:py-24 border-b border-[#E8E2D8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* HEADER (MATCHING EXACT IMAGE 1 HEADER) */}
+        {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="flex items-center justify-center gap-4 mb-2">
-            <span className="h-[1px] w-12 bg-[#C07858]/60 inline-block" />
+            <span className="h-[1px] w-12 bg-[#B86B4B]/60 inline-block" />
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-              Gallery
+              Project Gallery
             </h2>
-            <span className="h-[1px] w-12 bg-[#C07858]/60 inline-block" />
+            <span className="h-[1px] w-12 bg-[#B86B4B]/60 inline-block" />
           </div>
           <p className="text-slate-600 text-xs sm:text-sm font-medium tracking-wide">
-            Explore every corner of Benchmark Greens through our curated gallery
+            Explore actual project photos of Benchmark Greens twin towers, parks, gymnasium, and infrastructure
           </p>
         </div>
 
-        {/* FILTER BUTTONS (MATCHING IMAGE 1 PILL BUTTONS) */}
+        {/* FILTER BUTTONS */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
           {galleryCategories.map((cat) => {
             const isActive = activeFilter === cat;
@@ -108,8 +107,8 @@ const GallerySection = () => {
                 onClick={() => setActiveFilter(cat)}
                 className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer shadow-sm ${
                   isActive
-                    ? 'bg-[#0D2B45] text-white shadow-md scale-105'
-                    : 'bg-white text-slate-700 border border-slate-300 hover:border-[#C07858] hover:text-[#0D2B45]'
+                    ? 'bg-[#6D281D] text-white shadow-md scale-105'
+                    : 'bg-white text-slate-700 border border-slate-300 hover:border-[#B86B4B] hover:text-[#6D281D]'
                 }`}
               >
                 {cat}
@@ -120,7 +119,7 @@ const GallerySection = () => {
 
         {/* GRID DISPLAY */}
         {activeFilter === "All" ? (
-          /* ALL TAB: EXACT LAYOUT FROM REFERENCE IMAGE (DESKTOP & MOBILE) */
+          /* ALL TAB: FEATURED LAYOUT */
           <div className="space-y-4 sm:space-y-6">
             
             {/* TOP ROW: LARGE FEATURED LEFT (65%) + TWO STACKED RIGHT (35%) */}
@@ -137,7 +136,7 @@ const GallerySection = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
-                  <span className="text-[#C07858] text-xs font-bold uppercase tracking-widest">{mainExterior.category}</span>
+                  <span className="text-[#B86B4B] text-xs font-bold uppercase tracking-widest">{mainExterior.category}</span>
                   <h4 className="text-white font-serif font-bold text-lg sm:text-xl">{mainExterior.title}</h4>
                 </div>
                 <div className="absolute top-4 right-4 bg-black/40 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
@@ -145,38 +144,38 @@ const GallerySection = () => {
                 </div>
               </div>
 
-              {/* TWO STACKED RIGHT IMAGES (DESKTOP) / GRID (MOBILE) */}
+              {/* TWO STACKED RIGHT IMAGES */}
               <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
                 
-                {/* TOP RIGHT 1: GARDEN FOUNTAIN */}
+                {/* TOP RIGHT 1: PARK */}
                 <div
-                  onClick={() => setSelectedImage(gardenFountain)}
+                  onClick={() => setSelectedImage(parkImage)}
                   className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[150px] sm:h-[190px] lg:h-[228px]"
                 >
                   <img
-                    src={gardenFountain.image}
-                    alt={gardenFountain.title}
+                    src={parkImage.image}
+                    alt={parkImage.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                    <span className="text-[#C07858] text-[10px] font-bold uppercase tracking-widest">{gardenFountain.category}</span>
-                    <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{gardenFountain.title}</h4>
+                    <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{parkImage.category}</span>
+                    <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{parkImage.title}</h4>
                   </div>
                 </div>
 
-                {/* TOP RIGHT 2: ANGLED BUILDING */}
+                {/* TOP RIGHT 2: GYM */}
                 <div
-                  onClick={() => setSelectedImage(exteriorAngle)}
+                  onClick={() => setSelectedImage(gymImage)}
                   className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[150px] sm:h-[190px] lg:h-[228px]"
                 >
                   <img
-                    src={exteriorAngle.image}
-                    alt={exteriorAngle.title}
+                    src={gymImage.image}
+                    alt={gymImage.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                    <span className="text-[#C07858] text-[10px] font-bold uppercase tracking-widest">{exteriorAngle.category}</span>
-                    <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{exteriorAngle.title}</h4>
+                    <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{gymImage.category}</span>
+                    <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{gymImage.title}</h4>
                   </div>
                 </div>
 
@@ -184,54 +183,54 @@ const GallerySection = () => {
 
             </div>
 
-            {/* BOTTOM ROW: 3 EQUAL COLUMNS (DESKTOP) / 2 COLUMNS (MOBILE) */}
+            {/* BOTTOM ROW: 3 EQUAL COLUMNS */}
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               
-              {/* BOTTOM 1: LIVING ROOM */}
+              {/* BOTTOM 1: MEDITATION */}
               <div
-                onClick={() => setSelectedImage(livingRoom)}
+                onClick={() => setSelectedImage(meditationImage)}
                 className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px]"
               >
                 <img
-                  src={livingRoom.image}
-                  alt={livingRoom.title}
+                  src={meditationImage.image}
+                  alt={meditationImage.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                  <span className="text-[#C07858] text-[10px] font-bold uppercase tracking-widest">{livingRoom.category}</span>
-                  <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{livingRoom.title}</h4>
+                  <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{meditationImage.category}</span>
+                  <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{meditationImage.title}</h4>
                 </div>
               </div>
 
-              {/* BOTTOM 2: KITCHEN */}
+              {/* BOTTOM 2: GAME ZONE */}
               <div
-                onClick={() => setSelectedImage(kitchen)}
+                onClick={() => setSelectedImage(gameZoneImage)}
                 className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px]"
               >
                 <img
-                  src={kitchen.image}
-                  alt={kitchen.title}
+                  src={gameZoneImage.image}
+                  alt={gameZoneImage.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                  <span className="text-[#C07858] text-[10px] font-bold uppercase tracking-widest">{kitchen.category}</span>
-                  <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{kitchen.title}</h4>
+                  <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{gameZoneImage.category}</span>
+                  <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{gameZoneImage.title}</h4>
                 </div>
               </div>
 
-              {/* BOTTOM 3: INDOOR GAMES */}
+              {/* BOTTOM 3: EV CHARGING */}
               <div
-                onClick={() => setSelectedImage(indoorGames)}
+                onClick={() => setSelectedImage(evChargingImage)}
                 className="col-span-2 lg:col-span-1 group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px]"
               >
                 <img
-                  src={indoorGames.image}
-                  alt={indoorGames.title}
+                  src={evChargingImage.image}
+                  alt={evChargingImage.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                  <span className="text-[#C07858] text-[10px] font-bold uppercase tracking-widest">{indoorGames.category}</span>
-                  <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{indoorGames.title}</h4>
+                  <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{evChargingImage.category}</span>
+                  <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{evChargingImage.title}</h4>
                 </div>
               </div>
 
@@ -253,7 +252,7 @@ const GallerySection = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                  <span className="text-[#C07858] text-xs font-bold uppercase tracking-widest">{item.category}</span>
+                  <span className="text-[#B86B4B] text-xs font-bold uppercase tracking-widest">{item.category}</span>
                   <h4 className="text-white font-serif font-bold text-base">{item.title}</h4>
                 </div>
               </div>
@@ -273,7 +272,7 @@ const GallerySection = () => {
             <X className="w-6 h-6" />
           </button>
           
-          <div className="max-w-4xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+          <div className="max-w-4xl w-full bg-[#181818] rounded-2xl overflow-hidden shadow-2xl border border-white/20">
             <div className="relative max-h-[75vh] flex items-center justify-center bg-black">
               <img
                 src={selectedImage.image}
@@ -281,14 +280,14 @@ const GallerySection = () => {
                 className="max-h-[75vh] w-auto object-contain"
               />
             </div>
-            <div className="p-5 bg-slate-900 text-white flex items-center justify-between">
+            <div className="p-5 bg-[#181818] text-white flex items-center justify-between">
               <div>
-                <span className="text-xs font-bold tracking-widest text-[#C07858] uppercase block">{selectedImage.category}</span>
+                <span className="text-xs font-bold tracking-widest text-[#B86B4B] uppercase block">{selectedImage.category}</span>
                 <h3 className="font-serif text-lg sm:text-xl font-bold">{selectedImage.title}</h3>
               </div>
               <button
                 onClick={() => setSelectedImage(null)}
-                className="bg-[#C07858] text-white px-4 py-2 rounded-md text-xs font-bold tracking-wider uppercase"
+                className="bg-[#6D281D] hover:bg-[#541f17] text-white px-4 py-2 rounded-md text-xs font-bold tracking-wider uppercase cursor-pointer"
               >
                 Close Preview
               </button>
@@ -301,3 +300,4 @@ const GallerySection = () => {
 };
 
 export default GallerySection;
+

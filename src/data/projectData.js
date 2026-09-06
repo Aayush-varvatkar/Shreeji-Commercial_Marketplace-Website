@@ -5,6 +5,7 @@ export const projectDetails = {
   taglineSub: "DISCOVER THE PROJECT",
   heading: "Welcome to The Livin",
   subheading: "Premium 1 & 2 BHK Residences",
+  buildingType: "Boutique Twin Towers",
   startingPrice: "₹13.50 Lakhs*",
   location: "Kalyan West",
   fullAddress: "Opp. Janki Ram Mandir & Shiv Mandir, Near Ceremony Banquet Hall, Kalyan Bhiwandi Road, Koan Gaon, Kalyan (West)",
@@ -17,17 +18,19 @@ export const projectDetails = {
   heroSlides: [
     {
       id: 1,
-      image: "/hero_twin_towers.jpg",
-      title: "12-Storey Boutique Twin Towers",
-      subtitle: "Stunning earthquake-resistant architecture with modern amenities in Kalyan"
+      image: "/images/Aerial view.jpg"
     },
     {
       id: 2,
-      image: "/hero_rooftop_deck.jpg"
+      image: "/images/Gym.jpg"
     },
     {
       id: 3,
-      image: "/hero_luxury_lobby.jpg"
+      image: "/images/Meditation.jpg"
+    },
+    {
+      id: 4,
+      image: "/images/Park.jpg"
     }
   ],
 

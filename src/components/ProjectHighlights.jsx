@@ -34,9 +34,9 @@ const ProjectHighlights = () => {
     <section id="overview" className="w-full bg-[#FAF7F2] py-16 sm:py-24 border-b border-[#E8E2D8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* HEADER SECTION (MATCHING IMAGE 1) */}
+        {/* HEADER SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-bold tracking-widest text-[#C07858] uppercase font-sans mb-3 block">
+          <span className="text-xs sm:text-sm font-bold tracking-widest text-[#B86B4B] uppercase font-sans mb-3 block">
             PROJECT HIGHLIGHTS
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4">
@@ -47,30 +47,30 @@ const ProjectHighlights = () => {
           </p>
         </div>
 
-        {/* CARDS GRID (2x2 on mobile, 4 columns on desktop) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
+        {/* CARDS GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {highlights.map((item) => {
             const IconComponent = item.icon;
             return (
               <div
                 key={item.id}
-                className="bg-[#141414] hover:bg-[#1A1A1A] rounded-xl sm:rounded-2xl p-4 sm:p-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2 transition-all duration-300 border border-[#C07858]/20 hover:border-[#C07858]/60 group relative overflow-hidden"
+                className="bg-[#181818] hover:bg-[#202020] rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-[#B86B4B]/25 hover:border-[#B86B4B]/70 group relative overflow-hidden"
               >
                 {/* Subtle top glow effect */}
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C07858] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C47A5A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* ICON CONTAINER */}
-                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-[#C07858]/15 text-[#C07858] flex items-center justify-center mb-3 sm:mb-6 group-hover:bg-[#C07858] group-hover:text-white transition-all duration-300 shadow-md shrink-0">
-                  <IconComponent className="w-5 h-5 sm:w-7 sm:h-7 stroke-[1.8]" />
+                <div className="w-14 h-14 rounded-xl bg-[#B86B4B]/15 text-[#D48A6A] flex items-center justify-center mb-6 group-hover:bg-[#B86B4B] group-hover:text-white transition-all duration-300 shadow-md">
+                  <IconComponent className="w-7 h-7 stroke-[1.8]" />
                 </div>
 
                 {/* CARD TITLE */}
-                <h3 className="font-sans font-bold text-sm sm:text-xl text-white mb-1.5 sm:mb-3 tracking-tight group-hover:text-[#C07858] transition-colors leading-tight">
+                <h3 className="font-sans font-bold text-lg sm:text-xl text-white mb-3 tracking-tight group-hover:text-[#D48A6A] transition-colors">
                   {item.title}
                 </h3>
 
                 {/* CARD DESCRIPTION */}
-                <p className="text-slate-300 text-xs sm:text-sm leading-snug sm:leading-relaxed font-normal">
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>

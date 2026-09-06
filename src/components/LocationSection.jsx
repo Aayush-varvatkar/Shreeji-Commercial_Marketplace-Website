@@ -76,11 +76,11 @@ const LocationSection = () => {
             {/* MAP CARD CONTAINER */}
             <div className="relative bg-[#F4EFE6] p-3 sm:p-4 rounded-lg shadow-2xl border border-white/80 overflow-hidden">
               
-              {/* GOOGLE MAPS IFRAME FOR KONGON KALYAN WEST */}
+              {/* GOOGLE MAPS IFRAME FOR THE LIVIN - KALYAN WEST */}
               <div className="w-full h-[400px] sm:h-[500px] lg:h-[550px] rounded overflow-hidden relative shadow-inner">
                 <iframe
-                  title="Benchmark Greens Kalyan West Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.123456789!2d73.1300!3d19.2450!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7963b65287f3b%3A0xa618797f1f0a123!2sKon%20Gaon%2C%20Kalyan%20West%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  title="The Livin - 1 BHK & 2 BHK in Kalyan Google Maps Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.85694726833!2d73.11194569999999!3d19.2450653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be795e12b5bc395%3A0xcf6c345e0d0cd578!2sThe%20Livin%20-%201%20Bhk%20%26%202%20Bhk%20in%20Kalyan!5e0!3m2!1sen!2sin!4v1788720788628!5m2!1sen!2sin"
                   className="w-full h-full border-0 filter contrast-105 opacity-90 hover:opacity-100 transition-opacity"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

@@ -25,17 +25,19 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 bg-[#141414] text-white transition-all duration-300 ${scrolled ? 'shadow-xl border-b border-white/10' : ''}`}>
+    <header className={`sticky top-0 z-50 bg-[#121212] text-white transition-all duration-300 ${scrolled ? 'shadow-2xl border-b border-[#B86B4B]/20' : ''}`}>
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
-          {/* LOGO (LEFT) */}
+
+          {/* BRAND LOGO (LEFT) */}
           <div className="flex-shrink-0 flex items-center">
-            <a href="#home" className="flex items-baseline gap-1.5 group">
-              <span className="text-[#C07858] text-xs font-bold tracking-widest font-serif uppercase">THE</span>
-              <span className="text-white font-serif font-bold text-2xl tracking-wider group-hover:text-[#C07858] transition-colors">
-                LIVIN
-              </span>
+            <a href="#home" className="flex items-center group">
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-[#B86B4B] text-xs sm:text-sm font-bold tracking-widest font-serif uppercase">THE</span>
+                <span className="text-white font-serif font-bold text-xl sm:text-2xl tracking-wider group-hover:text-[#B86B4B] transition-colors">
+                  LIVIN
+                </span>
+              </div>
             </a>
           </div>
 
@@ -48,15 +50,14 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
                   key={link.id}
                   href={link.href}
                   onClick={() => setActiveTab(link.id)}
-                  className={`text-xs font-bold tracking-widest transition-all duration-200 relative py-2 ${
-                    isActive
+                  className={`text-xs font-bold tracking-widest transition-all duration-200 relative py-2 ${isActive
                       ? 'text-white font-extrabold'
-                      : 'text-slate-300 hover:text-[#C07858]'
-                  }`}
+                      : 'text-slate-300 hover:text-[#D48A6A]'
+                    }`}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C07858] transition-all duration-300" />
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B86B4B] rounded-full transition-all duration-300" />
                   )}
                 </a>
               );
@@ -68,7 +69,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
             {/* CALL BUTTON */}
             <button
               onClick={onOpenContact}
-              className="border border-white/30 hover:border-white text-white px-3.5 py-2 rounded-sm text-xs font-bold tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer bg-black/30 hover:bg-black/50"
+              className="border border-white/30 hover:border-[#D48A6A] text-white px-3.5 py-2 rounded-sm text-xs font-bold tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer bg-black/40 hover:bg-black/60"
             >
               <Phone className="w-3.5 h-3.5 text-white" />
               <span>CALL</span>
@@ -77,7 +78,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
             {/* WHATSAPP BUTTON */}
             <button
               onClick={handleWhatsapp}
-              className="border border-emerald-500/80 hover:bg-emerald-500/10 text-white px-3.5 py-2 rounded-sm text-xs font-bold tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer bg-black/30"
+              className="border border-emerald-500/80 hover:bg-emerald-500/10 text-white px-3.5 py-2 rounded-sm text-xs font-bold tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer bg-black/40"
             >
               <MessageCircle className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20" />
               <span>WHATSAPP</span>
@@ -86,7 +87,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
             {/* BROCHURE BUTTON */}
             <button
               onClick={onOpenBrochure}
-              className="bg-[#C07858] hover:bg-[#a66244] text-white px-4 py-2.5 rounded-sm text-xs font-extrabold tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer shadow-md uppercase active:scale-95"
+              className="bg-gradient-to-r from-[#C47A5A] to-[#9E4B2F] hover:from-[#b36b4b] hover:to-[#873e24] text-white px-4 py-2.5 rounded-sm text-xs font-extrabold tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer shadow-lg uppercase active:scale-95 border border-amber-300/20"
             >
               <Download className="w-3.5 h-3.5 text-white" />
               <span>BROCHURE</span>
@@ -97,7 +98,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
           <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={onOpenBrochure}
-              className="bg-[#C07858] text-white px-3 py-1.5 rounded text-xs font-bold uppercase sm:hidden"
+              className="bg-[#B86B4B] text-white px-3 py-1.5 rounded text-xs font-bold uppercase sm:hidden"
             >
               Brochure
             </button>
@@ -115,7 +116,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
 
       {/* MOBILE MENU DROPDOWN */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#1A1A1A] border-b border-white/10 px-4 pt-3 pb-6 space-y-4 shadow-2xl">
+        <div className="lg:hidden bg-[#181818] border-b border-[#B86B4B]/20 px-4 pt-3 pb-6 space-y-4 shadow-2xl">
           <div className="flex flex-col space-y-2">
             {projectDetails.navLinks.map((link) => (
               <a
@@ -125,11 +126,10 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
                   setActiveTab(link.id);
                   setMobileMenuOpen(false);
                 }}
-                className={`px-3 py-2 text-xs font-bold tracking-widest rounded transition-colors ${
-                  activeTab === link.id
-                    ? 'bg-[#C07858] text-white'
+                className={`px-3 py-2 text-xs font-bold tracking-widest rounded transition-colors ${activeTab === link.id
+                    ? 'bg-[#B86B4B] text-white'
                     : 'text-slate-300 hover:bg-white/5'
-                }`}
+                  }`}
               >
                 {link.label}
               </a>
@@ -164,7 +164,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
                 setMobileMenuOpen(false);
                 onOpenBrochure();
               }}
-              className="w-full bg-[#C07858] text-white py-3 rounded text-xs font-extrabold tracking-wider uppercase flex items-center justify-center gap-2 shadow"
+              className="w-full bg-gradient-to-r from-[#C47A5A] to-[#9E4B2F] text-white py-3 rounded text-xs font-extrabold tracking-wider uppercase flex items-center justify-center gap-2 shadow"
             >
               <Download className="w-4 h-4" />
               <span>DOWNLOAD BROCHURE</span>
