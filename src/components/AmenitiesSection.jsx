@@ -6,13 +6,13 @@ const amenitiesList = [
     number: '01',
     title: 'Fitness Centre',
     description: 'A modern fitness space designed for an active and healthy lifestyle.',
-    image: '/hero_luxury_lobby.jpg',
+    image: '/images/Gym.jpg',
   },
   {
     number: '02',
     title: 'Yoga Deck',
     description: 'A peaceful open space designed for yoga, meditation and relaxation.',
-    image: '/hero_rooftop_deck.jpg',
+    image: '/images/Meditation.jpg',
   },
   {
     number: '03',
@@ -24,13 +24,13 @@ const amenitiesList = [
     number: '04',
     title: 'Kids Play Area',
     description: 'A safe, fun and vibrant outdoor space for children\'s play and activities.',
-    image: '/gallery_garden_fountain.jpg',
+    image: '/images/Park.jpg',
   },
   {
     number: '05',
     title: 'Indoor Games Area',
     description: 'Enjoy table tennis, foosball, pool table and indoor sports with family.',
-    image: '/gallery_indoor_games.jpg',
+    image: '/images/Game_Zone.jpeg',
   },
 ];
 
@@ -63,7 +63,7 @@ const AmenitiesSection = () => {
               World-Class Lifestyle
             </h2>
             <p className="text-slate-600 text-xs leading-relaxed font-normal">
-              {projectDetails.subName || 'Benchmark Greens'} is designed with a premium selection of lifestyle amenities. Enjoy the perfect balance of fitness, spirituality, recreation, and leisure directly inside your complex.
+              {projectDetails.name || 'The Livin'} is designed with a premium selection of lifestyle amenities. Enjoy the perfect balance of fitness, spirituality, recreation, and leisure directly inside your complex.
             </p>
           </div>
 
@@ -79,6 +79,8 @@ const AmenitiesSection = () => {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -111,6 +113,8 @@ const AmenitiesSection = () => {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -140,6 +144,8 @@ const AmenitiesSection = () => {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

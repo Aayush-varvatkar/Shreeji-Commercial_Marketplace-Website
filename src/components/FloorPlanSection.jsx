@@ -81,7 +81,7 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
             Explore Our Floor Plans
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-            Discover architectural layout plans for 1 BHK, 2 BHK, ground floor plaza, and typical upper floors of Benchmark Greens.
+            Discover architectural layout plans for 1 BHK, 2 BHK, ground floor plaza, and typical upper floors of The Livin.
           </p>
         </div>
 
@@ -121,6 +121,8 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
                 <img
                   src={card.image}
                   alt={card.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
 
@@ -202,7 +204,7 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
             {/* MODAL FOOTER */}
             <div className="mt-4 pt-3 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200">
               <div className="text-left text-xs text-slate-500">
-                <span className="font-semibold text-slate-700">Project:</span> Benchmark Greens • {selectedPlan.layout}
+                <span className="font-semibold text-slate-700">Project:</span> The Livin • {selectedPlan.layout}
               </div>
               <button
                 onClick={() => {

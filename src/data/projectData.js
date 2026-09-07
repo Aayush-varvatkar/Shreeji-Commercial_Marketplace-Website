@@ -1,6 +1,6 @@
 export const projectDetails = {
   name: "THE LIVIN",
-  subName: "BENCHMARK GREENS",
+  subName: "THE LIVIN",
   tagline: "Kalyan's Future Symbol",
   taglineSub: "DISCOVER THE PROJECT",
   heading: "Welcome to The Livin",
@@ -22,16 +22,16 @@ export const projectDetails = {
     },
     {
       id: 2,
-      image: "/images/Gym.jpg"
+      image: "/images/building_View.jpeg"
     },
     {
       id: 3,
-      image: "/images/Meditation.jpg"
+      image: "/images/Building_View2.png"
     },
-    {
-      id: 4,
-      image: "/images/Park.jpg"
-    }
+    // {
+    //   id: 4,
+    //   image: "/images/Park.jpg"
+    // }
   ],
 
   navLinks: [

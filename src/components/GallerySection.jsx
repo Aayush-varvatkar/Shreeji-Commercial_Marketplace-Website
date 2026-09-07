@@ -93,7 +93,7 @@ const GallerySection = () => {
             <span className="h-[1px] w-12 bg-[#B86B4B]/60 inline-block" />
           </div>
           <p className="text-slate-600 text-xs sm:text-sm font-medium tracking-wide">
-            Explore actual project photos of Benchmark Greens twin towers, parks, gymnasium, and infrastructure
+            Explore actual project photos of The Livin twin towers, parks, gymnasium, and infrastructure
           </p>
         </div>
 
@@ -133,6 +133,8 @@ const GallerySection = () => {
                 <img
                   src={mainExterior.image}
                   alt={mainExterior.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
@@ -155,6 +157,8 @@ const GallerySection = () => {
                   <img
                     src={parkImage.image}
                     alt={parkImage.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
@@ -171,6 +175,8 @@ const GallerySection = () => {
                   <img
                     src={gymImage.image}
                     alt={gymImage.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
@@ -194,6 +200,8 @@ const GallerySection = () => {
                 <img
                   src={meditationImage.image}
                   alt={meditationImage.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
@@ -210,6 +218,8 @@ const GallerySection = () => {
                 <img
                   src={gameZoneImage.image}
                   alt={gameZoneImage.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
@@ -226,6 +236,8 @@ const GallerySection = () => {
                 <img
                   src={evChargingImage.image}
                   alt={evChargingImage.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
@@ -249,6 +261,8 @@ const GallerySection = () => {
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">

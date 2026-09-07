@@ -21,7 +21,9 @@ const AboutSection = ({ onExploreAmenities }) => {
             <div className="relative z-10 rounded-sm overflow-hidden shadow-2xl border border-white/60">
               <img
                 src="/images/Aerial view.jpg"
-                alt="Benchmark Greens - The Livin Twin Towers Aerial View"
+                alt="The Livin Twin Towers Aerial View"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[420px] sm:h-[520px] lg:h-[560px] object-cover object-center transform hover:scale-105 transition-transform duration-700"
               />
             </div>
