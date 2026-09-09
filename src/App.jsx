@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ProjectHighlights from './components/ProjectHighlights';
@@ -15,6 +15,15 @@ import ContactModal from './components/ContactModal';
 function App() {
   const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+
+  // Auto popup contact form modal 2 seconds after initial load and every reload
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsContactOpen(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#1E1E1E] flex flex-col font-sans selection:bg-[#C07858] selection:text-white">

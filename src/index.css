@@ -84,3 +84,83 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #6D281D;
 }
+
+/* Modal Smooth Animations */
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-pop {
+  animation: modalFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes backdropFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-backdrop-fade {
+  animation: backdropFade 0.35s ease-out forwards;
+}
+
+/* Sequential Success Card Animations */
+@keyframes drawCircle {
+  0% {
+    stroke-dashoffset: 220;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-circle-draw {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: drawCircle 0.55s ease-out forwards;
+}
+
+@keyframes popCheck {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-15deg);
+  }
+  70% {
+    transform: scale(1.25) rotate(4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-check-pop {
+  opacity: 0;
+  animation: popCheck 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.45s forwards;
+}
+
+@keyframes cardContentFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-content-fade {
+  opacity: 0;
+  animation: cardContentFadeUp 0.5s ease-out 0.75s forwards;
+}
