@@ -7,8 +7,8 @@
   }
   
   body {
-    background-color: #FAF7F2;
-    color: #1A1A1A;
+    background-color: #F8F6F0;
+    color: #183342;
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.01em;
   }
@@ -18,56 +18,76 @@
   }
 }
 
-/* Premium Brochure Color Tokens */
+/* Premium Brochure Color Tokens (Deep Navy & Luxury Gold) */
 :root {
-  --copper-light: #D48A6A;
-  --copper-main: #B86B4B;
-  --copper-dark: #6D281D;
-  --cream-bg: #FAF7F2;
-  --cream-card: #F5EFE6;
-  --charcoal-dark: #121212;
-  --charcoal-card: #181818;
+  --gold-light: #DFC181;
+  --gold-main: #C5A059;
+  --gold-dark: #9E7B34;
+  --navy-dark: #183342;
+  --navy-deeper: #102430;
+  --cream-bg: #F8F6F0;
+  --cream-card: #F2EFE9;
 }
 
 /* Custom Color Utilities */
 .bg-cream-light {
-  background-color: #FAF7F2;
+  background-color: #F8F6F0;
 }
 
 .bg-cream-card {
-  background-color: #F5EFE6;
+  background-color: #F2EFE9;
 }
 
-.bg-copper-accent {
-  background-color: #B86B4B;
+.bg-navy-dark {
+  background-color: #183342;
 }
 
-.bg-dark-terracotta {
-  background-color: #6D281D;
+.bg-navy-deeper {
+  background-color: #102430;
 }
 
-.text-copper-accent {
-  color: #B86B4B;
+.bg-gold-main {
+  background-color: #C5A059;
 }
 
-.text-copper-light {
-  color: #D48A6A;
+.bg-gold-light {
+  background-color: #DFC181;
 }
 
-.text-dark-terracotta {
-  color: #6D281D;
+.text-navy-dark {
+  color: #183342;
 }
 
-.border-copper-accent {
-  border-color: #B86B4B;
+.text-gold-main {
+  color: #C5A059;
 }
 
-.gradient-copper {
-  background: linear-gradient(135deg, #C47A5A 0%, #9E4B2F 100%);
+.text-gold-light {
+  color: #DFC181;
 }
 
-.gradient-copper-hover:hover {
-  background: linear-gradient(135deg, #b36b4b 0%, #873e24 100%);
+.text-gold-dark {
+  color: #9E7B34;
+}
+
+.border-gold-main {
+  border-color: #C5A059;
+}
+
+.border-gold-light {
+  border-color: #DFC181;
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, #DFC181 0%, #C5A059 50%, #9E7B34 100%);
+}
+
+.gradient-gold-hover:hover {
+  background: linear-gradient(135deg, #EBD29B 0%, #DFC181 50%, #B08B3E 100%);
+}
+
+.gradient-navy {
+  background: linear-gradient(135deg, #183342 0%, #102430 100%);
 }
 
 /* Custom Luxury Scrollbar */
@@ -75,14 +95,14 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF7F2;
+  background: #F8F6F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #B86B4B;
+  background: #C5A059;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6D281D;
+  background: #9E7B34;
 }
 
 /* Modal Smooth Animations */

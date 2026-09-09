@@ -1,64 +1,50 @@
 import React, { useState } from 'react';
 import { X, ZoomIn } from 'lucide-react';
 
-const galleryCategories = ["All", "Exterior", "Amenities", "Infrastructure", "Location"];
+const galleryCategories = ["All", "Ground Floor Shops", "1st & 2nd Floor Offices", "Commercial Plans", "Location"];
 
 const galleryItems = [
   {
     id: 1,
-    title: "Boutique Twin Towers Aerial View",
-    category: "Exterior",
-    image: "/images/Aerial view.jpg",
+    title: "Ground Floor Retail Marketplace & Storefronts",
+    category: "Ground Floor Shops",
+    image: "/images/building_view_1.jpg",
     type: "featured"
   },
   {
     id: 2,
-    title: "Landscaped Central Park",
-    category: "Amenities",
-    image: "/images/Park.jpg",
+    title: "Ground Floor Architectural Plan (Shops 01-24)",
+    category: "Commercial Plans",
+    image: "/images/ground_floor_plan.jpg",
     type: "top_right_1"
   },
   {
     id: 3,
-    title: "Fully Equipped Fitness Gymnasium",
-    category: "Amenities",
-    image: "/images/Gym.jpg",
+    title: "1st & 2nd Floor Commercial Office Plan",
+    category: "Commercial Plans",
+    image: "/images/first_floor_plan.jpg",
     type: "top_right_2"
   },
   {
     id: 4,
-    title: "Peaceful Yoga & Meditation Zone",
-    category: "Amenities",
-    image: "/images/Meditation.jpg",
+    title: "Sky View Commercial Marketplace Elevation",
+    category: "Ground Floor Shops",
+    image: "/images/aerial_view.jpg",
     type: "bottom_1"
   },
   {
     id: 5,
-    title: "Indoor Recreation & Game Zone",
-    category: "Amenities",
-    image: "/images/Game_Zone.jpeg",
+    title: "EV Charging Infrastructure & Parking Plaza",
+    category: "Location",
+    image: "/images/ev_charging.jpg",
     type: "bottom_2"
   },
   {
     id: 6,
-    title: "EV Charging Station Facility",
-    category: "Infrastructure",
-    image: "/images/EV_Charging_point.jpg",
-    type: "bottom_3"
-  },
-  {
-    id: 7,
-    title: "Prime Metro Connectivity Access",
-    category: "Location",
-    image: "/images/Metro_connectivity.jpg",
-    type: "extra"
-  },
-  {
-    id: 8,
-    title: "24/7 CCTV & Security Gated Complex",
-    category: "Infrastructure",
+    title: "24/7 CCTV & MVPD Access Control Foyer",
+    category: "1st & 2nd Floor Offices",
     image: "/images/surveillance_Security.jpeg",
-    type: "extra"
+    type: "bottom_3"
   }
 ];
 
@@ -66,12 +52,10 @@ const GallerySection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Filter items
   const filteredItems = activeFilter === "All"
     ? galleryItems
     : galleryItems.filter(item => item.category === activeFilter);
 
-  // Specific items for desktop featured grid
   const mainExterior = galleryItems[0];
   const parkImage = galleryItems[1];
   const gymImage = galleryItems[2];
@@ -80,20 +64,20 @@ const GallerySection = () => {
   const evChargingImage = galleryItems[5];
 
   return (
-    <section id="gallery" className="w-full bg-[#FAF7F2] py-16 sm:py-24 border-b border-[#E8E2D8] relative">
+    <section id="gallery" className="w-full bg-[#F8F6F0] py-16 sm:py-24 border-b border-[#DFC181]/40 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="flex items-center justify-center gap-4 mb-2">
-            <span className="h-[1px] w-12 bg-[#B86B4B]/60 inline-block" />
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+            <span className="h-[1px] w-12 bg-[#C5A059] inline-block" />
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#183342] leading-tight">
               Project Gallery
             </h2>
-            <span className="h-[1px] w-12 bg-[#B86B4B]/60 inline-block" />
+            <span className="h-[1px] w-12 bg-[#C5A059] inline-block" />
           </div>
           <p className="text-slate-600 text-xs sm:text-sm font-medium tracking-wide">
-            Explore actual project photos of The Livin twin towers, parks, gymnasium, and infrastructure
+            Explore architectural renders of Sky View Commercial Marketplace ground floor retail storefronts, 1st & 2nd floor executive offices, and official floor plans
           </p>
         </div>
 
@@ -107,8 +91,8 @@ const GallerySection = () => {
                 onClick={() => setActiveFilter(cat)}
                 className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer shadow-sm ${
                   isActive
-                    ? 'bg-[#6D281D] text-white shadow-md scale-105'
-                    : 'bg-white text-slate-700 border border-slate-300 hover:border-[#B86B4B] hover:text-[#6D281D]'
+                    ? 'bg-[#183342] text-[#DFC181] border border-[#C5A059]/40 shadow-md scale-105'
+                    : 'bg-white text-slate-700 border border-slate-300 hover:border-[#C5A059] hover:text-[#183342]'
                 }`}
               >
                 {cat}
@@ -119,13 +103,12 @@ const GallerySection = () => {
 
         {/* GRID DISPLAY */}
         {activeFilter === "All" ? (
-          /* ALL TAB: FEATURED LAYOUT */
           <div className="space-y-4 sm:space-y-6">
             
-            {/* TOP ROW: LARGE FEATURED LEFT (65%) + TWO STACKED RIGHT (35%) */}
+            {/* TOP ROW */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
               
-              {/* FEATURED MAIN BUILDING IMAGE (LEFT) */}
+              {/* FEATURED COMMERCIAL STOREFRONTS IMAGE (LEFT) */}
               <div
                 onClick={() => setSelectedImage(mainExterior)}
                 className="lg:col-span-8 group relative rounded-2xl overflow-hidden shadow-lg border border-white cursor-pointer h-[280px] sm:h-[400px] lg:h-[480px]"
@@ -137,11 +120,11 @@ const GallerySection = () => {
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
-                  <span className="text-[#B86B4B] text-xs font-bold uppercase tracking-widest">{mainExterior.category}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-[#183342]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                  <span className="text-[#DFC181] text-xs font-bold uppercase tracking-widest">{mainExterior.category}</span>
                   <h4 className="text-white font-serif font-bold text-lg sm:text-xl">{mainExterior.title}</h4>
                 </div>
-                <div className="absolute top-4 right-4 bg-black/40 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute top-4 right-4 bg-[#183342]/80 text-[#DFC181] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity border border-[#C5A059]/40">
                   <ZoomIn className="w-5 h-5" />
                 </div>
               </div>
@@ -149,7 +132,6 @@ const GallerySection = () => {
               {/* TWO STACKED RIGHT IMAGES */}
               <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
                 
-                {/* TOP RIGHT 1: PARK */}
                 <div
                   onClick={() => setSelectedImage(parkImage)}
                   className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[150px] sm:h-[190px] lg:h-[228px]"
@@ -159,15 +141,14 @@ const GallerySection = () => {
                     alt={parkImage.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                    <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{parkImage.category}</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+                    <span className="text-[#DFC181] text-[10px] font-bold uppercase tracking-widest">{parkImage.category}</span>
                     <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{parkImage.title}</h4>
                   </div>
                 </div>
 
-                {/* TOP RIGHT 2: GYM */}
                 <div
                   onClick={() => setSelectedImage(gymImage)}
                   className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[150px] sm:h-[190px] lg:h-[228px]"
@@ -177,10 +158,10 @@ const GallerySection = () => {
                     alt={gymImage.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                    <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{gymImage.category}</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+                    <span className="text-[#DFC181] text-[10px] font-bold uppercase tracking-widest">{gymImage.category}</span>
                     <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{gymImage.title}</h4>
                   </div>
                 </div>
@@ -189,10 +170,9 @@ const GallerySection = () => {
 
             </div>
 
-            {/* BOTTOM ROW: 3 EQUAL COLUMNS */}
+            {/* BOTTOM ROW */}
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               
-              {/* BOTTOM 1: MEDITATION */}
               <div
                 onClick={() => setSelectedImage(meditationImage)}
                 className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px]"
@@ -204,13 +184,12 @@ const GallerySection = () => {
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                  <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{meditationImage.category}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+                  <span className="text-[#DFC181] text-[10px] font-bold uppercase tracking-widest">{meditationImage.category}</span>
                   <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{meditationImage.title}</h4>
                 </div>
               </div>
 
-              {/* BOTTOM 2: GAME ZONE */}
               <div
                 onClick={() => setSelectedImage(gameZoneImage)}
                 className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px]"
@@ -222,13 +201,12 @@ const GallerySection = () => {
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                  <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{gameZoneImage.category}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+                  <span className="text-[#DFC181] text-[10px] font-bold uppercase tracking-widest">{gameZoneImage.category}</span>
                   <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{gameZoneImage.title}</h4>
                 </div>
               </div>
 
-              {/* BOTTOM 3: EV CHARGING */}
               <div
                 onClick={() => setSelectedImage(evChargingImage)}
                 className="col-span-2 lg:col-span-1 group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px]"
@@ -240,8 +218,8 @@ const GallerySection = () => {
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                  <span className="text-[#B86B4B] text-[10px] font-bold uppercase tracking-widest">{evChargingImage.category}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+                  <span className="text-[#DFC181] text-[10px] font-bold uppercase tracking-widest">{evChargingImage.category}</span>
                   <h4 className="text-white font-sans font-bold text-xs sm:text-sm">{evChargingImage.title}</h4>
                 </div>
               </div>
@@ -250,7 +228,6 @@ const GallerySection = () => {
 
           </div>
         ) : (
-          /* FILTERED VIEW GRID */
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredItems.map((item) => (
               <div
@@ -265,8 +242,8 @@ const GallerySection = () => {
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                  <span className="text-[#B86B4B] text-xs font-bold uppercase tracking-widest">{item.category}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+                  <span className="text-[#DFC181] text-xs font-bold uppercase tracking-widest">{item.category}</span>
                   <h4 className="text-white font-serif font-bold text-base">{item.title}</h4>
                 </div>
               </div>
@@ -286,7 +263,7 @@ const GallerySection = () => {
             <X className="w-6 h-6" />
           </button>
           
-          <div className="max-w-4xl w-full bg-[#181818] rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+          <div className="max-w-4xl w-full bg-[#183342] rounded-2xl overflow-hidden shadow-2xl border border-[#C5A059]/40">
             <div className="relative max-h-[75vh] flex items-center justify-center bg-black">
               <img
                 src={selectedImage.image}
@@ -294,14 +271,14 @@ const GallerySection = () => {
                 className="max-h-[75vh] w-auto object-contain"
               />
             </div>
-            <div className="p-5 bg-[#181818] text-white flex items-center justify-between">
+            <div className="p-5 bg-[#183342] text-white flex items-center justify-between">
               <div>
-                <span className="text-xs font-bold tracking-widest text-[#B86B4B] uppercase block">{selectedImage.category}</span>
+                <span className="text-xs font-bold tracking-widest text-[#DFC181] uppercase block">{selectedImage.category}</span>
                 <h3 className="font-serif text-lg sm:text-xl font-bold">{selectedImage.title}</h3>
               </div>
               <button
                 onClick={() => setSelectedImage(null)}
-                className="bg-[#6D281D] hover:bg-[#541f17] text-white px-4 py-2 rounded-md text-xs font-bold tracking-wider uppercase cursor-pointer"
+                className="bg-[#C5A059] hover:bg-[#DFC181] text-slate-950 px-4 py-2 rounded-md text-xs font-bold tracking-wider uppercase cursor-pointer transition-colors"
               >
                 Close Preview
               </button>
@@ -314,4 +291,3 @@ const GallerySection = () => {
 };
 
 export default GallerySection;
-

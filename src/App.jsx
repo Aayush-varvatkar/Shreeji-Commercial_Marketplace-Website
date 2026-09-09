@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection';
 import ProjectHighlights from './components/ProjectHighlights';
 import AboutSection from './components/AboutSection';
 import AmenitiesSection from './components/AmenitiesSection';
+import CommercialFloorsOverview from './components/CommercialFloorsOverview';
 import FloorPlanSection from './components/FloorPlanSection';
 import GallerySection from './components/GallerySection';
 import LocationSection from './components/LocationSection';
@@ -26,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2] text-[#1E1E1E] flex flex-col font-sans selection:bg-[#C07858] selection:text-white">
+    <div className="min-h-screen bg-[#F8F6F0] text-[#1E1E1E] flex flex-col font-sans selection:bg-[#C5A059] selection:text-white">
       
       {/* NAVBAR */}
       <Navbar
@@ -41,11 +42,14 @@ function App() {
         {/* PROJECT HIGHLIGHTS SECTION */}
         <ProjectHighlights />
 
-        {/* ABOUT SECTION ("WELCOME TO THE LIVIN") */}
+        {/* ABOUT SECTION ("WELCOME TO SKY VIEW") */}
         <AboutSection
           onExploreAmenities={() => setIsBrochureOpen(true)}
         />
 
+        {/* COMMERCIAL FLOORS OVERVIEW (GROUND SHOPS LEFT, 1ST & 2ND FLOORS RIGHT) */}
+        <CommercialFloorsOverview />
+        
         {/* AMENITIES SECTION */}
         <AmenitiesSection />
 

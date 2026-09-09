@@ -13,12 +13,12 @@ const FloatingActions = ({ onOpenBrochure, onOpenContact }) => {
       {/* VERTICAL RIGHT-EDGE BROCHURE TAB */}
       <button
         onClick={onOpenBrochure}
-        className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-[#C47A5A] to-[#9E4B2F] hover:from-[#b36b4b] hover:to-[#873e24] text-white px-3 py-4 rounded-l-md shadow-2xl flex items-center gap-2 cursor-pointer transition-transform duration-200 hover:-translate-x-1 border-l-2 border-t-2 border-b-2 border-white/30"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-[#C5A059] via-[#D4AF37] to-[#9E7B34] hover:from-[#DFC181] hover:to-[#C5A059] text-slate-950 px-3 py-4 rounded-l-md shadow-2xl flex items-center gap-2 cursor-pointer transition-transform duration-200 hover:-translate-x-1 border-l-2 border-t-2 border-b-2 border-slate-900"
         style={{ writingMode: 'vertical-rl' }}
         title="Download Brochure"
       >
         <div className="rotate-90 flex items-center justify-center">
-          <Download className="w-4 h-4 text-white" />
+          <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
         </div>
         <span className="text-xs font-extrabold tracking-widest uppercase font-sans">
           BROCHURE
@@ -31,11 +31,11 @@ const FloatingActions = ({ onOpenBrochure, onOpenContact }) => {
         {/* PHONE CALL BUTTON */}
         <button
           onClick={onOpenContact}
-          className="w-12 h-12 bg-[#121212] hover:bg-[#6D281D] text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group relative cursor-pointer border border-[#B86B4B]/40"
+          className="w-12 h-12 bg-[#183342] hover:bg-[#102430] text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group relative cursor-pointer border border-[#C5A059]/50"
           aria-label="Call Sales Team"
         >
           <Phone className="w-5 h-5 text-white" />
-          <span className="absolute right-14 bg-[#121212] text-white text-xs font-semibold px-3 py-1.5 rounded shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none border border-[#B86B4B]/30">
+          <span className="absolute right-14 bg-[#183342] text-white text-xs font-semibold px-3 py-1.5 rounded shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none border border-[#C5A059]/40">
             Call: {projectDetails.contactPhone}
           </span>
         </button>
@@ -47,7 +47,7 @@ const FloatingActions = ({ onOpenBrochure, onOpenContact }) => {
           aria-label="Chat on WhatsApp"
         >
           <MessageCircle className="w-5 h-5 fill-current" />
-          <span className="absolute right-14 bg-[#121212] text-white text-xs font-semibold px-3 py-1.5 rounded shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none border border-emerald-500/30">
+          <span className="absolute right-14 bg-[#183342] text-white text-xs font-semibold px-3 py-1.5 rounded shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none border border-emerald-500/30">
             WhatsApp Chat
           </span>
         </button>

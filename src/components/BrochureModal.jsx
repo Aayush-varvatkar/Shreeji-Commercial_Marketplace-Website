@@ -49,8 +49,8 @@ const BrochureModal = ({ isOpen, onClose }) => {
     >
       {submitted ? (
         /* SEPARATE ANIMATED SUCCESS CARD MATCHING REFERENCE IMAGE & SITE THEME */
-        <div className="bg-[#FAF7F2] rounded-2xl shadow-2xl max-w-sm w-full p-8 text-center relative border border-[#B86B4B]/30 animate-modal-pop cursor-default overflow-hidden">
-          <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#B86B4B] to-transparent" />
+        <div className="bg-[#F8F6F0] rounded-2xl shadow-2xl max-w-sm w-full p-8 text-center relative border border-[#C5A059]/40 animate-modal-pop cursor-default overflow-hidden">
+          <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
           
           <button
             onClick={handleClose}
@@ -90,7 +90,7 @@ const BrochureModal = ({ isOpen, onClose }) => {
 
           {/* CONTENT FADING UP IN SEQUENCE */}
           <div className="animate-card-content-fade">
-            <h4 className="font-serif text-2xl font-bold text-[#121212] tracking-tight mb-2">
+            <h4 className="font-serif text-2xl font-bold text-[#183342] tracking-tight mb-2">
               Thank You{firstName ? `, ${firstName}` : ''}!
             </h4>
 
@@ -100,7 +100,7 @@ const BrochureModal = ({ isOpen, onClose }) => {
 
             <button
               onClick={handleClose}
-              className="bg-[#6D281D] hover:bg-[#521C14] text-white px-10 py-3 rounded-full font-extrabold text-xs uppercase tracking-widest shadow-md hover:shadow-lg transition-all cursor-pointer active:scale-95"
+              className="bg-[#183342] hover:bg-[#102430] text-[#DFC181] px-10 py-3 rounded-full font-extrabold text-xs uppercase tracking-widest shadow-md hover:shadow-lg transition-all cursor-pointer active:scale-95 border border-[#C5A059]/40"
             >
               Done
             </button>
@@ -108,7 +108,7 @@ const BrochureModal = ({ isOpen, onClose }) => {
         </div>
       ) : (
         /* FORM CARD */
-        <div className="bg-[#FAF7F2] rounded-xl shadow-2xl max-w-md w-full overflow-hidden relative border border-[#B86B4B]/30 animate-modal-pop cursor-default">
+        <div className="bg-[#F8F6F0] rounded-xl shadow-2xl max-w-md w-full overflow-hidden relative border border-[#C5A059]/40 animate-modal-pop cursor-default">
           {/* CLOSE BUTTON */}
           <button
             onClick={handleClose}
@@ -119,13 +119,13 @@ const BrochureModal = ({ isOpen, onClose }) => {
           </button>
 
           {/* HEADER */}
-          <div className="bg-[#121212] p-6 text-white text-center relative border-b border-[#B86B4B]/30 overflow-hidden">
-            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#B86B4B] to-transparent" />
-            <div className="w-12 h-12 bg-[#B86B4B]/20 text-[#B86B4B] rounded-full flex items-center justify-center mx-auto mb-2 border border-[#B86B4B]/40">
+          <div className="bg-[#183342] p-6 text-white text-center relative border-b border-[#C5A059]/40 overflow-hidden">
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
+            <div className="w-12 h-12 bg-[#C5A059]/20 text-[#DFC181] rounded-full flex items-center justify-center mx-auto mb-2 border border-[#C5A059]/40">
               <FileText className="w-6 h-6" />
             </div>
             <h3 className="font-serif text-2xl font-bold">{projectDetails.name}</h3>
-            <p className="text-xs text-[#B86B4B] font-semibold tracking-wider uppercase mt-0.5">Official E-Brochure & Floor Plans</p>
+            <p className="text-xs text-[#DFC181] font-semibold tracking-wider uppercase mt-0.5">Official E-Brochure & Floor Plans</p>
           </div>
 
           {/* BODY */}
@@ -136,26 +136,26 @@ const BrochureModal = ({ isOpen, onClose }) => {
               </p>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Full Name *</label>
+                <label className="block text-xs font-bold text-[#183342] mb-1 uppercase tracking-wider">Full Name *</label>
                 <input
                   type="text"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Rahul Sharma"
-                  className="w-full px-3 py-2.5 border border-slate-300 rounded text-sm focus:ring-2 focus:ring-[#B86B4B] focus:outline-none bg-white text-slate-900 placeholder-slate-400"
+                  className="w-full px-3 py-2.5 border border-slate-300 rounded text-sm focus:ring-2 focus:ring-[#C5A059] focus:outline-none bg-white text-slate-900 placeholder-slate-400"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Phone Number *</label>
+                <label className="block text-xs font-bold text-[#183342] mb-1 uppercase tracking-wider">Phone Number *</label>
                 <input
                   type="tel"
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="+91 Mobile Number"
-                  className="w-full px-3 py-2.5 border border-slate-300 rounded text-sm focus:ring-2 focus:ring-[#B86B4B] focus:outline-none bg-white text-slate-900 placeholder-slate-400"
+                  className="w-full px-3 py-2.5 border border-slate-300 rounded text-sm focus:ring-2 focus:ring-[#C5A059] focus:outline-none bg-white text-slate-900 placeholder-slate-400"
                 />
               </div>
 
@@ -166,11 +166,11 @@ const BrochureModal = ({ isOpen, onClose }) => {
                   id="brochure-modal-consent"
                   checked={formData.consent}
                   onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                  className="mt-0.5 w-3.5 h-3.5 text-[#6D281D] bg-white border-slate-300 rounded focus:ring-[#B86B4B] accent-[#6D281D] cursor-pointer shrink-0"
+                  className="mt-0.5 w-3.5 h-3.5 text-[#183342] bg-white border-slate-300 rounded focus:ring-[#C5A059] accent-[#183342] cursor-pointer shrink-0"
                 />
                 <label htmlFor="brochure-modal-consent" className="text-[11px] leading-tight text-slate-600 font-medium cursor-pointer">
                   I consent to the use of provided data in accordance with the{' '}
-                  <a href="#privacy" onClick={(e) => e.stopPropagation()} className="underline hover:text-[#6D281D] text-[#B86B4B] transition-colors font-bold">
+                  <a href="#privacy" onClick={(e) => e.stopPropagation()} className="underline hover:text-[#183342] text-[#C5A059] transition-colors font-bold">
                     privacy policy
                   </a>
                 </label>
@@ -178,9 +178,9 @@ const BrochureModal = ({ isOpen, onClose }) => {
 
               <button
                 type="submit"
-                className="w-full bg-[#6B241A] hover:bg-[#521c14] text-white font-extrabold py-3.5 rounded text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow cursor-pointer transition-all active:scale-[0.99]"
+                className="w-full bg-[#183342] hover:bg-[#102430] text-[#DFC181] font-extrabold py-3.5 rounded text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow cursor-pointer transition-all active:scale-[0.99] border border-[#C5A059]/40"
               >
-                <Download className="w-4 h-4" />
+                <Download className="w-4 h-4 text-[#C5A059]" />
                 <span>DOWNLOAD E-BROCHURE PDF</span>
               </button>
             </form>

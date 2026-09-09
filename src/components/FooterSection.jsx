@@ -3,66 +3,59 @@ import { projectDetails } from '../data/projectData';
 
 const FooterSection = () => {
   return (
-    <footer id="contact" className="w-full bg-[#FAF7F2] py-12 sm:py-16 border-t border-[#E8E2D8] text-slate-800 relative">
+    <footer id="contact" className="w-full bg-[#F8F6F0] py-12 sm:py-16 border-t border-[#DFC181]/40 text-slate-800 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
         {/* CENTERED LOGO */}
         <div className="mb-6 flex flex-col items-center">
           <div className="flex items-baseline gap-1.5 mb-1">
-            <span className="text-[#C07858] text-xs font-bold tracking-widest font-serif uppercase">THE</span>
-            <span className="text-slate-900 font-serif font-bold text-3xl tracking-wider">
-              LIVIN
+            <span className="text-[#C5A059] text-xs font-bold tracking-widest font-serif uppercase">SKY</span>
+            <span className="text-[#183342] font-serif font-bold text-3xl tracking-wider">
+              VIEW
             </span>
           </div>
-          <span className="text-xs font-semibold tracking-widest text-[#C07858] uppercase font-sans">
-            SUPREME REALTY
+          <span className="text-xs font-extrabold tracking-widest text-[#C5A059] uppercase font-sans">
+            SHREEJI ICON • SHAH GROUP
           </span>
         </div>
 
         {/* MAHARERA REGISTRATION TEXT */}
         <p className="text-slate-600 text-xs sm:text-sm text-center max-w-3xl leading-relaxed mb-8 font-medium">
-          The project has been registered under the name <strong className="text-slate-900 font-bold">{projectDetails.name}</strong> via MahaRERA registration number:{' '}
-          <strong className="text-slate-900 font-bold">P51700013160</strong>, and is available on the website{' '}
+          The project has been registered under the name <strong className="text-[#183342] font-bold">SKY VIEW (SHREEJI ICON)</strong> via MahaRERA registration number:{' '}
+          <strong className="text-[#183342] font-bold">{projectDetails.mahaReraNo}</strong>, and is available on the website{' '}
           <a
-            href="https://maharera.maharashtra.gov.in"
+            href="https://maharerait.mahaonline.gov.in"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#C07858] font-bold underline hover:text-[#6B241A] transition-colors"
+            className="text-[#C5A059] font-bold underline hover:text-[#183342] transition-colors"
           >
-            https://maharera.maharashtra.gov.in
+            maharerait.mahaonline.gov.in
           </a>.
         </p>
 
-        {/* ADDRESSES & CONTACT DETAILS CARD (MATCHING ATTACHED IMAGE) */}
+        {/* ADDRESSES & CONTACT DETAILS CARD */}
         <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl p-6 sm:p-10 border border-slate-200/80 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 text-left mb-10">
           
           {/* LEFT COLUMN: ADDRESSES */}
           <div className="space-y-4">
-            <div className="pb-2 border-b-2 border-[#C07858] inline-block">
-              <h3 className="font-sans text-xs sm:text-sm font-bold tracking-widest text-slate-900 uppercase">
+            <div className="pb-2 border-b-2 border-[#C5A059] inline-block">
+              <h3 className="font-sans text-xs sm:text-sm font-bold tracking-widest text-[#183342] uppercase">
                 ADDRESSES
               </h3>
             </div>
 
             <div className="space-y-3 text-xs sm:text-sm leading-relaxed">
               <div>
-                <strong className="text-slate-900 font-bold block">Site Address:</strong>
+                <strong className="text-[#183342] font-bold block">Site Address:</strong>
                 <span className="text-slate-600">
-                  Opp. Janki Ram Mandir & Shiv Mandir, Near Ceremony Banquet Hall, Near Shitala Mata Mandir, Kalyan Bhiwandi Road, Koan Gaon, Kalyan (West).
+                  Next to Ganpat Dhaba, Ambernath (W), Maharashtra.
                 </span>
               </div>
 
-              {/* <div>
-                <strong className="text-slate-900 font-bold block">Sales Office:</strong>
-                <span className="text-slate-600">
-                  Opp. Janki Ram Mandir & Shiv Mandir, Near Ceremony Banquet Hall, Kalyan Bhiwandi Road, Koan Gaon, Kalyan (West).
-                </span>
-              </div> */}
-
               <div>
-                <strong className="text-slate-900 font-bold block">Head Office:</strong>
+                <strong className="text-[#183342] font-bold block">Head Office:</strong>
                 <span className="text-slate-600">
-                  Supreme Realty, Kalyan Bhiwandi Road, Koan Gaon, Kalyan (West).
+                  SHAH GROUP / SHREEJI ICON, Next to Ganpat Dhaba, Ambernath (W).
                 </span>
               </div>
             </div>
@@ -70,40 +63,36 @@ const FooterSection = () => {
 
           {/* RIGHT COLUMN: CONTACT DETAILS */}
           <div className="space-y-4">
-            <div className="pb-2 border-b-2 border-[#C07858] inline-block">
-              <h3 className="font-sans text-xs sm:text-sm font-bold tracking-widest text-slate-900 uppercase">
+            <div className="pb-2 border-b-2 border-[#C5A059] inline-block">
+              <h3 className="font-sans text-xs sm:text-sm font-bold tracking-widest text-[#183342] uppercase">
                 CONTACT DETAILS
               </h3>
             </div>
 
             <div className="space-y-3 text-xs sm:text-sm leading-relaxed">
               <div>
-                <strong className="text-slate-900 font-bold block">Phone:</strong>
-                <a href={`tel:${projectDetails.contactPhone}`} className="text-[#C07858] font-bold hover:underline">
-                  +91 8291919159
-                </a>
-                <span className="text-slate-600"> / </span>
-                <a href="tel:+918291919169" className="text-[#C07858] font-bold hover:underline">
-                  +91 8291919169
+                <strong className="text-[#183342] font-bold block">Phone:</strong>
+                <a href={`tel:${projectDetails.contactPhone}`} className="text-[#C5A059] font-bold hover:underline">
+                  {projectDetails.contactPhone}
                 </a>
               </div>
 
               <div>
-                <strong className="text-slate-900 font-bold block">Email:</strong>
-                <a href={`mailto:${projectDetails.contactEmail}`} className="text-[#C07858] font-bold hover:underline">
+                <strong className="text-[#183342] font-bold block">Email:</strong>
+                <a href={`mailto:${projectDetails.contactEmail}`} className="text-[#C5A059] font-bold hover:underline">
                   {projectDetails.contactEmail}
                 </a>
               </div>
 
               <div>
-                <strong className="text-slate-900 font-bold block">Website:</strong>
+                <strong className="text-[#183342] font-bold block">MahaRERA Portal:</strong>
                 <a
-                  href="https://www.supremerealty.co.in"
+                  href="https://maharerait.mahaonline.gov.in"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#C07858] font-bold hover:underline"
+                  className="text-[#C5A059] font-bold hover:underline"
                 >
-                  www.supremerealty.co.in
+                  maharerait.mahaonline.gov.in
                 </a>
               </div>
             </div>
@@ -111,14 +100,14 @@ const FooterSection = () => {
 
         </div>
 
-        {/* BOTTOM DISCLAIMER (MATCHING ATTACHED IMAGE) */}
+        {/* BOTTOM DISCLAIMER */}
         <p className="text-[11px] sm:text-xs text-slate-500 text-center italic max-w-4xl leading-relaxed font-normal">
-          Disclaimer: The project is under development phase and the layout plan, number of floors, common areas, and all dimensions may change due to planning, regulatory, approval, or construction contingencies. The amenities shown are for reference purposes only and are not being offered as standard amenities. Images used in the brochure are for representational purposes only. The actual price will depend on the size and floor of the unit, and the price is excluding government duties and taxes.
+          Disclaimer: *T & C Apply. All images, pictorials, visuals, elevations, perspectives, illustrations, models, specifications, plans, designs, drawings, dimensions, maps, facilities, amenities, features, and other information/details herein are conceptual, indicative and for representation purpose only and are not to scale, and is subject to the approval of the respective authorities. All dimensions mentioned in the floor/unit plans are in feet. All dimensions of carpet area are from unfinished wall surface. Minor variations/tolerance of +/- 3% in carpet area may occur on account of design and/or construction exigencies.
         </p>
 
         {/* COPYRIGHT */}
         <div className="mt-8 pt-4 border-t border-slate-300/60 w-full text-center text-xs text-slate-500">
-          © {new Date().getFullYear()} {projectDetails.name} by Supreme Realty. All Rights Reserved.
+          © {new Date().getFullYear()} {projectDetails.name} - {projectDetails.subName} by Shah Group & Shreeji Icon. All Rights Reserved.
         </div>
 
       </div>

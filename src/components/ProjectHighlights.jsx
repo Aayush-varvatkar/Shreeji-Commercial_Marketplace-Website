@@ -1,49 +1,49 @@
 import React from 'react';
-import { Compass, MapPin, Home, Award } from 'lucide-react';
+import { Store, Briefcase, MapPin, ShieldCheck } from 'lucide-react';
 import { projectDetails } from '../data/projectData';
 
 const ProjectHighlights = () => {
   const highlights = [
     {
       id: 1,
-      icon: Compass,
-      title: "Calm and Connected",
-      description: "Surrounded by lush greenery and located close to Kalyan Station & proposed Metro."
+      icon: Store,
+      title: "Ground Floor Retail Shops",
+      description: "24 street-facing retail shops (Shops 01 to 24) with wide 5'11\" Otla display promenade."
     },
     {
       id: 2,
-      icon: MapPin,
-      title: "Everything Within Reach",
-      description: "From top schools and hospitals to shopping malls, markets, and banks."
+      icon: Briefcase,
+      title: "1st & 2nd Floor Offices",
+      description: "Corporate office suites with 5'11\" granite-clad central corridor, fire lift & elevators."
     },
     {
       id: 3,
-      icon: Home,
-      title: "Comfort Redefined",
-      description: "Every flat is thoughtfully designed for comfort, blending natural light and ventilation."
+      icon: MapPin,
+      title: "Prime Main Road Address",
+      description: "High footfall location Next to Ganpat Dhaba, Ambernath (W), 500m to proposed Metro."
     },
     {
       id: 4,
-      icon: Award,
-      title: "Lifestyle at the Top",
-      description: "From children's play spaces to peaceful rooftop yoga decks and indoor sports."
+      icon: ShieldCheck,
+      title: "Commercial Infrastructure",
+      description: "100% power backup for common areas, MVPD digital entrance system & 24/7 CCTV surveillance."
     }
   ];
 
   return (
-    <section id="overview" className="w-full bg-[#FAF7F2] py-16 sm:py-24 border-b border-[#E8E2D8] relative">
+    <section id="overview" className="w-full bg-[#F8F6F0] py-16 sm:py-24 border-b border-[#DFC181]/40 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* HEADER SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-bold tracking-widest text-[#B86B4B] uppercase font-sans mb-3 block">
-            PROJECT HIGHLIGHTS
+          <span className="text-xs sm:text-sm font-bold tracking-widest text-[#C5A059] uppercase font-sans mb-3 block">
+            COMMERCIAL MARKETPLACE HIGHLIGHTS
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4">
-            Everything You Need for Better Living
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#183342] leading-tight mb-4">
+            Built for Maximum Business Success
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-normal leading-relaxed max-w-2xl mx-auto">
-            Modern residences, lifestyle amenities and convenient connectivity come together at {projectDetails.name}.
+            High pedestrian footfall, prime main-road visibility, and top commercial infrastructure come together at {projectDetails.name}.
           </p>
         </div>
 
@@ -54,23 +54,23 @@ const ProjectHighlights = () => {
             return (
               <div
                 key={item.id}
-                className="bg-[#181818] hover:bg-[#202020] rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-[#B86B4B]/25 hover:border-[#B86B4B]/70 group relative overflow-hidden"
+                className="bg-[#183342] hover:bg-[#102430] rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-[#C5A059]/30 hover:border-[#C5A059] group relative overflow-hidden"
               >
                 {/* Subtle top glow effect */}
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C47A5A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* ICON CONTAINER */}
-                <div className="w-14 h-14 rounded-xl bg-[#B86B4B]/15 text-[#D48A6A] flex items-center justify-center mb-6 group-hover:bg-[#B86B4B] group-hover:text-white transition-all duration-300 shadow-md">
+                <div className="w-14 h-14 rounded-xl bg-[#C5A059]/20 text-[#DFC181] flex items-center justify-center mb-6 group-hover:bg-[#C5A059] group-hover:text-slate-950 transition-all duration-300 shadow-md">
                   <IconComponent className="w-7 h-7 stroke-[1.8]" />
                 </div>
 
                 {/* CARD TITLE */}
-                <h3 className="font-sans font-bold text-lg sm:text-xl text-white mb-3 tracking-tight group-hover:text-[#D48A6A] transition-colors">
+                <h3 className="font-sans font-bold text-lg sm:text-xl text-white mb-3 tracking-tight group-hover:text-[#DFC181] transition-colors">
                   {item.title}
                 </h3>
 
                 {/* CARD DESCRIPTION */}
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
+                <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>
