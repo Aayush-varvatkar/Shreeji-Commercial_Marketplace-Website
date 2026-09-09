@@ -16,15 +16,22 @@ import ContactModal from './components/ContactModal';
 function App() {
   const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isAutoPopup, setIsAutoPopup] = useState(false);
 
   // Auto popup contact form modal 2 seconds after initial load and every reload
   useEffect(() => {
     const timer = setTimeout(() => {
+      setIsAutoPopup(true);
       setIsContactOpen(true);
     }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const handleOpenContactFromButton = () => {
+    setIsAutoPopup(false);
+    setIsContactOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-[#F8F6F0] text-[#1E1E1E] flex flex-col font-sans selection:bg-[#C5A059] selection:text-white">
@@ -32,7 +39,7 @@ function App() {
       {/* NAVBAR */}
       <Navbar
         onOpenBrochure={() => setIsBrochureOpen(true)}
-        onOpenContact={() => setIsContactOpen(true)}
+        onOpenContact={handleOpenContactFromButton}
       />
 
       <main className="flex-grow">
@@ -71,7 +78,7 @@ function App() {
       {/* FLOATING ACTION BUTTONS & SIDE BROCHURE TAB */}
       <FloatingActions
         onOpenBrochure={() => setIsBrochureOpen(true)}
-        onOpenContact={() => setIsContactOpen(true)}
+        onOpenContact={handleOpenContactFromButton}
       />
 
       {/* MODALS */}
@@ -82,6 +89,7 @@ function App() {
 
       <ContactModal
         isOpen={isContactOpen}
+        isAutoPopup={isAutoPopup}
         onClose={() => setIsContactOpen(false)}
       />
 

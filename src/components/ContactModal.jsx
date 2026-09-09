@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Phone, Mail, MapPin, Check } from 'lucide-react';
 import { projectDetails } from '../data/projectData';
 
-const ContactModal = ({ isOpen, onClose }) => {
+const ContactModal = ({ isOpen, onClose, isAutoPopup = false }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', consent: true });
 
@@ -117,31 +117,46 @@ const ContactModal = ({ isOpen, onClose }) => {
           {/* BODY */}
           <div className="p-6 space-y-5">
             
-            {/* QUICK INFO */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <a href={`tel:${projectDetails.contactPhone}`} className="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-200 hover:border-[#C5A059] transition-colors shadow-sm">
+            {/* QUICK INFO (AUTOMATIC POPUP RENDERS ONLY CALL DIRECT; CALL BUTTON MODAL KEEPS FULL INFO) */}
+            {isAutoPopup ? (
+              <a
+                href={`tel:${projectDetails.contactPhone}`}
+                className="flex items-center justify-center gap-3 p-3.5 bg-white rounded-lg border border-slate-200 hover:border-[#C5A059] transition-colors shadow-sm text-center"
+              >
                 <Phone className="w-4 h-4 text-[#C5A059]" />
                 <div>
-                  <p className="font-bold text-[#183342]">Call Direct</p>
-                  <p className="text-slate-600">{projectDetails.contactPhone}</p>
+                  <p className="font-bold text-[#183342] text-xs">Call Direct</p>
+                  <p className="text-slate-600 text-xs">{projectDetails.contactPhone}</p>
                 </div>
               </a>
-              <a href={`mailto:${projectDetails.contactEmail}`} className="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-200 hover:border-[#C5A059] transition-colors shadow-sm">
-                <Mail className="w-4 h-4 text-[#C5A059]" />
-                <div>
-                  <p className="font-bold text-[#183342]">Email Us</p>
-                  <p className="text-slate-600 truncate">{projectDetails.contactEmail}</p>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <a href={`tel:${projectDetails.contactPhone}`} className="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-200 hover:border-[#C5A059] transition-colors shadow-sm">
+                    <Phone className="w-4 h-4 text-[#C5A059]" />
+                    <div>
+                      <p className="font-bold text-[#183342]">Call Direct</p>
+                      <p className="text-slate-600">{projectDetails.contactPhone}</p>
+                    </div>
+                  </a>
+                  <a href={`mailto:${projectDetails.contactEmail}`} className="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-200 hover:border-[#C5A059] transition-colors shadow-sm">
+                    <Mail className="w-4 h-4 text-[#C5A059]" />
+                    <div>
+                      <p className="font-bold text-[#183342]">Email Us</p>
+                      <p className="text-slate-600 truncate">{projectDetails.contactEmail}</p>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
 
-            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-200 text-xs shadow-sm">
-              <MapPin className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
-              <div>
-                <p className="font-bold text-[#183342]">Site Address</p>
-                <p className="text-slate-600 leading-tight">{projectDetails.fullAddress}</p>
-              </div>
-            </div>
+                <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-200 text-xs shadow-sm">
+                  <MapPin className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-[#183342]">Site Address</p>
+                    <p className="text-slate-600 leading-tight">{projectDetails.fullAddress}</p>
+                  </div>
+                </div>
+              </>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-3.5 pt-1">
               <div className="text-center mb-1">
