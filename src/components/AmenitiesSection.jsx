@@ -83,8 +83,8 @@ const AmenitiesSection = () => {
     <section id="amenities" className="w-full bg-[#F8F6F0] py-16 sm:py-24 border-b border-[#DFC181]/40 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
-        {/* STICKY HEADER SECTION BELOW NAVBAR */}
-        <div className="sticky top-20 z-30 bg-[#F8F6F0] py-6 sm:py-8 mb-8 sm:mb-12 border-b border-[#DFC181]/30 shadow-sm rounded-b-xl transition-all duration-300">
+        {/* HEADER SECTION (STICKY ONLY ON MOBILE VIEW, NORMAL ON TABLET & DESKTOP) */}
+        <div className="sticky sm:static top-20 sm:top-auto z-30 sm:z-auto bg-[#F8F6F0] py-5 sm:py-0 mb-8 sm:mb-16 border-b sm:border-b-0 border-[#DFC181]/30 sm:border-transparent shadow-sm sm:shadow-none rounded-b-xl sm:rounded-none transition-all duration-300">
           <div className="text-center max-w-3xl mx-auto px-2">
             <span className="text-xs font-bold tracking-widest text-[#C5A059] uppercase font-sans mb-2 block">
               COMMERCIAL COMPLEX SPECIFICATIONS
