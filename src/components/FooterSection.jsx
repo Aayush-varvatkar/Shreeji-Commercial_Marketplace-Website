@@ -8,15 +8,13 @@ const FooterSection = () => {
         
         {/* CENTERED LOGO */}
         <div className="mb-6 flex flex-col items-center">
-          <div className="flex items-baseline gap-1.5 mb-1">
-            <span className="text-[#C5A059] text-xs font-bold tracking-widest font-serif uppercase">SKY</span>
-            <span className="text-[#183342] font-serif font-bold text-3xl tracking-wider">
-              VIEW
-            </span>
-          </div>
-          <span className="text-xs font-extrabold tracking-widest text-[#C5A059] uppercase font-sans">
-            SHREEJI ICON • SHAH GROUP
-          </span>
+          <a href="#home" className="flex flex-col items-center group">
+            <img
+              src="/images/skylogo.png"
+              alt="Sky View Logo"
+              className="h-20 sm:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          </a>
         </div>
 
         {/* MAHARERA REGISTRATION TEXT */}

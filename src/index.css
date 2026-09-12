@@ -16,6 +16,14 @@
   h1, h2, h3, .font-heading {
     font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
   }
+
+  img {
+    image-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
 }
 
 /* Premium Brochure Color Tokens (Deep Navy & Luxury Gold) */
@@ -183,4 +191,122 @@
 .animate-card-content-fade {
   opacity: 0;
   animation: cardContentFadeUp 0.5s ease-out 0.75s forwards;
+}
+
+/* Moving Icon Animations */
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+@keyframes phoneRing {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-12deg);
+  }
+  30% {
+    transform: rotate(12deg);
+  }
+  45% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(8deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes whatsappShake {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.12) rotate(-8deg);
+  }
+  40% {
+    transform: scale(1.12) rotate(8deg);
+  }
+  60% {
+    transform: scale(1.12) rotate(-4deg);
+  }
+  80% {
+    transform: scale(1.05) rotate(2deg);
+  }
+}
+
+.animate-icon-float {
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.animate-icon-pulse {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+.animate-phone-ring {
+  animation: phoneRing 2.5s ease-in-out infinite;
+}
+
+.animate-whatsapp-shake {
+  animation: whatsappShake 3s ease-in-out infinite;
+}
+
+/* Shimmer Sheen Button Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.btn-shimmer {
+  background: linear-gradient(90deg, #C5A059 0%, #DFC181 25%, #FFF8E7 50%, #DFC181 75%, #C5A059 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3.5s infinite linear;
+}
+
+/* Floating Badge Animation */
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-badge-float {
+  animation: badgeFloat 4s ease-in-out infinite;
+}
+
+/* Gold Pulse Glow Effect */
+@keyframes goldGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(197, 160, 89, 0.65);
+  }
+}
+
+.animate-gold-glow {
+  animation: goldGlow 3s ease-in-out infinite;
 }

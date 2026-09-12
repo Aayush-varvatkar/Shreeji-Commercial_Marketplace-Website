@@ -24,12 +24,12 @@ const AboutSection = ({ onExploreAmenities }) => {
                 alt="Sky View Shreeji Icon Commercial Building View"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-[420px] sm:h-[520px] lg:h-[560px] object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                className="w-full h-[420px] sm:h-[520px] lg:h-[560px] object-cover object-top"
               />
             </div>
 
             {/* OVERLAPPING CORNER BADGE */}
-            <div className="absolute -bottom-6 -right-2 sm:right-6 z-20 bg-[#183342] text-white px-6 py-5 sm:px-8 sm:py-6 shadow-2xl rounded-sm border border-[#C5A059]/40 text-center transform hover:scale-105 transition-transform">
+            <div className="absolute -bottom-6 -right-2 sm:right-6 z-20 bg-[#183342] text-white px-6 py-5 sm:px-8 sm:py-6 shadow-2xl rounded-sm border border-[#C5A059]/40 text-center animate-badge-float">
               <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wider block text-[#DFC181] drop-shadow">
                 {about.badgeTitle}
               </span>

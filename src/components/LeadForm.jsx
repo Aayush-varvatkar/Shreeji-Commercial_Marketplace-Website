@@ -46,21 +46,19 @@ const LeadForm = () => {
       {/* Subtle decorative glow */}
       <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#C5A059]/15 rounded-full blur-3xl pointer-events-none" />
 
-      {/* TOP SUBHEADER */}
-      <div className="text-center mb-1">
-        <span className="text-xs sm:text-sm font-bold tracking-widest text-[#C5A059] uppercase font-sans">
-          {projectDetails.taglineSub}
-        </span>
+      {/* BRAND LOGO */}
+      <div className="flex justify-center mb-3">
+        <img
+          src="/images/skylogo.png"
+          alt="Sky View Logo"
+          className="h-14 sm:h-16 w-auto object-contain drop-shadow-sm"
+        />
       </div>
 
-      {/* MAIN TITLE */}
-      <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-center tracking-tight text-[#183342] mb-1">
-        {projectDetails.name}
-      </h1>
-
+      {/* TOP SUBHEADER */}
       <div className="text-center mb-2">
-        <span className="text-xs font-extrabold tracking-widest text-[#C5A059] uppercase font-sans">
-          COMMERCIAL MARKETPLACE • SHAH GROUP
+        <span className="text-xs sm:text-sm font-bold tracking-widest text-[#C5A059] uppercase font-sans">
+          {projectDetails.taglineSub}
         </span>
       </div>
 

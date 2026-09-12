@@ -34,7 +34,7 @@ const galleryItems = [
   },
   {
     id: 5,
-    title: "EV Charging Infrastructure & Parking Plaza",
+    title: "Dedicated Commercial Parking Plaza",
     category: "Location",
     image: "/images/ev_charging.jpg",
     type: "bottom_2"

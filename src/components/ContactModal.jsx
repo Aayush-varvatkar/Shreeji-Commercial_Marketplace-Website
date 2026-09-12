@@ -108,10 +108,9 @@ const ContactModal = ({ isOpen, onClose, isAutoPopup = false }) => {
           </button>
 
           {/* HEADER */}
-          <div className="bg-[#183342] p-6 text-white text-center border-b border-[#C5A059]/40 relative overflow-hidden">
+          <div className="bg-[#183342] p-5 text-white text-center border-b border-[#C5A059]/40 relative overflow-hidden flex flex-col items-center">
             <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white">{projectDetails.name}</h3>
-            <p className="text-xs text-[#DFC181] font-bold tracking-widest uppercase mt-1">Site Visit & Direct Sales Inquiry</p>
+            <img src="/images/skylogo_white.png" alt="Sky View Logo" className="h-14 w-auto object-contain" />
           </div>
 
           {/* BODY */}

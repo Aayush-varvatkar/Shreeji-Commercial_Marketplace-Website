@@ -32,17 +32,11 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
           {/* BRAND LOGO (LEFT) */}
           <div className="flex-shrink-0 flex items-center">
             <a href="#home" className="flex items-center group">
-              <div className="flex flex-col">
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-[#C5A059] text-xs sm:text-sm font-bold tracking-widest font-serif uppercase">SKY</span>
-                  <span className="text-white font-serif font-bold text-xl sm:text-2xl tracking-wider group-hover:text-[#DFC181] transition-colors">
-                    VIEW
-                  </span>
-                </div>
-                <span className="text-[10px] font-extrabold tracking-widest text-[#DFC181] uppercase font-sans">
-                  COMMERCIAL MARKETPLACE
-                </span>
-              </div>
+              <img
+                src="/images/skylogo_white.png"
+                alt="Sky View Logo"
+                className="h-12 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
             </a>
           </div>
 
@@ -76,7 +70,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
               onClick={onOpenContact}
               className="border border-white/30 hover:border-[#C5A059] text-white px-3.5 py-2 rounded-sm text-xs font-bold tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer bg-white/10 hover:bg-white/20"
             >
-              <Phone className="w-3.5 h-3.5 text-white" />
+              <Phone className="w-3.5 h-3.5 text-white animate-phone-ring" />
               <span>CALL</span>
             </button>
 
@@ -85,7 +79,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
               onClick={handleWhatsapp}
               className="border border-emerald-400/80 hover:bg-emerald-500/20 text-white px-3.5 py-2 rounded-sm text-xs font-bold tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer bg-emerald-950/40"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20" />
+              <i className="fa-brands fa-whatsapp text-emerald-400 text-sm animate-whatsapp-shake"></i>
               <span>WHATSAPP</span>
             </button>
 
@@ -94,7 +88,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
               onClick={onOpenBrochure}
               className="bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#9E7B34] hover:from-[#DFC181] hover:to-[#C5A059] text-slate-950 px-4 py-2.5 rounded-sm text-xs font-extrabold tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer shadow-lg uppercase active:scale-95 border border-[#DFC181]/40"
             >
-              <Download className="w-3.5 h-3.5 text-slate-950 stroke-[2.5]" />
+              <Download className="w-3.5 h-3.5 text-slate-950 stroke-[2.5] animate-icon-pulse" />
               <span>BROCHURE</span>
             </button>
           </div>
@@ -149,7 +143,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
               }}
               className="w-full border border-white/30 text-white py-2.5 rounded text-xs font-bold tracking-wider flex items-center justify-center gap-2"
             >
-              <Phone className="w-3.5 h-3.5 text-white" />
+              <Phone className="w-3.5 h-3.5 text-white animate-phone-ring" />
               <span>CALL NOW</span>
             </button>
 
@@ -160,7 +154,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
               }}
               className="w-full border border-emerald-500 text-white py-2.5 rounded text-xs font-bold tracking-wider flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+              <i className="fa-brands fa-whatsapp text-emerald-400 text-sm animate-whatsapp-shake"></i>
               <span>WHATSAPP CHAT</span>
             </button>
 
@@ -171,7 +165,7 @@ const Navbar = ({ onOpenBrochure, onOpenContact }) => {
               }}
               className="w-full bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#9E7B34] text-slate-950 py-3 rounded text-xs font-extrabold tracking-wider uppercase flex items-center justify-center gap-2 shadow"
             >
-              <Download className="w-4 h-4 stroke-[2.5]" />
+              <Download className="w-4 h-4 stroke-[2.5] animate-icon-pulse" />
               <span>DOWNLOAD BROCHURE</span>
             </button>
           </div>

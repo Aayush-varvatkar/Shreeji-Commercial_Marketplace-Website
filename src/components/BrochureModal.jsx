@@ -119,13 +119,10 @@ const BrochureModal = ({ isOpen, onClose }) => {
           </button>
 
           {/* HEADER */}
-          <div className="bg-[#183342] p-6 text-white text-center relative border-b border-[#C5A059]/40 overflow-hidden">
+          <div className="bg-[#183342] p-5 text-white text-center relative border-b border-[#C5A059]/40 overflow-hidden flex flex-col items-center">
             <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
-            <div className="w-12 h-12 bg-[#C5A059]/20 text-[#DFC181] rounded-full flex items-center justify-center mx-auto mb-2 border border-[#C5A059]/40">
-              <FileText className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-2xl font-bold">{projectDetails.name}</h3>
-            <p className="text-xs text-[#DFC181] font-semibold tracking-wider uppercase mt-0.5">Official E-Brochure & Floor Plans</p>
+            <img src="/images/skylogo_white.png" alt="Sky View Logo" className="h-12 w-auto object-contain mb-1" />
+            <p className="text-xs text-[#DFC181] font-semibold tracking-wider uppercase">Official E-Brochure & Floor Plans</p>
           </div>
 
           {/* BODY */}

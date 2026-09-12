@@ -60,7 +60,7 @@ const ProjectHighlights = () => {
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* ICON CONTAINER */}
-                <div className="w-14 h-14 rounded-xl bg-[#C5A059]/20 text-[#DFC181] flex items-center justify-center mb-6 group-hover:bg-[#C5A059] group-hover:text-slate-950 transition-all duration-300 shadow-md">
+                <div className="w-14 h-14 rounded-xl bg-[#C5A059]/20 text-[#DFC181] flex items-center justify-center mb-6 group-hover:bg-[#C5A059] group-hover:text-slate-950 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md">
                   <IconComponent className="w-7 h-7 stroke-[1.8]" />
                 </div>
 

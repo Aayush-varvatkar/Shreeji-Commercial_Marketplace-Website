@@ -1,4 +1,5 @@
 export const projectDetails = {
+  logo: "/images/skylogo.png",
   name: "SKY VIEW",
   subName: "COMMERCIAL MARKETPLACE",
   developerGroup: "SHAH GROUP",
@@ -26,13 +27,13 @@ export const projectDetails = {
     },
     {
       id: 2,
-      image: "/images/shreeji_about_view.jpg",
+      image: "/images/shreeji_hero_view.jpg",
       // title: "Where Comfort Meets Commercial Growth",
       // subtitle: "Prime Main Road Frontage Next to Ganpat Dhaba, Ambernath (W)"
     },
     {
       id: 3,
-      image: "/images/building_view_1.jpg",
+      image: "/images/aerial_view.jpg",
       // title: "High Pedestrian Footfall Location",
       // subtitle: "5'11\" Wide Otla Walkway & Dedicated Elevator / Fire Lift Access"
     }
@@ -41,8 +42,8 @@ export const projectDetails = {
   navLinks: [
     { id: "home", label: "HOME", href: "#home" },
     { id: "overview", label: "OVERVIEW", href: "#overview" },
-    { id: "amenities", label: "COMMERCIAL FEATURES", href: "#amenities" },
-    { id: "pricing", label: "PRICING & PLANS", href: "#pricing" },
+    { id: "amenities", label: "FEATURES", href: "#amenities" },
+    { id: "pricing", label: "PRICING", href: "#pricing" },
     { id: "gallery", label: "GALLERY", href: "#gallery" },
     { id: "location", label: "LOCATION", href: "#location" },
     { id: "contact", label: "CONTACT", href: "#contact" }
