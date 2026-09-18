@@ -21,19 +21,19 @@ export const projectDetails = {
   heroSlides: [
     {
       id: 1,
-      image: "/images/shreeji_hero_1.jpg",
+      image: "/images/HeroImg1.jpeg",
       // title: "Ground + 2 Floor Commercial Marketplace",
       // subtitle: "Shreeji Icon 24 Prime Road-Facing Shops & Executive Office Suites"
     },
     {
       id: 2,
-      image: "/images/shreeji_hero_view.jpg",
+      image: "/images/HeroImg2.jpeg",
       // title: "Where Comfort Meets Commercial Growth",
       // subtitle: "Prime Main Road Frontage Next to Ganpat Dhaba, Ambernath (W)"
     },
     {
       id: 3,
-      image: "/images/aerial_view.jpg",
+      image: "/images/AriealView.jpeg",
       // title: "High Pedestrian Footfall Location",
       // subtitle: "5'11\" Wide Otla Walkway & Dedicated Elevator / Fire Lift Access"
     }

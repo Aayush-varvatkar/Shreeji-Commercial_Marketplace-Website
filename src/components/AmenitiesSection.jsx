@@ -5,37 +5,37 @@ import { Store, Zap, ShieldCheck, Layers, Users, PhoneCall, Building2, Clock } f
 const commercialFeatures = [
   {
     number: '01',
-    title: "5'11\" Wide Otla Walkway",
-    description: "Spacious street-facing Otla promenade providing high display frontage and seamless customer footfall access.",
-    image: '/images/shreeji_about_view.jpg',
+    title: "Pergola Sitting Deck",
+    description: "Landscaped outdoor seating area for client discussions and relaxation.",
+    image: '/images/PARGOLACAM.jpg',
     icon: Store
   },
   {
     number: '02',
-    title: "High-Speed Elevators & Fire Lift",
-    description: "Branded passenger elevators plus a dedicated fire evacuation lift ensuring quick vertical transit between commercial floors.",
-    image: '/images/first_floor_plan.jpg',
+    title: "Rooftop Swimming Pool",
+    description: "Luxury rooftop pool featuring panoramic views of the city skyline.",
+    image: '/images/SWIMMINGPOOL.jpg',
     icon: Users
   },
   {
     number: '03',
-    title: "Granite Clad Corridors",
-    description: "Elegant 5'11\" wide passages featuring vitrified tile flooring and premium granite wall cladding for a corporate ambiance.",
-    image: '/images/ground_floor_plan.jpg',
+    title: "Fitness Gym & Wellness",
+    description: "Equipped fitness center promoting work-life balance and health.",
+    image: '/images/GYMCam.jpg',
     icon: Layers
   },
   {
     number: '04',
-    title: "MVPD Access & 24/7 CCTV",
-    description: "Multi-point video digital access control at main entrance lobby and comprehensive 24/7 CCTV camera coverage.",
-    image: '/images/surveillance_Security.jpeg',
+    title: "Executive Lounge Plaza",
+    description: "Modern open-air lounge designed for business networking.",
+    image: '/images/SITTINGCAM.jpg',
     icon: ShieldCheck
   },
   {
     number: '05',
-    title: "Commercial Parking Plaza",
-    description: "Dedicated commercial parking plaza with marked visitor bays, ambient illumination, and smooth vehicular circulation.",
-    image: '/images/ev_charging.jpg',
+    title: "Podium Garden Park",
+    description: "Lush green podium area with walking tracks and sitting zones.",
+    image: '/images/GardenView.jpeg',
     icon: Zap
   }
 ];
@@ -80,13 +80,13 @@ const AmenitiesSection = () => {
         <div className="sticky sm:static top-20 sm:top-auto z-30 sm:z-auto bg-[#F8F6F0] py-5 sm:py-0 mb-8 sm:mb-16 border-b sm:border-b-0 border-[#DFC181]/30 sm:border-transparent shadow-sm sm:shadow-none rounded-b-xl sm:rounded-none transition-all duration-300">
           <div className="text-center max-w-3xl mx-auto px-2">
             <span className="text-xs font-bold tracking-widest text-[#C5A059] uppercase font-sans mb-2 block">
-              COMMERCIAL COMPLEX SPECIFICATIONS
+              WORLD-CLASS AMENITIES
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#183342] leading-tight mb-3">
-              Designed for Business Success
+              Modern Amenities & Facilities
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-              Sky View Commercial Marketplace is engineered with premium infrastructure, high footfall accessibility, and top-tier security for retail shops and corporate offices.
+              Premium infrastructure designed for comfort, wellness, and business efficiency.
             </p>
           </div>
         </div>

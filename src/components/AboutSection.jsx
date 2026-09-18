@@ -20,7 +20,7 @@ const AboutSection = ({ onExploreAmenities }) => {
             {/* MAIN IMAGE CONTAINER */}
             <div className="relative z-10 rounded-sm overflow-hidden shadow-2xl border border-white/60">
               <img
-                src="/images/shreeji_about_view.jpg"
+                src="/images/SkyFrontView.jpg"
                 alt="Sky View Shreeji Icon Commercial Building View"
                 loading="lazy"
                 decoding="async"

@@ -23,12 +23,12 @@ const LocationSection = () => {
   return (
     <section id="location" className="w-full bg-[#F8F6F0] py-16 sm:py-24 border-b border-[#DFC181]/40 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-15 lg:gap-26 items-center">
-          
+
           {/* LEFT COLUMN: TEXT CONTENT & NUMBERED HIGHLIGHTS */}
           <div className="lg:col-span-5 space-y-5">
-            
+
             {/* SUBHEADER */}
             <div className="flex items-center gap-2">
               <span className="h-0.5 w-6 bg-[#C5A059]" />
@@ -72,10 +72,10 @@ const LocationSection = () => {
 
           {/* RIGHT COLUMN: MAP CONTAINER (~55% WIDTH FROM RIGHT SIDE) */}
           <div className="lg:col-span-7 relative max-w-xl mx-auto lg:max-w-none w-full">
-            
+
             {/* MAP CARD CONTAINER */}
             <div className="relative bg-[#F2EFE9] p-3 sm:p-4 rounded-lg shadow-2xl border border-white/80 overflow-hidden">
-              
+
               {/* GOOGLE MAPS IFRAME FOR AMBERNATH WEST */}
               <div className="w-full h-[400px] sm:h-[500px] lg:h-[550px] rounded overflow-hidden relative shadow-inner">
                 <iframe

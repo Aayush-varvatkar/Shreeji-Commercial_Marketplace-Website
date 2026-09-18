@@ -1,50 +1,62 @@
 import React, { useState } from 'react';
 import { X, ZoomIn } from 'lucide-react';
 
-const galleryCategories = ["All", "Ground Floor Shops", "1st & 2nd Floor Offices", "Commercial Plans", "Location"];
+const galleryCategories = ["All", "Exterior & Elevation", "Rooftop Amenities", "Podium & Gardens"];
 
 const galleryItems = [
   {
     id: 1,
-    title: "Ground Floor Retail Marketplace & Storefronts",
-    category: "Ground Floor Shops",
-    image: "/images/building_view_1.jpg",
+    title: "Commercial Frontage & Retail Elevation",
+    category: "Exterior & Elevation",
+    image: "/images/HeroImg1.jpeg",
     type: "featured"
   },
   {
     id: 2,
-    title: "Ground Floor Architectural Plan (Shops 01-24)",
-    category: "Commercial Plans",
-    image: "/images/ground_floor_plan.jpg",
+    title: "Sky View Architectural Facade",
+    category: "Exterior & Elevation",
+    image: "/images/SkyFrontView.jpg",
     type: "top_right_1"
   },
   {
     id: 3,
-    title: "1st & 2nd Floor Commercial Office Plan",
-    category: "Commercial Plans",
-    image: "/images/first_floor_plan.jpg",
+    title: "Aerial View of Commercial Complex",
+    category: "Exterior & Elevation",
+    image: "/images/SkyViewAriealView.jpeg",
     type: "top_right_2"
   },
   {
     id: 4,
-    title: "Sky View Commercial Marketplace Elevation",
-    category: "Ground Floor Shops",
-    image: "/images/aerial_view.jpg",
+    title: "Rooftop Swimming Pool & Deck",
+    category: "Rooftop Amenities",
+    image: "/images/SWIMMINGPOOL.jpg",
     type: "bottom_1"
   },
   {
     id: 5,
-    title: "Dedicated Commercial Parking Plaza",
-    category: "Location",
-    image: "/images/ev_charging.jpg",
+    title: "Pergola Sitting Lounge Deck",
+    category: "Rooftop Amenities",
+    image: "/images/PARGOLACAM.jpg",
     type: "bottom_2"
   },
   {
     id: 6,
-    title: "24/7 CCTV & MVPD Access Control Foyer",
-    category: "1st & 2nd Floor Offices",
-    image: "/images/surveillance_Security.jpeg",
+    title: "Podium Green Landscaping & Park",
+    category: "Podium & Gardens",
+    image: "/images/GardenView.jpeg",
     type: "bottom_3"
+  },
+  {
+    id: 7,
+    title: "Modern Fitness Gym Center",
+    category: "Rooftop Amenities",
+    image: "/images/GYMCam.jpg"
+  },
+  {
+    id: 8,
+    title: "Executive Outdoor Sitting Lounge",
+    category: "Podium & Gardens",
+    image: "/images/SITTINGCAM.jpg"
   }
 ];
 
@@ -77,7 +89,7 @@ const GallerySection = () => {
             <span className="h-[1px] w-12 bg-[#C5A059] inline-block" />
           </div>
           <p className="text-slate-600 text-xs sm:text-sm font-medium tracking-wide">
-            Explore architectural renders of Sky View Commercial Marketplace ground floor retail storefronts, 1st & 2nd floor executive offices, and official floor plans
+            Explore architectural renders of Sky View Commercial Marketplace.
           </p>
         </div>
 
@@ -141,7 +153,7 @@ const GallerySection = () => {
                     alt={parkImage.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
                     <span className="text-[#DFC181] text-[10px] font-bold uppercase tracking-widest">{parkImage.category}</span>
@@ -158,7 +170,7 @@ const GallerySection = () => {
                     alt={gymImage.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
                     <span className="text-[#DFC181] text-[10px] font-bold uppercase tracking-widest">{gymImage.category}</span>
