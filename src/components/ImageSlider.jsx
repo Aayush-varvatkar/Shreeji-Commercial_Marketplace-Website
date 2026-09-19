@@ -33,6 +33,9 @@ const ImageSlider = () => {
           <img
             src={slide.image}
             alt={slide.title || 'Hero Slide'}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchPriority={index === 0 ? 'high' : 'low'}
+            decoding="async"
             className="w-full h-full object-cover object-center"
           />
           {/* Subtle gradient overlay at bottom for slider text */}
