@@ -90,10 +90,10 @@ const LocationSection = () => {
               {/* OVERLAPPING CORNER BADGE */}
               <div className="absolute bottom-8 left-6 sm:left-8 z-20 bg-[#183342] text-white px-5 py-4 sm:px-6 sm:py-5 shadow-2xl rounded-sm border border-[#C5A059]/40 transform hover:scale-105 transition-transform max-w-[260px]">
                 <span className="text-[10px] font-bold tracking-widest text-[#DFC181] uppercase block font-sans">
-                  {projectDetails.name} • {projectDetails.subName}
+                  {projectDetails.name} 
                 </span>
                 <span className="font-serif text-base sm:text-lg font-bold text-white block mt-0.5 leading-snug">
-                  Just opposite to upcoming Chikhloli Railway Station & 500m to proposed Metro line, Ambernath (W)
+                  Opposite to upcoming Chikhloli Railway Station
                 </span>
               </div>
 
