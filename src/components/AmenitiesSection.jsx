@@ -5,38 +5,38 @@ import { Store, Zap, ShieldCheck, Layers, Users, PhoneCall, Building2, Clock } f
 const commercialFeatures = [
   {
     number: '01',
-    title: "Pergola Sitting Deck",
-    description: "Landscaped outdoor seating area for client discussions and relaxation.",
-    image: '/images/PARGOLACAM.jpg',
+    title: "Luxury Showroom Spaces",
+    description: "Double-height glass frontage designed for luxury retail brands and high-footfall showrooms.",
+    image: '/images/amenity_showrooms.jpg',
     icon: Store
   },
   {
     number: '02',
-    title: "Rooftop Swimming Pool",
-    description: "Luxury rooftop pool featuring panoramic views of the city skyline.",
-    image: '/images/SWIMMINGPOOL.jpg',
-    icon: Users
+    title: "Corporate Office Suites",
+    description: "Modern commercial office spaces engineered for business growth, efficiency, and comfort.",
+    image: '/images/amenity_offices.jpg',
+    icon: Building2
   },
   {
     number: '03',
-    title: "Fitness Gym & Wellness",
-    description: "Equipped fitness center promoting work-life balance and health.",
-    image: '/images/GYMCam.jpg',
-    icon: Layers
+    title: "Grand Entrance Lobby & Elevators",
+    description: "Marble-clad reception lobby equipped with high-speed passenger elevators and fire lift.",
+    image: '/images/amenity_lobby.jpg',
+    icon: Users
   },
   {
     number: '04',
-    title: "Executive Lounge Plaza",
-    description: "Modern open-air lounge designed for business networking.",
-    image: '/images/SITTINGCAM.jpg',
-    icon: ShieldCheck
+    title: "Opposite Chikhloli Railway Station",
+    description: "Prime transit connectivity located directly opposite to the proposed Chikhloli Railway Station.",
+    image: '/images/amenity_location.jpg',
+    icon: Zap
   },
   {
     number: '05',
-    title: "Podium Garden Park",
-    description: "Lush green podium area with walking tracks and sitting zones.",
-    image: '/images/GardenView.jpeg',
-    icon: Zap
+    title: "Elegantly Finished Restrooms",
+    description: "Modern executive restrooms finished with anti-skid ceramic tiles and premium sanitary fittings.",
+    image: '/images/amenity_washroom.jpg',
+    icon: ShieldCheck
   }
 ];
 

@@ -1,62 +1,62 @@
 import React, { useState } from 'react';
 import { X, ZoomIn } from 'lucide-react';
 
-const galleryCategories = ["All", "Exterior & Elevation", "Rooftop Amenities", "Podium & Gardens"];
+const galleryCategories = ["All", "Showroom & Offices", "Lobby & Facilities", "Exterior & Location"];
 
 const galleryItems = [
   {
     id: 1,
-    title: "Commercial Frontage & Retail Elevation",
-    category: "Exterior & Elevation",
-    image: "/images/HeroImg1.jpeg",
+    title: "Luxury Showroom Spaces (Ground Floor)",
+    category: "Showroom & Offices",
+    image: "/images/amenity_showrooms.jpg",
     type: "featured"
   },
   {
     id: 2,
-    title: "Sky View Architectural Facade",
-    category: "Exterior & Elevation",
-    image: "/images/SkyFrontView.jpg",
+    title: "Corporate Executive Office Suites",
+    category: "Showroom & Offices",
+    image: "/images/amenity_offices.jpg",
     type: "top_right_1"
   },
   {
     id: 3,
-    title: "Aerial View of Commercial Complex",
-    category: "Exterior & Elevation",
-    image: "/images/SkyViewAriealView.jpeg",
+    title: "Grand Entrance Lobby & Elevators",
+    category: "Lobby & Facilities",
+    image: "/images/amenity_lobby.jpg",
     type: "top_right_2"
   },
   {
     id: 4,
-    title: "Rooftop Swimming Pool & Deck",
-    category: "Rooftop Amenities",
-    image: "/images/SWIMMINGPOOL.jpg",
+    title: "Opposite Chikhloli Railway Station",
+    category: "Exterior & Location",
+    image: "/images/amenity_location.jpg",
     type: "bottom_1"
   },
   {
     id: 5,
-    title: "Pergola Sitting Lounge Deck",
-    category: "Rooftop Amenities",
-    image: "/images/PARGOLACAM.jpg",
+    title: "Elegantly Finished Restrooms",
+    category: "Lobby & Facilities",
+    image: "/images/amenity_washroom.jpg",
     type: "bottom_2"
   },
   {
     id: 6,
-    title: "Podium Green Landscaping & Park",
-    category: "Podium & Gardens",
-    image: "/images/GardenView.jpeg",
+    title: "Commercial Frontage Elevation",
+    category: "Exterior & Location",
+    image: "/images/HeroImg1.jpeg",
     type: "bottom_3"
   },
   {
     id: 7,
-    title: "Modern Fitness Gym Center",
-    category: "Rooftop Amenities",
-    image: "/images/GYMCam.jpg"
+    title: "Sky View Architectural Facade",
+    category: "Exterior & Location",
+    image: "/images/SkyFrontView.jpg"
   },
   {
     id: 8,
-    title: "Executive Outdoor Sitting Lounge",
-    category: "Podium & Gardens",
-    image: "/images/SITTINGCAM.jpg"
+    title: "Aerial View of Commercial Complex",
+    category: "Exterior & Location",
+    image: "/images/SkyViewAriealView.jpeg"
   }
 ];
 

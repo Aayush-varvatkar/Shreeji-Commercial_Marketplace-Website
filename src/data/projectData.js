@@ -5,7 +5,7 @@ export const projectDetails = {
   developerGroup: "SHAH GROUP",
   developerMotto: "Crafting Commercial Excellence - Creating Legacy",
   tagline: "Ambernath (W)'s Premier Commercial Destination",
-  taglineSub: "Ground Floor Showroom Space(1-24) & 1st & 2nd Floor Office Spaces",
+  taglineSub: "Ground, 1st & 2nd Floor Showroom Spaces and Office Spaces.",
   heading: "Sky View Commercial Marketplace",
   subheading: "Prime Ground Floor Shops (01-24) & 1st & 2nd Floor Executive Offices",
   buildingType: "Ground + 2 Floors Commercial Marketplace Landmark",

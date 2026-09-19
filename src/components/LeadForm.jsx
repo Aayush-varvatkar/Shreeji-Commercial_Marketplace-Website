@@ -116,7 +116,7 @@ const LeadForm = () => {
 
       {/* SUBTITLE */}
       <p className="text-slate-700 text-xs sm:text-sm text-center font-medium mb-1">
-        Ground Floor Retail Shops (01-24) & 1st & 2nd Floor Offices
+         Ground Floor Showroom Spaces(1-24), 1st & 2nd Floor Office Spaces
       </p>
 
       {/* COMMERCIAL MARKETPLACE HIGHLIGHT */}

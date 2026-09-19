@@ -18,8 +18,8 @@ const BrochureModal = ({ isOpen, onClose }) => {
 
   const triggerPdfDownload = () => {
     const link = document.createElement('a');
-    link.href = '/The_Livin_Brochure.pdf';
-    link.download = 'The_Livin_Brochure.pdf';
+    link.href = '/Sky_View_Shreeji_Icon_Brochure.pdf';
+    link.download = 'Sky_View_Shreeji_Icon_Brochure.pdf';
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();
