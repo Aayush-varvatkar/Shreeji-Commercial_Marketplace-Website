@@ -20,7 +20,7 @@ const ProjectHighlights = () => {
       id: 3,
       icon: MapPin,
       title: "Prime Main Road Address",
-      description: "High footfall location just opposite to upcoming Chikhloli Railway Station, Ambernath (W), and also 500m to proposed Metro line."
+      description: "High footfall location just opposite to upcoming Chikhloli Railway Station, and also 500m to proposed Metro line."
     },
     {
       id: 4,
