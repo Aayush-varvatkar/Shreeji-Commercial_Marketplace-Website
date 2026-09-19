@@ -22,19 +22,19 @@ export const projectDetails = {
   heroSlides: [
     {
       id: 1,
-      image: "/images/HeroImg1.jpeg",
+       image: "/images/Hero4.jpg",
       // title: "Ground + 2 Floor Commercial Marketplace",
       // subtitle: "Shreeji Icon 24 Prime Road-Facing Showroom Spaces & Executive Office Suites"
     },
     {
       id: 2,
-      image: "/images/HeroImg2.jpeg",
+      image: "/images/AriealView.jpeg",
       // title: "Where Comfort Meets Commercial Growth",
       // subtitle: "Prime Main Road Frontage - Just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line, Ambernath (W)"
     },
     {
       id: 3,
-      image: "/images/AriealView.jpeg",
+      image: "/images/amenity_location.jpg",
       // title: "High Pedestrian Footfall Location",
       // subtitle: "5'11\" Wide Otla Walkway & Dedicated Elevator / Fire Lift Access"
     }
