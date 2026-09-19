@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import { X, Phone, Mail, MapPin, Check } from 'lucide-react';
 import { projectDetails } from '../data/projectData';
+import { submitToGoogleSheet } from '../utils/submitToGoogleSheet';
 
 const ContactModal = ({ isOpen, onClose, isAutoPopup = false }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', consent: true });
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.consent) {
       alert('Please consent to the privacy policy to proceed.');
       return;
     }
+    setLoading(true);
+    await submitToGoogleSheet({
+      name: formData.name,
+      phone: formData.phone,
+      formType: isAutoPopup ? 'Auto Popup Form' : 'Contact Direct Form'
+    });
+    setLoading(false);
     setSubmitted(true);
   };
 
@@ -202,9 +211,10 @@ const ContactModal = ({ isOpen, onClose, isAutoPopup = false }) => {
 
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-[#183342] hover:bg-[#102430] text-[#DFC181] font-extrabold py-3.5 rounded text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow cursor-pointer transition-all border border-[#C5A059]/40"
               >
-                CONTACT US FOR DETAILS
+                {loading ? 'SUBMITTING...' : 'CONTACT US FOR DETAILS'}
               </button>
             </form>
 

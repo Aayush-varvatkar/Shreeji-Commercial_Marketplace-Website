@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { projectDetails } from '../data/projectData';
+import { submitToGoogleSheet } from '../utils/submitToGoogleSheet';
 
 const LeadForm = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const LeadForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.phone) {
       alert('Please enter a valid mobile number.');
@@ -34,10 +35,15 @@ const LeadForm = () => {
     }
 
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setIsSubmitted(true);
-    }, 800);
+    await submitToGoogleSheet({
+      name: formData.name,
+      email: formData.email,
+      countryCode: formData.countryCode,
+      phone: formData.phone,
+      formType: 'Hero Walkthrough Form'
+    });
+    setLoading(false);
+    setIsSubmitted(true);
   };
 
   return (
