@@ -6,6 +6,7 @@ import { submitToGoogleSheet } from '../utils/submitToGoogleSheet';
 const BrochureModal = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
   const [formData, setFormData] = useState({ name: '', phone: '', consent: true });
 
   if (!isOpen) return null;
@@ -20,16 +21,34 @@ const BrochureModal = ({ isOpen, onClose }) => {
     document.body.removeChild(link);
   };
 
+  const handlePhoneChange = (e) => {
+    const numeric = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setFormData((prev) => ({ ...prev, phone: numeric }));
+    if (numeric.length === 10) {
+      setPhoneError('');
+    } else if (numeric.length > 0 && numeric.length < 10) {
+      setPhoneError('Mobile number must be exactly 10 digits.');
+    } else {
+      setPhoneError('');
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const cleanPhone = formData.phone.trim();
+    if (!/^\d{10}$/.test(cleanPhone)) {
+      setPhoneError('Please enter a valid 10-digit mobile number.');
+      return;
+    }
     if (!formData.consent) {
       alert('Please consent to the privacy policy to proceed.');
       return;
     }
+    setPhoneError('');
     setLoading(true);
     await submitToGoogleSheet({
       name: formData.name,
-      phone: formData.phone,
+      phone: cleanPhone,
       formType: 'Brochure Download Form'
     });
     setLoading(false);
@@ -39,6 +58,7 @@ const BrochureModal = ({ isOpen, onClose }) => {
 
   const handleClose = () => {
     setSubmitted(false);
+    setPhoneError('');
     setFormData({ name: '', phone: '', consent: true });
     onClose();
   };
@@ -158,11 +178,21 @@ const BrochureModal = ({ isOpen, onClose }) => {
                 <input
                   type="tel"
                   required
+                  maxLength={10}
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="+91 Mobile Number"
-                  className="w-full px-3 py-2.5 border border-slate-300 rounded text-sm focus:ring-2 focus:ring-[#C5A059] focus:outline-none bg-white text-slate-900 placeholder-slate-400"
+                  onChange={handlePhoneChange}
+                  placeholder="10-Digit Mobile Number"
+                  className={`w-full px-3 py-2.5 border rounded text-sm focus:ring-2 focus:outline-none bg-white text-slate-900 placeholder-slate-400 ${
+                    phoneError ? 'border-red-500 focus:ring-red-400' : 'border-slate-300 focus:ring-[#C5A059]'
+                  }`}
                 />
+                {phoneError && (
+                  <p className="text-red-500 text-[11px] font-semibold mt-1">
+                    {phoneError}
+                  </p>
+                )}
               </div>
 
               {/* CONSENT CHECKBOX */}

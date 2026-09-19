@@ -12,11 +12,24 @@ const LeadForm = () => {
     consent: true,
   });
 
+  const [phoneError, setPhoneError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+    if (name === 'phone') {
+      const numeric = value.replace(/\D/g, '').slice(0, 10);
+      setFormData((prev) => ({ ...prev, phone: numeric }));
+      if (numeric.length === 10) {
+        setPhoneError('');
+      } else if (numeric.length > 0 && numeric.length < 10) {
+        setPhoneError('Mobile number must be exactly 10 digits.');
+      } else {
+        setPhoneError('');
+      }
+      return;
+    }
     setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
@@ -25,8 +38,9 @@ const LeadForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.phone) {
-      alert('Please enter a valid mobile number.');
+    const cleanPhone = formData.phone.trim();
+    if (!/^\d{10}$/.test(cleanPhone)) {
+      setPhoneError('Please enter a valid 10-digit mobile number.');
       return;
     }
     if (!formData.consent) {
@@ -34,12 +48,13 @@ const LeadForm = () => {
       return;
     }
 
+    setPhoneError('');
     setLoading(true);
     await submitToGoogleSheet({
       name: formData.name,
       email: formData.email,
       countryCode: formData.countryCode,
-      phone: formData.phone,
+      phone: cleanPhone,
       formType: 'Hero Walkthrough Form'
     });
     setLoading(false);
@@ -154,16 +169,28 @@ const LeadForm = () => {
               <option value="+971">UAE (+971)</option>
               <option value="+44">UK (+44)</option>
             </select>
-            <input
-              type="tel"
-              name="phone"
-              required
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Mobile Number *"
-              className="w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C5A059] focus:border-[#C5A059] transition-all font-medium shadow-sm"
-            />
+            <div className="flex-grow">
+              <input
+                type="tel"
+                name="phone"
+                required
+                maxLength={10}
+                inputMode="numeric"
+                pattern="[0-9]{10}"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="10-Digit Mobile Number *"
+                className={`w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border focus:outline-none focus:ring-2 transition-all font-medium shadow-sm ${
+                  phoneError ? 'border-red-500 focus:ring-red-400' : 'border-slate-300 focus:ring-[#C5A059] focus:border-[#C5A059]'
+                }`}
+              />
+            </div>
           </div>
+          {phoneError && (
+            <p className="text-red-500 text-[11px] font-semibold -mt-2 ml-1">
+              {phoneError}
+            </p>
+          )}
 
           {/* CONSENT CHECKBOX */}
           <div className="flex items-start gap-2 pt-1">
