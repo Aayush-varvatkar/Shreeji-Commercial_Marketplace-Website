@@ -38,7 +38,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F6F0] text-[#1E1E1E] flex flex-col font-sans selection:bg-[#C5A059] selection:text-white">
+    <div className="min-h-screen bg-[#F8F6F0] text-[#1E1E1E] flex flex-col font-sans selection:bg-[#C5A059] selection:text-white w-full max-w-full overflow-x-hidden">
       
       {/* NAVBAR */}
       <Navbar
@@ -46,7 +46,7 @@ function App() {
         onOpenContact={handleOpenContactFromButton}
       />
 
-      <main className="flex-grow">
+      <main className="flex-grow w-full max-w-full overflow-x-hidden">
         {/* HERO SECTION */}
         <HeroSection />
 

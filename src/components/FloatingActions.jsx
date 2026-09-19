@@ -22,7 +22,7 @@ const FloatingActions = ({ onOpenBrochure, onOpenContact }) => {
   }, []);
 
   const handleWhatsapp = () => {
-    const message = encodeURIComponent(`Hi! I am interested in ${projectDetails.name} Commercial Marketplace, Ambernath (W). Please share retail shop and office details.`);
+    const message = encodeURIComponent(projectDetails.whatsappDefaultMessage);
     window.open(`https://wa.me/${projectDetails.whatsappNumber.replace(/[^0-9]/g, '')}?text=${message}`, '_blank');
   };
 

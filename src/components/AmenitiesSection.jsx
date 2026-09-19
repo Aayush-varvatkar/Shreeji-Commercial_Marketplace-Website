@@ -26,8 +26,8 @@ const commercialFeatures = [
   },
   {
     number: '04',
-    title: "Opposite Chikhloli Railway Station",
-    description: "Prime transit connectivity located directly opposite to the proposed Chikhloli Railway Station.",
+    title: "Chikhloli Railway Station & Metro",
+    description: "Located just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line.",
     image: '/images/amenity_location.jpg',
     icon: Zap
   },

@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { X, ZoomIn } from 'lucide-react';
 
-const galleryCategories = ["All", "Showroom & Offices", "Lobby & Facilities", "Exterior & Location"];
+const galleryCategories = ["All", "Showroom & Office Spaces", "Lobby & Facilities", "Exterior & Location"];
 
 const galleryItems = [
   {
     id: 1,
     title: "Luxury Showroom Spaces (Ground Floor)",
-    category: "Showroom & Offices",
+    category: "Showroom & Office Spaces",
     image: "/images/amenity_showrooms.jpg",
     type: "featured"
   },
   {
     id: 2,
     title: "Corporate Executive Office Suites",
-    category: "Showroom & Offices",
+    category: "Showroom & Office Spaces",
     image: "/images/amenity_offices.jpg",
     type: "top_right_1"
   },

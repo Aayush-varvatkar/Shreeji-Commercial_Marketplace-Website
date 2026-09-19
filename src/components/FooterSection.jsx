@@ -46,14 +46,14 @@ const FooterSection = () => {
               <div>
                 <strong className="text-[#183342] font-bold block">Site Address:</strong>
                 <span className="text-slate-600">
-                  Next to Ganpat Dhaba, Ambernath (W), Maharashtra.
+                  Just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line, Ambernath (W), Maharashtra.
                 </span>
               </div>
 
               <div>
                 <strong className="text-[#183342] font-bold block">Head Office:</strong>
                 <span className="text-slate-600">
-                  SHAH GROUP / SHREEJI ICON, Next to Ganpat Dhaba, Ambernath (W).
+                  SHAH GROUP / SHREEJI ICON, Just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line, Ambernath (W).
                 </span>
               </div>
             </div>

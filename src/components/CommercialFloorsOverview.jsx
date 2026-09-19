@@ -5,12 +5,12 @@ const CommercialFloorsOverview = () => {
   const [activeModalImage, setActiveModalImage] = useState(null);
 
   const groundFloorData = {
-    title: "Ground Floor Retail Marketplace",
-    subtitle: "Shops 01 - 24 & Street Frontage",
-    description: "Engineered for high-visibility retail businesses, showrooms, and consumer outlets with direct main-road frontage and maximum pedestrian footfall.",
+    title: "Ground Floor Showroom Spaces Marketplace",
+    subtitle: "Showroom Spaces 01 - 24 & Street Frontage",
+    description: "Engineered for high-visibility showroom spaces, retail outlets, and consumer brands with direct main-road frontage and maximum pedestrian footfall.",
     image: "/images/ground_floor_plan.jpg",
     points: [
-      "24 Prime Street-Facing Retail Shops (Shops 01 to 24)",
+      "24 Prime Street-Facing Showroom Spaces (Units 01 to 24)",
       "5'11\" Wide Otla Walkway Promenade for customer display",
       "Grand Entrance Lobby with MVPD digital security access",
       "Dedicated Driver Waiting Room & separate male/female restrooms"
@@ -18,9 +18,9 @@ const CommercialFloorsOverview = () => {
   };
 
   const upperFloorsData = {
-    title: "1st & 2nd Floor Executive Offices",
+    title: "1st & 2nd Floor Executive Office Spaces",
     subtitle: "Corporate Office Suites & Passages",
-    description: "Designed for professional corporate suites, medical clinics, consultancy firms, and administrative offices with tranquil corporate ambiance.",
+    description: "Designed for professional corporate suites, medical clinics, consultancy firms, and administrative office spaces with tranquil corporate ambiance.",
     image: "/images/first_floor_plan.jpg",
     points: [
       "Flexible Executive Office Suite Layouts with optimum natural light",
@@ -43,7 +43,7 @@ const CommercialFloorsOverview = () => {
             Commercial Floor Overview
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-            Architectural layout plans for Ground Floor Retail Shops (Shops 01-24) and 1st & 2nd Floor Executive Office Suites of Sky View Commercial Marketplace.
+            Architectural layout plans for Ground Floor Showroom Spaces (Units 01-24) and 1st & 2nd Floor Executive Office Suites of Sky View Commercial Marketplace.
           </p>
         </div>
 

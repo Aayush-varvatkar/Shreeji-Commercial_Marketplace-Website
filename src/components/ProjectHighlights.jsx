@@ -7,20 +7,20 @@ const ProjectHighlights = () => {
     {
       id: 1,
       icon: Store,
-      title: "Ground Floor Retail Shops",
-      description: "24 street-facing retail shops (Shops 01 to 24) with wide 5'11\" Otla display promenade."
+      title: "Ground Floor Showroom Spaces",
+      description: "24 street-facing showroom spaces (Units 01 to 24) with wide 5'11\" Otla display promenade."
     },
     {
       id: 2,
       icon: Briefcase,
-      title: "1st & 2nd Floor Offices",
+      title: "1st & 2nd Floor Office Spaces",
       description: "Corporate office suites with 5'11\" granite-clad central corridor, fire lift & elevators."
     },
     {
       id: 3,
       icon: MapPin,
       title: "Prime Main Road Address",
-      description: "High footfall location Next to Ganpat Dhaba, Ambernath (W), 500m to proposed Metro."
+      description: "High footfall location just opposite to upcoming Chikhloli Railway Station, Ambernath (W), and also 500m to proposed Metro line."
     },
     {
       id: 4,

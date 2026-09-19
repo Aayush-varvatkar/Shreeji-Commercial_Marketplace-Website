@@ -4,6 +4,8 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
@@ -11,6 +13,16 @@
     color: #183342;
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.01em;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    position: relative;
+  }
+
+  #root {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
   }
 
   h1,
@@ -19,7 +31,6 @@
   .font-heading {
     font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
   }
-
 }
 
 /* Smooth Scroll Reveal Entry Animations */
@@ -47,6 +58,14 @@
 
 .reveal.reveal-zoom {
   transform: scale(0.92);
+}
+
+/* On Mobile Screens: convert side-swipes to vertical fade-up to prevent right-hand overflow space */
+@media (max-width: 640px) {
+  .reveal.reveal-left,
+  .reveal.reveal-right {
+    transform: translateY(24px);
+  }
 }
 
 .reveal.revealed {

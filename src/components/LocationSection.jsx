@@ -5,7 +5,7 @@ const locationHighlights = [
   {
     number: '01',
     title: 'Prime Ambernath (W) Address',
-    description: 'Located Next to Ganpat Dhaba, Ambernath (W) on high-visibility main road with heavy footfall.'
+    description: 'Located just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line, Ambernath (W) on high-visibility main road.'
   },
   {
     number: '02',
@@ -15,7 +15,7 @@ const locationHighlights = [
   {
     number: '03',
     title: 'Transit & Metro Hub',
-    description: '500m from proposed Metro & Chikhloli Station, 3km from Ambernath Station & 1.5km to Panvel Highway.'
+    description: 'Just opposite to upcoming Chikhloli Railway Station & 500m to proposed Metro line, 3km from Ambernath Station & 1.5km to Panvel Highway.'
   }
 ];
 
@@ -24,7 +24,7 @@ const LocationSection = () => {
     <section id="location" className="w-full bg-[#F8F6F0] py-16 sm:py-24 border-b border-[#DFC181]/40 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-15 lg:gap-26 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
           {/* LEFT COLUMN: TEXT CONTENT & NUMBERED HIGHLIGHTS */}
           <div className="lg:col-span-5 space-y-5 reveal reveal-right delay-150">
@@ -44,7 +44,7 @@ const LocationSection = () => {
 
             {/* INTRO PARAGRAPH */}
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-              {projectDetails.name} - {projectDetails.subName} is ideally located Next to Ganpat Dhaba, Ambernath (W), placing commercial businesses and residents at the center of essential infrastructure.
+              {projectDetails.name} - {projectDetails.subName} is ideally located just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line, Ambernath (W), placing commercial businesses and residents at the center of essential infrastructure.
             </p>
 
             {/* NUMBERED HIGHLIGHTS LIST (01, 02, 03) */}
@@ -93,7 +93,7 @@ const LocationSection = () => {
                   {projectDetails.name} • {projectDetails.subName}
                 </span>
                 <span className="font-serif text-base sm:text-lg font-bold text-white block mt-0.5 leading-snug">
-                  Next to Ganpat Dhaba, Ambernath (W)
+                  Just opposite to upcoming Chikhloli Railway Station & 500m to proposed Metro line, Ambernath (W)
                 </span>
               </div>
 

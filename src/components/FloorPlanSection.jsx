@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import { ZoomIn, X, Download, Tag } from 'lucide-react';
 
-const pricingCategories = ["All Options", "Ground Floor Retail", "1st & 2nd Floor Offices"];
+const pricingCategories = ["All Options", "Ground Floor Showrooms", "1st & 2nd Floor Office Spaces"];
 
 const pricingCards = [
   {
     id: 'ground_commercial',
     typology: 'Ground Floor Commercial',
-    title: 'Ground Floor Retail Shops (Shops 01-24)',
-    layout: 'Shops 01 - 24 & 5\'11" Wide Otla',
+    title: 'Ground Floor Showroom Spaces (Units 01-24)',
+    layout: 'Showroom Spaces 01 - 24 & 5\'11" Wide Otla',
     price: 'Price On Request',
     priceSubtitle: 'Exclusive Launch Rate Available',
-    description: 'Ground floor retail marketplace plan showcasing 24 street-facing shops, 5\'11" wide Otla promenade, grand entrance lobby, lifts, driver room, and male/female restrooms.',
+    description: 'Ground floor showroom spaces layout plan showcasing 24 street-facing units, 5\'11" wide Otla promenade, grand entrance lobby, lifts, driver room, and male/female restrooms.',
     image: '/images/ground_floor_plan.jpg',
-    category: 'Ground Floor Retail'
+    category: 'Ground Floor Showrooms'
   },
   {
     id: '1st_2nd_commercial',
-    typology: '1st & 2nd Floor Offices',
+    typology: '1st & 2nd Floor Office Spaces',
     title: '1st & 2nd Floor Office Suites',
     layout: 'Executive Office Suites & Passages',
     price: 'Price On Request',
     priceSubtitle: 'Flexible Corporate Space Rates',
     description: '1st and 2nd floor architectural layout detailing corporate office suites, 5\'11" wide central passage, fire lift, elevator lobbies, and restrooms.',
     image: '/images/first_floor_plan.jpg',
-    category: '1st & 2nd Floor Offices'
+    category: '1st & 2nd Floor Office Spaces'
   }
 ];
 
@@ -49,7 +49,7 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
             Commercial Space Pricing
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-            Explore commercial space configurations and pricing details for Ground Floor Retail Shops (Shops 01-24) and 1st & 2nd Floor Executive Office Suites.
+            Explore commercial space configurations and pricing details for Ground Floor Showroom Spaces (Units 01-24) and 1st & 2nd Floor Executive Office Suites.
           </p>
         </div>
 
