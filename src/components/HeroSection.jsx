@@ -8,12 +8,12 @@ const HeroSection = () => {
       <div className="w-full max-w-[1600px] mx-auto min-h-[calc(100vh-80px)] grid grid-cols-1 lg:grid-cols-12 shadow-2xl">
         
         {/* LEFT COLUMN: HERO IMAGE SLIDER (8 COLS) */}
-        <div className="lg:col-span-8 xl:col-span-8 relative flex">
+        <div className="lg:col-span-8 xl:col-span-8 relative flex reveal reveal-right">
           <ImageSlider />
         </div>
 
         {/* RIGHT COLUMN: LEAD CAPTURE FORM (4 COLS) */}
-        <div className="lg:col-span-4 xl:col-span-4 flex">
+        <div className="lg:col-span-4 xl:col-span-4 flex reveal reveal-left delay-150">
           <LeadForm />
         </div>
 

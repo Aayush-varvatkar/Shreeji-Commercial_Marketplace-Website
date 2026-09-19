@@ -20,14 +20,49 @@
     font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
   }
 
-  img {
-    image-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
 }
+
+/* Smooth Scroll Reveal Entry Animations */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-up {
+  transform: translateY(36px);
+}
+
+.reveal.reveal-down {
+  transform: translateY(-36px);
+}
+
+.reveal.reveal-left {
+  transform: translateX(36px);
+}
+
+.reveal.reveal-right {
+  transform: translateX(-36px);
+}
+
+.reveal.reveal-zoom {
+  transform: scale(0.92);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* Stagger Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
 
 /* Premium Brochure Color Tokens (Deep Navy & Luxury Gold) */
 :root {

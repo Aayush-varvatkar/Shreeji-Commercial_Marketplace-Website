@@ -27,7 +27,7 @@ const LocationSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-15 lg:gap-26 items-center">
 
           {/* LEFT COLUMN: TEXT CONTENT & NUMBERED HIGHLIGHTS */}
-          <div className="lg:col-span-5 space-y-5">
+          <div className="lg:col-span-5 space-y-5 reveal reveal-right delay-150">
 
             {/* SUBHEADER */}
             <div className="flex items-center gap-2">
@@ -71,7 +71,7 @@ const LocationSection = () => {
           </div>
 
           {/* RIGHT COLUMN: MAP CONTAINER (~55% WIDTH FROM RIGHT SIDE) */}
-          <div className="lg:col-span-7 relative max-w-xl mx-auto lg:max-w-none w-full">
+          <div className="lg:col-span-7 relative max-w-xl mx-auto lg:max-w-none w-full reveal reveal-left delay-300">
 
             {/* MAP CARD CONTAINER */}
             <div className="relative bg-[#F2EFE9] p-3 sm:p-4 rounded-lg shadow-2xl border border-white/80 overflow-hidden">

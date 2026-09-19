@@ -80,7 +80,7 @@ const GallerySection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 reveal reveal-up">
           <div className="flex items-center justify-center gap-4 mb-2">
             <span className="h-[1px] w-12 bg-[#C5A059] inline-block" />
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#183342] leading-tight">
@@ -94,7 +94,7 @@ const GallerySection = () => {
         </div>
 
         {/* FILTER BUTTONS */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-12 reveal reveal-up delay-100">
           {galleryCategories.map((cat) => {
             const isActive = activeFilter === cat;
             return (
@@ -123,7 +123,7 @@ const GallerySection = () => {
               {/* FEATURED COMMERCIAL STOREFRONTS IMAGE (LEFT) */}
               <div
                 onClick={() => setSelectedImage(mainExterior)}
-                className="lg:col-span-8 group relative rounded-2xl overflow-hidden shadow-lg border border-white cursor-pointer h-[280px] sm:h-[400px] lg:h-[480px]"
+                className="lg:col-span-8 group relative rounded-2xl overflow-hidden shadow-lg border border-white cursor-pointer h-[280px] sm:h-[400px] lg:h-[480px] reveal reveal-zoom delay-150"
               >
                 <img
                   src={mainExterior.image}
@@ -146,7 +146,7 @@ const GallerySection = () => {
                 
                 <div
                   onClick={() => setSelectedImage(parkImage)}
-                  className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[150px] sm:h-[190px] lg:h-[228px]"
+                  className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[150px] sm:h-[190px] lg:h-[228px] reveal reveal-left delay-250"
                 >
                   <img
                     src={parkImage.image}
@@ -163,7 +163,7 @@ const GallerySection = () => {
 
                 <div
                   onClick={() => setSelectedImage(gymImage)}
-                  className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[150px] sm:h-[190px] lg:h-[228px]"
+                  className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[150px] sm:h-[190px] lg:h-[228px] reveal reveal-left delay-350"
                 >
                   <img
                     src={gymImage.image}
@@ -187,7 +187,7 @@ const GallerySection = () => {
               
               <div
                 onClick={() => setSelectedImage(meditationImage)}
-                className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px]"
+                className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px] reveal reveal-up delay-200"
               >
                 <img
                   src={meditationImage.image}
@@ -204,7 +204,7 @@ const GallerySection = () => {
 
               <div
                 onClick={() => setSelectedImage(gameZoneImage)}
-                className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px]"
+                className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px] reveal reveal-up delay-300"
               >
                 <img
                   src={gameZoneImage.image}
@@ -221,7 +221,7 @@ const GallerySection = () => {
 
               <div
                 onClick={() => setSelectedImage(evChargingImage)}
-                className="col-span-2 lg:col-span-1 group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px]"
+                className="col-span-2 lg:col-span-1 group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px] reveal reveal-up delay-400"
               >
                 <img
                   src={evChargingImage.image}
@@ -241,25 +241,29 @@ const GallerySection = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => setSelectedImage(item)}
-                className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[260px] sm:h-[300px]"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                  <span className="text-[#DFC181] text-xs font-bold uppercase tracking-widest">{item.category}</span>
-                  <h4 className="text-white font-serif font-bold text-base">{item.title}</h4>
+            {filteredItems.map((item, index) => {
+              const delays = ['delay-100', 'delay-200', 'delay-300', 'delay-400', 'delay-500'];
+              const delayClass = delays[index % delays.length];
+              return (
+                <div
+                  key={item.id}
+                  onClick={() => setSelectedImage(item)}
+                  className={`group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[260px] sm:h-[300px] reveal reveal-zoom ${delayClass}`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#102430]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+                    <span className="text-[#DFC181] text-xs font-bold uppercase tracking-widest">{item.category}</span>
+                    <h4 className="text-white font-serif font-bold text-base">{item.title}</h4>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
 

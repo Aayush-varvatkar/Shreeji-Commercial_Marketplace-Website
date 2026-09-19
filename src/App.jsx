@@ -12,11 +12,15 @@ import FooterSection from './components/FooterSection';
 import FloatingActions from './components/FloatingActions';
 import BrochureModal from './components/BrochureModal';
 import ContactModal from './components/ContactModal';
+import useScrollReveal from './hooks/useScrollReveal';
 
 function App() {
   const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isAutoPopup, setIsAutoPopup] = useState(false);
+
+  // Initialize smooth scroll reveal entry animations across all components
+  useScrollReveal();
 
   // Auto popup contact form modal 2 seconds after initial load and every reload
   useEffect(() => {

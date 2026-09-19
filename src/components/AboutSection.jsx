@@ -12,7 +12,7 @@ const AboutSection = ({ onExploreAmenities }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* LEFT SIDE: COMMERCIAL BUILDING IMAGE WITH OFFSET FRAME & OVERLAPPING BADGE */}
-          <div className="lg:col-span-6 relative max-w-lg mx-auto lg:max-w-none w-full">
+          <div className="lg:col-span-6 relative max-w-lg mx-auto lg:max-w-none w-full reveal reveal-right delay-100">
             
             {/* OFFSET GOLD OUTLINE FRAME */}
             <div className="absolute -top-5 -left-5 sm:-top-7 sm:-left-7 w-full h-full border-2 border-[#C5A059]/80 pointer-events-none rounded-sm hidden sm:block z-0" />
@@ -41,7 +41,7 @@ const AboutSection = ({ onExploreAmenities }) => {
           </div>
 
           {/* RIGHT SIDE: TEXT & CHECKLIST CONTENT */}
-          <div className="lg:col-span-6 space-y-6 pt-4 lg:pt-0">
+          <div className="lg:col-span-6 space-y-6 pt-4 lg:pt-0 reveal reveal-left delay-200">
             
             {/* SUBHEADER */}
             <div className="flex items-center gap-2">

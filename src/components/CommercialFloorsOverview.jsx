@@ -35,7 +35,7 @@ const CommercialFloorsOverview = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* SECTION HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 reveal reveal-up">
           <span className="text-xs font-bold tracking-widest text-[#C5A059] uppercase font-sans mb-2 block">
             FLOOR-BY-FLOOR ARCHITECTURE
           </span>
@@ -51,7 +51,7 @@ const CommercialFloorsOverview = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
 
           {/* LEFT CARD: GROUND FLOOR SHOPS */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 hover:border-[#C5A059] p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white rounded-2xl border border-slate-200/80 hover:border-[#C5A059] p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group reveal reveal-right delay-150">
             <div>
               {/* IMAGE CONTAINER */}
               <div
@@ -103,7 +103,7 @@ const CommercialFloorsOverview = () => {
           </div>
 
           {/* RIGHT CARD: 1ST & 2ND FLOOR OFFICES */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 hover:border-[#C5A059] p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white rounded-2xl border border-slate-200/80 hover:border-[#C5A059] p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group reveal reveal-left delay-300">
             <div>
               {/* IMAGE CONTAINER */}
               <div

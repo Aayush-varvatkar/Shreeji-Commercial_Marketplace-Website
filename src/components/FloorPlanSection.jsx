@@ -41,7 +41,7 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* HEADER SECTION */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 reveal reveal-up">
           <span className="text-xs font-bold tracking-widest text-[#C5A059] uppercase font-sans mb-2 block">
             OFFICIAL COMMERCIAL PRICING & PLANS
           </span>
@@ -54,7 +54,7 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
         </div>
 
         {/* CATEGORY FILTER TABS */}
-        <div className="flex justify-center gap-3 mb-10">
+        <div className="flex justify-center gap-3 mb-10 reveal reveal-up delay-100">
           {pricingCategories.map((cat) => {
             const isActive = activeCategory === cat;
             return (
@@ -75,10 +75,10 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
 
         {/* CARDS GRID */}
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredCards.map((card) => (
+          {filteredCards.map((card, idx) => (
             <div
               key={card.id}
-              className="bg-white text-slate-900 rounded-xl shadow-xl overflow-hidden border border-slate-200 hover:border-[#C5A059] hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col group"
+              className={`bg-white text-slate-900 rounded-xl shadow-xl overflow-hidden border border-slate-200 hover:border-[#C5A059] hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col group reveal reveal-up ${idx === 0 ? 'delay-150' : 'delay-300'}`}
             >
               
               {/* TOP FLOOR PLAN IMAGE DISPLAY */}

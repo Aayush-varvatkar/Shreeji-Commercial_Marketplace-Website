@@ -35,7 +35,7 @@ const ProjectHighlights = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* HEADER SECTION */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 reveal reveal-up">
           <span className="text-xs sm:text-sm font-bold tracking-widest text-[#C5A059] uppercase font-sans mb-3 block">
             COMMERCIAL MARKETPLACE HIGHLIGHTS
           </span>
@@ -49,12 +49,14 @@ const ProjectHighlights = () => {
 
         {/* CARDS GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {highlights.map((item) => {
+          {highlights.map((item, index) => {
             const IconComponent = item.icon;
+            const delays = ['delay-100', 'delay-200', 'delay-300', 'delay-400'];
+            const delayClass = delays[index % delays.length];
             return (
               <div
                 key={item.id}
-                className="bg-[#183342] hover:bg-[#102430] rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-[#C5A059]/30 hover:border-[#C5A059] group relative overflow-hidden"
+                className={`bg-[#183342] hover:bg-[#102430] rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-[#C5A059]/30 hover:border-[#C5A059] group relative overflow-hidden reveal reveal-up ${delayClass}`}
               >
                 {/* Subtle top glow effect */}
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

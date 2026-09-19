@@ -4,7 +4,7 @@ import { projectDetails } from '../data/projectData';
 const FooterSection = () => {
   return (
     <footer id="contact" className="w-full bg-[#F8F6F0] py-12 sm:py-16 border-t border-[#DFC181]/40 text-slate-800 relative">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center reveal reveal-up">
         
         {/* CENTERED LOGO */}
         <div className="mb-6 flex flex-col items-center">
@@ -32,7 +32,7 @@ const FooterSection = () => {
         </p>
 
         {/* ADDRESSES & CONTACT DETAILS CARD */}
-        <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl p-6 sm:p-10 border border-slate-200/80 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 text-left mb-10">
+        <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl p-6 sm:p-10 border border-slate-200/80 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 text-left mb-10 reveal reveal-up delay-150">
           
           {/* LEFT COLUMN: ADDRESSES */}
           <div className="space-y-4">
