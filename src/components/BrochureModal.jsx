@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { X, Download, FileText, Check } from 'lucide-react';
 import { projectDetails } from '../data/projectData';
 import { submitToGoogleSheet } from '../utils/submitToGoogleSheet';
+import { validateName, validateEmail, validatePhone, validateConsent } from '../utils/formValidation';
 
 const BrochureModal = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [phoneError, setPhoneError] = useState('');
-  const [formData, setFormData] = useState({ name: '', phone: '', consent: true });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', consent: true });
+  const [errors, setErrors] = useState({ name: '', email: '', phone: '', consent: '' });
+
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
 
   if (!isOpen) return null;
 
@@ -21,35 +26,63 @@ const BrochureModal = ({ isOpen, onClose }) => {
     document.body.removeChild(link);
   };
 
-  const handlePhoneChange = (e) => {
-    const numeric = e.target.value.replace(/\D/g, '').slice(0, 10);
-    setFormData((prev) => ({ ...prev, phone: numeric }));
-    if (numeric.length === 10) {
-      setPhoneError('');
-    } else if (numeric.length > 0 && numeric.length < 10) {
-      setPhoneError('Mobile number must be exactly 10 digits.');
-    } else {
-      setPhoneError('');
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    const val = type === 'checkbox' ? checked : value;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: val,
+    }));
+
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const cleanPhone = formData.phone.trim();
-    if (!/^\d{10}$/.test(cleanPhone)) {
-      setPhoneError('Please enter a valid 10-digit mobile number.');
+
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedPhone = formData.phone.trim();
+
+    const nameErr = validateName(trimmedName);
+    const emailErr = validateEmail(trimmedEmail);
+    const phoneErr = validatePhone(trimmedPhone, '+91');
+    const consentErr = validateConsent(formData.consent);
+
+    const validationErrors = {
+      name: nameErr,
+      email: emailErr,
+      phone: phoneErr,
+      consent: consentErr,
+    };
+
+    setErrors(validationErrors);
+
+    if (nameErr) {
+      nameRef.current?.focus();
       return;
     }
-    if (!formData.consent) {
-      alert('Please consent to the privacy policy to proceed.');
+    if (emailErr) {
+      emailRef.current?.focus();
       return;
     }
-    setPhoneError('');
+    if (phoneErr) {
+      phoneRef.current?.focus();
+      return;
+    }
+    if (consentErr) {
+      return;
+    }
+
     setLoading(true);
     await submitToGoogleSheet({
-      name: formData.name,
-      phone: cleanPhone,
-      formType: 'Brochure Download Form'
+      name: trimmedName,
+      email: trimmedEmail,
+      phone: trimmedPhone,
+      formType: 'Brochure Download Form',
     });
     setLoading(false);
     setSubmitted(true);
@@ -58,8 +91,8 @@ const BrochureModal = ({ isOpen, onClose }) => {
 
   const handleClose = () => {
     setSubmitted(false);
-    setPhoneError('');
-    setFormData({ name: '', phone: '', consent: true });
+    setFormData({ name: '', email: '', phone: '', consent: true });
+    setErrors({ name: '', email: '', phone: '', consent: '' });
     onClose();
   };
 
@@ -156,60 +189,89 @@ const BrochureModal = ({ isOpen, onClose }) => {
 
           {/* BODY */}
           <div className="p-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} noValidate className="space-y-4">
               <p className="text-xs text-slate-600 text-center font-medium">
                 Enter your details to view & download the complete high-resolution brochure PDF.
               </p>
 
+              {/* NAME FIELD */}
               <div>
-                <label className="block text-xs font-bold text-[#183342] mb-1 uppercase tracking-wider">Full Name *</label>
+                <label className="block text-xs font-bold text-[#183342] mb-1 uppercase tracking-wider text-left">Full Name *</label>
                 <input
+                  ref={nameRef}
                   type="text"
-                  required
+                  name="name"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={handleChange}
                   placeholder="e.g. Rahul Sharma"
-                  className="w-full px-3 py-2.5 border border-slate-300 rounded text-sm focus:ring-2 focus:ring-[#C5A059] focus:outline-none bg-white text-slate-900 placeholder-slate-400"
+                  className={`w-full px-3 py-2.5 border ${
+                    errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300 focus:ring-2 focus:ring-[#C5A059]'
+                  } rounded text-sm focus:outline-none bg-white text-slate-900 placeholder-slate-400`}
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.name}</p>
+                )}
               </div>
 
+              {/* EMAIL FIELD */}
               <div>
-                <label className="block text-xs font-bold text-[#183342] mb-1 uppercase tracking-wider">Phone Number *</label>
+                <label className="block text-xs font-bold text-[#183342] mb-1 uppercase tracking-wider text-left">Email Address *</label>
                 <input
-                  type="tel"
-                  required
-                  maxLength={10}
-                  inputMode="numeric"
-                  pattern="[0-9]{10}"
-                  value={formData.phone}
-                  onChange={handlePhoneChange}
-                  placeholder="10-Digit Mobile Number"
-                  className={`w-full px-3 py-2.5 border rounded text-sm focus:ring-2 focus:outline-none bg-white text-slate-900 placeholder-slate-400 ${
-                    phoneError ? 'border-red-500 focus:ring-red-400' : 'border-slate-300 focus:ring-[#C5A059]'
-                  }`}
+                  ref={emailRef}
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="name@example.com"
+                  className={`w-full px-3 py-2.5 border ${
+                    errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300 focus:ring-2 focus:ring-[#C5A059]'
+                  } rounded text-sm focus:outline-none bg-white text-slate-900 placeholder-slate-400`}
                 />
-                {phoneError && (
-                  <p className="text-red-500 text-[11px] font-semibold mt-1">
-                    {phoneError}
-                  </p>
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.email}</p>
+                )}
+              </div>
+
+              {/* PHONE FIELD */}
+              <div>
+                <label className="block text-xs font-bold text-[#183342] mb-1 uppercase tracking-wider text-left">Phone Number *</label>
+                <input
+                  ref={phoneRef}
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="10-digit mobile number"
+                  className={`w-full px-3 py-2.5 border ${
+                    errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300 focus:ring-2 focus:ring-[#C5A059]'
+                  } rounded text-sm focus:outline-none bg-white text-slate-900 placeholder-slate-400`}
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.phone}</p>
                 )}
               </div>
 
               {/* CONSENT CHECKBOX */}
-              <div className="flex items-start gap-2 pt-0.5">
-                <input
-                  type="checkbox"
-                  id="brochure-modal-consent"
-                  checked={formData.consent}
-                  onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                  className="mt-0.5 w-3.5 h-3.5 text-[#183342] bg-white border-slate-300 rounded focus:ring-[#C5A059] accent-[#183342] cursor-pointer shrink-0"
-                />
-                <label htmlFor="brochure-modal-consent" className="text-[11px] leading-tight text-slate-600 font-medium cursor-pointer">
-                  I consent to the use of provided data in accordance with the{' '}
-                  <a href="#privacy" onClick={(e) => e.stopPropagation()} className="underline hover:text-[#183342] text-[#C5A059] transition-colors font-bold">
-                    privacy policy
-                  </a>
-                </label>
+              <div>
+                <div className="flex items-start gap-2 pt-0.5">
+                  <input
+                    type="checkbox"
+                    id="brochure-modal-consent"
+                    name="consent"
+                    checked={formData.consent}
+                    onChange={handleChange}
+                    className="mt-0.5 w-3.5 h-3.5 text-[#183342] bg-white border-slate-300 rounded focus:ring-[#C5A059] accent-[#183342] cursor-pointer shrink-0"
+                  />
+                  <label htmlFor="brochure-modal-consent" className="text-[11px] leading-tight text-slate-600 font-medium cursor-pointer text-left">
+                    I consent to the use of provided data in accordance with the{' '}
+                    <a href="#privacy" onClick={(e) => e.stopPropagation()} className="underline hover:text-[#183342] text-[#C5A059] transition-colors font-bold">
+                      privacy policy
+                    </a>
+                  </label>
+                </div>
+                {errors.consent && (
+                  <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.consent}</p>
+                )}
               </div>
 
               <button

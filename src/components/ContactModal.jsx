@@ -1,45 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { X, Phone, Mail, MapPin, Check } from 'lucide-react';
 import { projectDetails } from '../data/projectData';
 import { submitToGoogleSheet } from '../utils/submitToGoogleSheet';
+import { validateName, validateEmail, validatePhone, validateConsent } from '../utils/formValidation';
 
 const ContactModal = ({ isOpen, onClose, isAutoPopup = false }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [phoneError, setPhoneError] = useState('');
-  const [formData, setFormData] = useState({ name: '', phone: '', consent: true });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', consent: true });
+  const [errors, setErrors] = useState({ name: '', email: '', phone: '', consent: '' });
+
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
 
   if (!isOpen) return null;
 
-  const handlePhoneChange = (e) => {
-    const numeric = e.target.value.replace(/\D/g, '').slice(0, 10);
-    setFormData((prev) => ({ ...prev, phone: numeric }));
-    if (numeric.length === 10) {
-      setPhoneError('');
-    } else if (numeric.length > 0 && numeric.length < 10) {
-      setPhoneError('Mobile number must be exactly 10 digits.');
-    } else {
-      setPhoneError('');
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    const val = type === 'checkbox' ? checked : value;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: val,
+    }));
+
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const cleanPhone = formData.phone.trim();
-    if (!/^\d{10}$/.test(cleanPhone)) {
-      setPhoneError('Please enter a valid 10-digit mobile number.');
+
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedPhone = formData.phone.trim();
+
+    const nameErr = validateName(trimmedName);
+    const emailErr = validateEmail(trimmedEmail);
+    const phoneErr = validatePhone(trimmedPhone, '+91');
+    const consentErr = validateConsent(formData.consent);
+
+    const validationErrors = {
+      name: nameErr,
+      email: emailErr,
+      phone: phoneErr,
+      consent: consentErr,
+    };
+
+    setErrors(validationErrors);
+
+    // Focus first invalid field
+    if (nameErr) {
+      nameRef.current?.focus();
       return;
     }
-    if (!formData.consent) {
-      alert('Please consent to the privacy policy to proceed.');
+    if (emailErr) {
+      emailRef.current?.focus();
       return;
     }
-    setPhoneError('');
+    if (phoneErr) {
+      phoneRef.current?.focus();
+      return;
+    }
+    if (consentErr) {
+      return;
+    }
+
     setLoading(true);
     await submitToGoogleSheet({
-      name: formData.name,
-      phone: cleanPhone,
-      formType: isAutoPopup ? 'Auto Popup Form' : 'Contact Direct Form'
+      name: trimmedName,
+      email: trimmedEmail,
+      phone: trimmedPhone,
+      formType: isAutoPopup ? 'Auto Popup Form' : 'Contact Direct Form',
     });
     setLoading(false);
     setSubmitted(true);
@@ -47,8 +81,8 @@ const ContactModal = ({ isOpen, onClose, isAutoPopup = false }) => {
 
   const handleClose = () => {
     setSubmitted(false);
-    setPhoneError('');
-    setFormData({ name: '', phone: '', consent: true });
+    setFormData({ name: '', email: '', phone: '', consent: true });
+    setErrors({ name: '', email: '', phone: '', consent: '' });
     onClose();
   };
 
@@ -186,57 +220,87 @@ const ContactModal = ({ isOpen, onClose, isAutoPopup = false }) => {
               </>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-3.5 pt-1">
+            <form onSubmit={handleSubmit} noValidate className="space-y-3.5 pt-1">
               <div className="text-center mb-1">
                 <h4 className="text-xs font-extrabold text-[#183342] uppercase tracking-widest">Get Instant Project Details</h4>
                 <p className="text-[11px] text-slate-500 font-medium">Leave your details below to receive pricing & floor plans</p>
               </div>
+
+              {/* NAME FIELD */}
               <div>
                 <input
+                  ref={nameRef}
                   type="text"
-                  required
+                  name="name"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={handleChange}
                   placeholder="Your Full Name *"
-                  className="w-full px-4 py-2.5 text-xs sm:text-sm border border-slate-300 rounded focus:ring-2 focus:ring-[#C5A059] focus:outline-none bg-white text-slate-900 placeholder-slate-400 transition-all"
+                  className={`w-full px-4 py-2.5 text-xs sm:text-sm border ${
+                    errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300 focus:ring-2 focus:ring-[#C5A059]'
+                  } rounded focus:outline-none bg-white text-slate-900 placeholder-slate-400 transition-all`}
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.name}</p>
+                )}
               </div>
+
+              {/* EMAIL FIELD */}
               <div>
                 <input
-                  type="tel"
-                  required
-                  maxLength={10}
-                  inputMode="numeric"
-                  pattern="[0-9]{10}"
-                  value={formData.phone}
-                  onChange={handlePhoneChange}
-                  placeholder="Your 10-Digit Mobile Number *"
-                  className={`w-full px-4 py-2.5 text-xs sm:text-sm border rounded focus:ring-2 focus:outline-none bg-white text-slate-900 placeholder-slate-400 transition-all ${
-                    phoneError ? 'border-red-500 focus:ring-red-400' : 'border-slate-300 focus:ring-[#C5A059]'
-                  }`}
+                  ref={emailRef}
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your Email Address *"
+                  className={`w-full px-4 py-2.5 text-xs sm:text-sm border ${
+                    errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300 focus:ring-2 focus:ring-[#C5A059]'
+                  } rounded focus:outline-none bg-white text-slate-900 placeholder-slate-400 transition-all`}
                 />
-                {phoneError && (
-                  <p className="text-red-500 text-[11px] font-semibold mt-1">
-                    {phoneError}
-                  </p>
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.email}</p>
+                )}
+              </div>
+
+              {/* PHONE FIELD */}
+              <div>
+                <input
+                  ref={phoneRef}
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Your Mobile Number *"
+                  className={`w-full px-4 py-2.5 text-xs sm:text-sm border ${
+                    errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300 focus:ring-2 focus:ring-[#C5A059]'
+                  } rounded focus:outline-none bg-white text-slate-900 placeholder-slate-400 transition-all`}
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.phone}</p>
                 )}
               </div>
 
               {/* CONSENT CHECKBOX */}
-              <div className="flex items-start gap-2 pt-0.5">
-                <input
-                  type="checkbox"
-                  id="contact-modal-consent"
-                  checked={formData.consent}
-                  onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                  className="mt-0.5 w-3.5 h-3.5 text-[#183342] bg-white border-slate-300 rounded focus:ring-[#C5A059] accent-[#183342] cursor-pointer shrink-0"
-                />
-                <label htmlFor="contact-modal-consent" className="text-[11px] leading-tight text-slate-600 font-medium cursor-pointer">
-                  I consent to the use of provided data in accordance with the{' '}
-                  <a href="#privacy" onClick={(e) => e.stopPropagation()} className="underline hover:text-[#183342] text-[#C5A059] transition-colors font-bold">
-                    privacy policy
-                  </a>
-                </label>
+              <div>
+                <div className="flex items-start gap-2 pt-0.5">
+                  <input
+                    type="checkbox"
+                    id="contact-modal-consent"
+                    name="consent"
+                    checked={formData.consent}
+                    onChange={handleChange}
+                    className="mt-0.5 w-3.5 h-3.5 text-[#183342] bg-white border-slate-300 rounded focus:ring-[#C5A059] accent-[#183342] cursor-pointer shrink-0"
+                  />
+                  <label htmlFor="contact-modal-consent" className="text-[11px] leading-tight text-slate-600 font-medium cursor-pointer text-left">
+                    I consent to the use of provided data in accordance with the{' '}
+                    <a href="#privacy" onClick={(e) => e.stopPropagation()} className="underline hover:text-[#183342] text-[#C5A059] transition-colors font-bold">
+                      privacy policy
+                    </a>
+                  </label>
+                </div>
+                {errors.consent && (
+                  <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.consent}</p>
+                )}
               </div>
 
               <button

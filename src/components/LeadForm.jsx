@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { projectDetails } from '../data/projectData';
 import { submitToGoogleSheet } from '../utils/submitToGoogleSheet';
+import { validateName, validateEmail, validatePhone, validateConsent } from '../utils/formValidation';
 
 const LeadForm = () => {
   const [formData, setFormData] = useState({
@@ -12,50 +13,80 @@ const LeadForm = () => {
     consent: true,
   });
 
-  const [phoneError, setPhoneError] = useState('');
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    consent: '',
+  });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    if (name === 'phone') {
-      const numeric = value.replace(/\D/g, '').slice(0, 10);
-      setFormData((prev) => ({ ...prev, phone: numeric }));
-      if (numeric.length === 10) {
-        setPhoneError('');
-      } else if (numeric.length > 0 && numeric.length < 10) {
-        setPhoneError('Mobile number must be exactly 10 digits.');
-      } else {
-        setPhoneError('');
-      }
-      return;
-    }
+    const val = type === 'checkbox' ? checked : value;
+
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: val,
     }));
+
+    // Clear error dynamically when user corrects input
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const cleanPhone = formData.phone.trim();
-    if (!/^\d{10}$/.test(cleanPhone)) {
-      setPhoneError('Please enter a valid 10-digit mobile number.');
+
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedPhone = formData.phone.trim();
+
+    const nameErr = validateName(trimmedName);
+    const emailErr = validateEmail(trimmedEmail);
+    const phoneErr = validatePhone(trimmedPhone, formData.countryCode);
+    const consentErr = validateConsent(formData.consent);
+
+    const validationErrors = {
+      name: nameErr,
+      email: emailErr,
+      phone: phoneErr,
+      consent: consentErr,
+    };
+
+    setErrors(validationErrors);
+
+    // Auto-focus the first invalid field
+    if (nameErr) {
+      nameRef.current?.focus();
       return;
     }
-    if (!formData.consent) {
-      alert('Please consent to the privacy policy to proceed.');
+    if (emailErr) {
+      emailRef.current?.focus();
+      return;
+    }
+    if (phoneErr) {
+      phoneRef.current?.focus();
+      return;
+    }
+    if (consentErr) {
       return;
     }
 
-    setPhoneError('');
     setLoading(true);
     await submitToGoogleSheet({
-      name: formData.name,
-      email: formData.email,
+      name: trimmedName,
+      email: trimmedEmail,
       countryCode: formData.countryCode,
-      phone: cleanPhone,
-      formType: 'Hero Walkthrough Form'
+      phone: trimmedPhone,
+      formType: 'Hero Walkthrough Form',
     });
     setLoading(false);
     setIsSubmitted(true);
@@ -116,13 +147,14 @@ const LeadForm = () => {
           <CheckCircle2 className="w-12 h-12 text-[#C5A059] mx-auto" />
           <h3 className="text-xl font-serif font-bold text-[#183342]">Inquiry Submitted!</h3>
           <p className="text-sm text-slate-600">
-            Thank you, <span className="text-[#183342] font-semibold">{formData.name || 'Valued Buyer'}</span>. Our direct representative will contact you on{' '}
-            <span className="text-[#183342] font-semibold">{formData.countryCode} {formData.phone}</span>.
+            Thank you, <span className="text-[#183342] font-semibold">{formData.name.trim() || 'Valued Buyer'}</span>. Our direct representative will contact you on{' '}
+            <span className="text-[#183342] font-semibold">{formData.countryCode} {formData.phone.trim()}</span>.
           </p>
           <button
             onClick={() => {
               setIsSubmitted(false);
               setFormData({ name: '', email: '', countryCode: '+91', phone: '', consent: true });
+              setErrors({ name: '', email: '', phone: '', consent: '' });
             }}
             className="mt-2 text-xs text-[#C5A059] underline hover:text-[#183342] cursor-pointer font-bold"
           >
@@ -130,84 +162,96 @@ const LeadForm = () => {
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+        <form onSubmit={handleSubmit} noValidate className="space-y-3 sm:space-y-4">
           
           {/* NAME FIELD */}
           <div>
             <input
+              ref={nameRef}
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Name"
-              className="w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C5A059] focus:border-[#C5A059] transition-all font-medium shadow-sm"
+              placeholder="Name *"
+              className={`w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border ${
+                errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300 focus:ring-[#C5A059] focus:border-[#C5A059]'
+              } focus:outline-none focus:ring-2 transition-all font-medium shadow-sm`}
             />
+            {errors.name && (
+              <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.name}</p>
+            )}
           </div>
 
           {/* EMAIL FIELD */}
           <div>
             <input
+              ref={emailRef}
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email (optional)"
-              className="w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C5A059] focus:border-[#C5A059] transition-all font-medium shadow-sm"
+              placeholder="Email Address *"
+              className={`w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border ${
+                errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300 focus:ring-[#C5A059] focus:border-[#C5A059]'
+              } focus:outline-none focus:ring-2 transition-all font-medium shadow-sm`}
             />
+            {errors.email && (
+              <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.email}</p>
+            )}
           </div>
 
           {/* PHONE FIELD GROUP */}
-          <div className="flex gap-2">
-            <select
-              name="countryCode"
-              value={formData.countryCode}
-              onChange={handleChange}
-              className="bg-white text-slate-900 text-sm px-3 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C5A059] cursor-pointer font-bold shadow-sm"
-            >
-              <option value="+91">India (+91)</option>
-              <option value="+1">USA (+1)</option>
-              <option value="+971">UAE (+971)</option>
-              <option value="+44">UK (+44)</option>
-            </select>
-            <div className="flex-grow">
+          <div>
+            <div className="flex gap-2">
+              <select
+                name="countryCode"
+                value={formData.countryCode}
+                onChange={handleChange}
+                className="bg-white text-slate-900 text-sm px-3 py-3 rounded-sm border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#C5A059] cursor-pointer font-bold shadow-sm"
+              >
+                <option value="+91">India (+91)</option>
+                <option value="+1">USA (+1)</option>
+                <option value="+971">UAE (+971)</option>
+                <option value="+44">UK (+44)</option>
+              </select>
               <input
+                ref={phoneRef}
                 type="tel"
                 name="phone"
-                required
-                maxLength={10}
-                inputMode="numeric"
-                pattern="[0-9]{10}"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="10-Digit Mobile Number *"
-                className={`w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border focus:outline-none focus:ring-2 transition-all font-medium shadow-sm ${
-                  phoneError ? 'border-red-500 focus:ring-red-400' : 'border-slate-300 focus:ring-[#C5A059] focus:border-[#C5A059]'
-                }`}
+                placeholder="Mobile Number *"
+                className={`w-full bg-white text-slate-900 placeholder-slate-400 text-sm px-4 py-3 rounded-sm border ${
+                  errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300 focus:ring-[#C5A059] focus:border-[#C5A059]'
+                } focus:outline-none focus:ring-2 transition-all font-medium shadow-sm`}
               />
             </div>
+            {errors.phone && (
+              <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.phone}</p>
+            )}
           </div>
-          {phoneError && (
-            <p className="text-red-500 text-[11px] font-semibold -mt-2 ml-1">
-              {phoneError}
-            </p>
-          )}
 
           {/* CONSENT CHECKBOX */}
-          <div className="flex items-start gap-2 pt-1">
-            <input
-              type="checkbox"
-              id="consent"
-              name="consent"
-              checked={formData.consent}
-              onChange={handleChange}
-              className="mt-1 w-4 h-4 text-[#183342] bg-white border-slate-400 rounded focus:ring-[#C5A059] accent-[#183342] cursor-pointer"
-            />
-            <label htmlFor="consent" className="text-[11px] leading-tight text-slate-600 font-medium">
-              I consent to the use of provided data in accordance with the{' '}
-              <a href="#privacy" className="underline hover:text-[#183342] transition-colors font-bold text-[#C5A059]">
-                privacy policy
-              </a>
-            </label>
+          <div>
+            <div className="flex items-start gap-2 pt-1">
+              <input
+                type="checkbox"
+                id="consent"
+                name="consent"
+                checked={formData.consent}
+                onChange={handleChange}
+                className="mt-1 w-4 h-4 text-[#183342] bg-white border-slate-400 rounded focus:ring-[#C5A059] accent-[#183342] cursor-pointer"
+              />
+              <label htmlFor="consent" className="text-[11px] leading-tight text-slate-600 font-medium text-left">
+                I consent to the use of provided data in accordance with the{' '}
+                <a href="#privacy" className="underline hover:text-[#183342] transition-colors font-bold text-[#C5A059]">
+                  privacy policy
+                </a>
+              </label>
+            </div>
+            {errors.consent && (
+              <p className="text-red-500 text-xs mt-1 font-medium text-left">{errors.consent}</p>
+            )}
           </div>
 
           {/* SUBMIT BUTTON */}
