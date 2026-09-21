@@ -35,6 +35,7 @@ export const projectDetails = {
     {
       id: 3,
       image: "/images/Hero_location.png",
+      mobileImage: "/images/Hero_locarion_mobile.png",
       // title: "High Pedestrian Footfall Location",
       // subtitle: "5'11\" Wide Otla Walkway & Dedicated Elevator / Fire Lift Access"
     }

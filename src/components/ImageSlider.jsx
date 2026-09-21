@@ -30,14 +30,19 @@ const ImageSlider = () => {
           className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
         >
-          <img
-            src={slide.image}
-            alt={slide.title || 'Hero Slide'}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            fetchPriority={index === 0 ? 'high' : 'low'}
-            decoding="async"
-            className="w-full h-full object-cover object-center"
-          />
+          <picture className="w-full h-full block">
+            {slide.mobileImage && (
+              <source media="(max-width: 768px)" srcSet={slide.mobileImage} />
+            )}
+            <img
+              src={slide.image}
+              alt={slide.title || 'Hero Slide'}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              fetchPriority={index === 0 ? 'high' : 'low'}
+              decoding="async"
+              className="w-full h-full object-cover object-center"
+            />
+          </picture>
           {/* Subtle gradient overlay at bottom for slider text */}
           {(slide.title || slide.subtitle) && (
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent p-6 flex flex-col justify-end">
