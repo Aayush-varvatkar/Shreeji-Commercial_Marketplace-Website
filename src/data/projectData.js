@@ -22,20 +22,19 @@ export const projectDetails = {
   heroSlides: [
     {
       id: 1,
-       image: "/images/HeroImg2.jpeg",
+      image: "/images/HeroImg2.jpeg",
     },
     {
       id: 2,
-      image: "/images/Showroom.png",
+      image: "/images/Showroom.jpg",
     },
     {
       id: 3,
-      image: "/images/OfficeSpace.png",
+      image: "/images/OfficeSpace.jpg",
     },
     {
       id: 4,
-      image: "/images/Hero4.png",
-      // mobileImage: "/images/Hero_locarion_mobile.png",
+      image: "/images/Hero4.jpg",
     }
   ],
 

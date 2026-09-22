@@ -14,6 +14,16 @@ const ImageSlider = () => {
     setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
+  // Preload all hero slide images immediately to ensure zero delay or blank frames during transition
+  useEffect(() => {
+    slides.forEach((slide) => {
+      if (slide.image) {
+        const img = new Image();
+        img.src = slide.image;
+      }
+    });
+  }, [slides]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -31,14 +41,14 @@ const ImageSlider = () => {
             }`}
         >
           <picture className="w-full h-full block">
-            {/* {slide.mobileImage && (
+            {slide.mobileImage && (
               <source media="(max-width: 768px)" srcSet={slide.mobileImage} />
-            )} */}
+            )}
             <img
               src={slide.image}
               alt={slide.title || 'Hero Slide'}
-              loading={index === 0 ? 'eager' : 'lazy'}
-              fetchPriority={index === 0 ? 'high' : 'low'}
+              loading="eager"
+              fetchPriority={index === 0 ? 'high' : 'auto'}
               decoding="async"
               className="w-full h-full object-cover object-center"
             />

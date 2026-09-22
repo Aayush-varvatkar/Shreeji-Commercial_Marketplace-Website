@@ -8,14 +8,14 @@ const galleryItems = [
     id: 1,
     title: "Luxury Showroom Spaces (Ground Floor)",
     category: "Showroom & Office Spaces",
-    image: "/images/Showroom.png",
+    image: "/images/Showroom.jpg",
     type: "featured"
   },
   {
     id: 2,
     title: "Corporate Executive Office Suites",
     category: "Showroom & Office Spaces",
-    image: "/images/OfficeSpace.png",
+    image: "/images/OfficeSpace.jpg",
     type: "top_right_1"
   },
   {
@@ -29,7 +29,7 @@ const galleryItems = [
     id: 4,
     title: "Opposite Chikhloli Railway Station",
     category: "Exterior & Location",
-    image: "/images/amenity_location.png",
+    image: "/images/amenity_location.jpg",
     type: "bottom_1"
   },
   {
