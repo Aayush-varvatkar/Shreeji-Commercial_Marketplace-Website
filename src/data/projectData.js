@@ -26,11 +26,11 @@ export const projectDetails = {
     },
     {
       id: 2,
-      image: "/images/Showroom.jpg",
+      image: "/images/Showroom.png",
     },
     {
       id: 3,
-      image: "/images/OfficeSpace.jpg",
+      image: "/images/OfficeSpace.png",
     },
     {
       id: 4,

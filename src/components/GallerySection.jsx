@@ -8,14 +8,14 @@ const galleryItems = [
     id: 1,
     title: "Luxury Showroom Spaces (Ground Floor)",
     category: "Showroom & Office Spaces",
-    image: "/images/Showroom.jpg",
+    image: "/images/Showroom.png",
     type: "featured"
   },
   {
     id: 2,
     title: "Corporate Executive Office Suites",
     category: "Showroom & Office Spaces",
-    image: "/images/OfficeSpace.jpg",
+    image: "/images/OfficeSpace.png",
     type: "top_right_1"
   },
   {
@@ -78,7 +78,7 @@ const GallerySection = () => {
   return (
     <section id="gallery" className="w-full bg-[#F8F6F0] py-16 sm:py-24 border-b border-[#DFC181]/40 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 reveal reveal-up">
           <div className="flex items-center justify-center gap-4 mb-2">
@@ -101,11 +101,10 @@ const GallerySection = () => {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer shadow-sm ${
-                  isActive
+                className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer shadow-sm ${isActive
                     ? 'bg-[#183342] text-[#DFC181] border border-[#C5A059]/40 shadow-md scale-105'
                     : 'bg-white text-slate-700 border border-slate-300 hover:border-[#C5A059] hover:text-[#183342]'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -116,10 +115,10 @@ const GallerySection = () => {
         {/* GRID DISPLAY */}
         {activeFilter === "All" ? (
           <div className="space-y-4 sm:space-y-6">
-            
+
             {/* TOP ROW */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
-              
+
               {/* FEATURED COMMERCIAL STOREFRONTS IMAGE (LEFT) */}
               <div
                 onClick={() => setSelectedImage(mainExterior)}
@@ -143,7 +142,7 @@ const GallerySection = () => {
 
               {/* TWO STACKED RIGHT IMAGES */}
               <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
-                
+
                 <div
                   onClick={() => setSelectedImage(parkImage)}
                   className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[150px] sm:h-[190px] lg:h-[228px] reveal reveal-left delay-250"
@@ -184,7 +183,7 @@ const GallerySection = () => {
 
             {/* BOTTOM ROW */}
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              
+
               <div
                 onClick={() => setSelectedImage(meditationImage)}
                 className="group relative rounded-2xl overflow-hidden shadow-md border border-white cursor-pointer h-[160px] sm:h-[220px] lg:h-[270px] reveal reveal-up delay-200"
@@ -278,7 +277,7 @@ const GallerySection = () => {
           >
             <X className="w-6 h-6" />
           </button>
-          
+
           <div className="max-w-4xl w-full bg-[#183342] rounded-2xl overflow-hidden shadow-2xl border border-[#C5A059]/40">
             <div className="relative max-h-[75vh] flex items-center justify-center bg-black">
               <img

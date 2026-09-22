@@ -7,14 +7,14 @@ const commercialFeatures = [
     number: '01',
     title: "Luxury Showroom Spaces",
     description: "Double-height Sizes designed for luxury retail brands and high-footfall showrooms.",
-    image: '/images/Showroom.jpg',
+    image: '/images/Showroom.png',
     icon: Store
   },
   {
     number: '02',
     title: "Corporate Office Suites",
     description: "Modern commercial office spaces engineered for business growth, efficiency, and comfort.",
-    image: '/images/OfficeSpace.jpg',
+    image: '/images/OfficeSpace.png',
     icon: Building2
   },
   {
