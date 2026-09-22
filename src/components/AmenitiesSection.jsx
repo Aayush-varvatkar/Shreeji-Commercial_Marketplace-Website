@@ -6,7 +6,7 @@ const commercialFeatures = [
   {
     number: '01',
     title: "Luxury Showroom Spaces",
-    description: "Double-height glass frontage designed for luxury retail brands and high-footfall showrooms.",
+    description: "Double-height Sizes designed for luxury retail brands and high-footfall showrooms.",
     image: '/images/amenity_showrooms.jpg',
     icon: Store
   },

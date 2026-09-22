@@ -31,9 +31,9 @@ const ImageSlider = () => {
             }`}
         >
           <picture className="w-full h-full block">
-            {slide.mobileImage && (
+            {/* {slide.mobileImage && (
               <source media="(max-width: 768px)" srcSet={slide.mobileImage} />
-            )}
+            )} */}
             <img
               src={slide.image}
               alt={slide.title || 'Hero Slide'}
