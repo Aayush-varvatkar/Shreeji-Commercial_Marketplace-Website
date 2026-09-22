@@ -7,14 +7,14 @@ const commercialFeatures = [
     number: '01',
     title: "Luxury Showroom Spaces",
     description: "Double-height Sizes designed for luxury retail brands and high-footfall showrooms.",
-    image: '/images/amenity_showrooms.jpg',
+    image: '/images/Showroom.png',
     icon: Store
   },
   {
     number: '02',
     title: "Corporate Office Suites",
     description: "Modern commercial office spaces engineered for business growth, efficiency, and comfort.",
-    image: '/images/amenity_offices.jpg',
+    image: '/images/OfficeSpace.png',
     icon: Building2
   },
   {
@@ -28,7 +28,7 @@ const commercialFeatures = [
     number: '04',
     title: "Chikhloli Railway Station & Metro",
     description: "Located just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line.",
-    image: '/images/amenity_location.jpg',
+    image: '/images/amenity_location.png',
     icon: Zap
   },
   {
