@@ -28,13 +28,13 @@ export const projectDetails = {
     },
     {
       id: 2,
-      image: "/images/AriealView.jpeg",
+      image: "/images/Showroom.png",
       // title: "Where Comfort Meets Commercial Growth",
       // subtitle: "Prime Main Road Frontage - Just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line, Ambernath (W)"
     },
     {
       id: 3,
-      image: "/images/Hero_location.png",
+      image: "/images/OfficeSpace.png",
       mobileImage: "/images/Hero_locarion_mobile.png",
       // title: "High Pedestrian Footfall Location",
       // subtitle: "5'11\" Wide Otla Walkway & Dedicated Elevator / Fire Lift Access"
