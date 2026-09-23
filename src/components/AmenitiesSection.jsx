@@ -14,7 +14,7 @@ const commercialFeatures = [
     number: '02',
     title: "Corporate Office Suites",
     description: "Modern commercial office spaces engineered for business growth, efficiency, and comfort.",
-    image: '/images/OfficeSpace.png',
+    image: '/images/commercial.png',
     icon: Building2
   },
   {

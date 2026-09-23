@@ -79,11 +79,12 @@ const LocationSection = () => {
               {/* GOOGLE MAPS IFRAME FOR AMBERNATH WEST */}
               <div className="w-full h-[400px] sm:h-[500px] lg:h-[550px] rounded overflow-hidden relative shadow-inner">
                 <iframe
-                  title="Sky View Shreeji Icon - Ambernath West Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15077.728906963493!2d73.18!3d19.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be793081e7d0f9d%3A0xc39fdf7d3ab2e8c2!2sAmbernath%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                  title="Sky View Shreeji Icon - Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15072.376876885308!2d73.1959328871582!3d19.191086700000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be793006f372789%3A0x75c7756bef6076b8!2sShreeJi%20Icon%20SkyView!5e0!3m2!1sen!2sin!4v1790143783231!5m2!1sen!2sin"
                   className="w-full h-full border-0 filter contrast-105 opacity-90 hover:opacity-100 transition-opacity"
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
                 />
               </div>
 

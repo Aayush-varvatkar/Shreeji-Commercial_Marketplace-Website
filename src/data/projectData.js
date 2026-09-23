@@ -30,7 +30,7 @@ export const projectDetails = {
     },
     {
       id: 3,
-      image: "/images/OfficeSpace.png",
+      image: "/images/commercial.png",
     },
     {
       id: 4,

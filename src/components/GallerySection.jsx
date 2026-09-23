@@ -15,7 +15,7 @@ const galleryItems = [
     id: 2,
     title: "Corporate Executive Office Suites",
     category: "Showroom & Office Spaces",
-    image: "/images/OfficeSpace.png",
+    image: "/images/commercial.png",
     type: "top_right_1"
   },
   {

@@ -6,8 +6,8 @@ const FooterSection = () => {
     <footer id="contact" className="w-full bg-[#F8F6F0] py-12 sm:py-16 border-t border-[#DFC181]/40 text-slate-800 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center reveal reveal-up">
         
-        {/* CENTERED LOGO */}
-        <div className="mb-6 flex flex-col items-center">
+        {/* CENTERED LOGO & QR CODE */}
+        <div className="mb-6 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
           <a href="#home" className="flex flex-col items-center group">
             <img
               src="/images/skylogo.png"
@@ -15,6 +15,14 @@ const FooterSection = () => {
               className="h-20 sm:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </a>
+          <div className="h-14 w-px bg-[#DFC181]/50 hidden sm:block"></div>
+          <div className="flex flex-col items-center group">
+            <img
+              src="/images/QRCODE.png"
+              alt="MahaRERA QR Code"
+              className="h-20 sm:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
         </div>
 
         {/* MAHARERA REGISTRATION TEXT */}
