@@ -47,6 +47,12 @@ export async function submitToGoogleSheet(data) {
       body: params.toString(),
     });
 
+    // Trigger Google Tag Manager conversion event once per successful lead submission
+    if (typeof window !== 'undefined') {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'event': 'lead_form_submitted' });
+    }
+
     return { success: true };
   } catch (error) {
     console.error('Error submitting form data to Google Sheet:', error);
