@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { CheckCircle2, ShieldCheck } from 'lucide-react';
-import { projectDetails } from '../data/projectData';
 import { submitToGoogleSheet } from '../utils/submitToGoogleSheet';
 import { validateName, validateEmail, validatePhone, validateConsent } from '../utils/formValidation';
 
@@ -107,31 +106,34 @@ const LeadForm = () => {
         />
       </div>
 
-      {/* TOP SUBHEADER */}
-      <div className="text-center mb-2">
+      {/* TOP TAGLINE */}
+      <div className="text-center mb-1">
         <span className="text-xs sm:text-sm font-bold tracking-widest text-[#C5A059] uppercase font-sans">
-          {projectDetails.taglineSub}
+          Rise to a New Standard of Living
         </span>
       </div>
 
-      {/* SUBTITLE */}
-      <p className="text-slate-700 text-xs sm:text-sm text-center font-medium mb-1">
-         Ground Floor Showroom Spaces(1-24), 1st & 2nd Floor Office Spaces
+      {/* SUB-HEADLINE */}
+      <p className="text-slate-700 text-xs sm:text-sm text-center font-medium mb-2 leading-snug">
+        1, 2 & 3 BHK Residences, Office Spaces & Commercial Shops in Ambernath (W)
       </p>
 
-      {/* COMMERCIAL MARKETPLACE HIGHLIGHT */}
-      <div className="text-center my-1">
-        <span className="text-lg sm:text-xl font-bold tracking-wide text-[#183342] drop-shadow-sm font-serif uppercase">
-          Ground + 2 Commercial Floors
+      {/* G+12 STOREYS BADGE */}
+      <div className="text-center my-1 bg-[#183342] text-white py-1.5 px-3 rounded-sm border border-[#C5A059]/40 shadow-sm">
+        <span className="text-sm sm:text-base font-bold tracking-wide text-[#DFC181] drop-shadow-sm font-serif uppercase block">
+          Ground + 12 Storeys Landmark
+        </span>
+        <span className="text-[10px] text-slate-200 tracking-wider block font-sans font-medium mt-0.5">
+          Ground Floor Shops | 1st & 2nd Floor Offices | 3rd–12th Floor Residences
         </span>
       </div>
 
       {/* DIVIDER & WALKTHROUGH SUBTITLE */}
-      <div className="relative my-4 flex items-center justify-center">
+      <div className="relative my-3 flex items-center justify-center">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-[#DFC181]/40" />
         </div>
-        <div className="relative bg-[#F8F6F0] px-4 text-center">
+        <div className="relative bg-[#F8F6F0] px-3 text-center">
           <span className="block text-xs font-bold tracking-widest text-[#183342] uppercase font-sans">
             GET LUXURY WALKTHROUGH
           </span>

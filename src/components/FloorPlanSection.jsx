@@ -1,30 +1,41 @@
 import React, { useState } from 'react';
 import { ZoomIn, X, Download, Tag } from 'lucide-react';
 
-const pricingCategories = ["All Options", "Ground Floor Showrooms", "1st & 2nd Floor Office Spaces"];
+const pricingCategories = ["All Options", "Residences", "Ground Floor Shops", "1st & 2nd Floor Offices"];
 
 const pricingCards = [
   {
-    id: 'ground_commercial',
-    typology: 'Ground Floor Commercial',
-    title: 'Ground Floor Showroom Spaces (Units 01-24)',
-    layout: 'Showroom Spaces 01 - 24 & 5\'11" Wide Otla',
+    id: 'residences',
+    typology: 'Residences',
+    title: '1, 2 & 3 BHK Residences',
+    layout: '3rd to 12th Floor Residential Units',
     price: 'Price On Request',
     priceSubtitle: 'Exclusive Launch Rate Available',
-    description: 'Ground floor showroom spaces layout plan showcasing 24 street-facing units, 5\'11" wide Otla promenade, grand entrance lobby, lifts, driver room, and male/female restrooms.',
-    image: '/images/ground_floor_plan.jpg',
-    category: 'Ground Floor Showrooms'
+    description: 'Thoughtfully planned Vastu-friendly 1, 2 & 3 BHK apartments featuring spacious living rooms, large balconies, premium fittings, and podium amenities.',
+    image: '/images/4to11.png',
+    category: 'Residences'
   },
   {
-    id: '1st_2nd_commercial',
-    typology: '1st & 2nd Floor Office Spaces',
-    title: '1st & 2nd Floor Office Suites',
-    layout: 'Executive Office Suites & Passages',
+    id: 'ground_shops',
+    typology: 'Ground Floor Shops',
+    title: 'Ground Floor Commercial Shops',
+    layout: 'Street-facing shops with 5\'11" otla',
+    price: 'Price On Request',
+    priceSubtitle: 'High-Footfall Main-Road Units',
+    description: 'Street-facing commercial shops with 5\'11" wide otla promenade, grand entrance lobbies with MVPD digital access, driver waiting room and common toilets.',
+    image: '/images/ground_floor_plan.jpg',
+    category: 'Ground Floor Shops'
+  },
+  {
+    id: 'offices',
+    typology: '1st & 2nd Floor Offices',
+    title: '1st & 2nd Floor Office Spaces',
+    layout: 'Office spaces with attached toilets',
     price: 'Price On Request',
     priceSubtitle: 'Flexible Corporate Space Rates',
-    description: '1st and 2nd floor architectural layout detailing corporate office suites, 5\'11" wide central passage, fire lift, elevator lobbies, and restrooms.',
+    description: 'Designed for corporate offices, clinics, consultancies and administrative use with attached toilets, open-air passages, and 5\'11" wide granite-clad central corridor.',
     image: '/images/first_floor_plan.jpg',
-    category: '1st & 2nd Floor Office Spaces'
+    category: '1st & 2nd Floor Offices'
   }
 ];
 
@@ -43,18 +54,18 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
         {/* HEADER SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 reveal reveal-up">
           <span className="text-xs font-bold tracking-widest text-[#C5A059] uppercase font-sans mb-2 block">
-            OFFICIAL COMMERCIAL PRICING & PLANS
+            OFFICIAL PRICING & CONFIGURATIONS
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#183342] leading-tight mb-3">
-            Commercial Space Pricing
+            Residential & Commercial Pricing
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-            Explore commercial space configurations and pricing details for Ground Floor Showroom Spaces (Units 01-24) and 1st & 2nd Floor Executive Office Suites.
+            Explore configurations and pricing details for 1, 2 & 3 BHK residences, ground-floor street-facing shops, and 1st & 2nd floor corporate office spaces.
           </p>
         </div>
 
         {/* CATEGORY FILTER TABS */}
-        <div className="flex justify-center gap-3 mb-10 reveal reveal-up delay-100">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 reveal reveal-up delay-100">
           {pricingCategories.map((cat) => {
             const isActive = activeCategory === cat;
             return (
@@ -74,17 +85,17 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
         </div>
 
         {/* CARDS GRID */}
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredCards.map((card, idx) => (
             <div
               key={card.id}
-              className={`bg-white text-slate-900 rounded-xl shadow-xl overflow-hidden border border-slate-200 hover:border-[#C5A059] hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col group reveal reveal-up ${idx === 0 ? 'delay-150' : 'delay-300'}`}
+              className={`bg-white text-slate-900 rounded-xl shadow-xl overflow-hidden border border-slate-200 hover:border-[#C5A059] hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group reveal reveal-up delay-${(idx + 1) * 150}`}
             >
               
               {/* TOP FLOOR PLAN IMAGE DISPLAY */}
               <div
                 onClick={() => setSelectedPlan(card)}
-                className="bg-[#F8F6F0] p-4 h-72 sm:h-80 flex items-center justify-center relative border-b border-slate-200 cursor-pointer overflow-hidden"
+                className="bg-[#F8F6F0] p-4 h-64 sm:h-72 flex items-center justify-center relative border-b border-slate-200 cursor-pointer overflow-hidden"
               >
                 <img
                   src={card.image}
@@ -107,16 +118,16 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
                 <div className="space-y-3">
                   <h3 className="font-serif font-bold text-lg text-[#183342]">{card.title}</h3>
                   
-                  {/* TYPOLOGY ROW */}
+                  {/* CATEGORY ROW */}
                   <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
-                    <span className="text-slate-500 text-xs font-semibold tracking-wider uppercase">Commercial Floor</span>
-                    <span className="text-[#183342] font-extrabold text-sm sm:text-base">{card.typology}</span>
+                    <span className="text-slate-500 text-xs font-semibold tracking-wider uppercase">Category</span>
+                    <span className="text-[#183342] font-extrabold text-sm">{card.typology}</span>
                   </div>
 
-                  {/* LAYOUT ROW */}
+                  {/* CONFIGURATION ROW */}
                   <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
                     <span className="text-slate-500 text-xs font-semibold tracking-wider uppercase">Configuration</span>
-                    <span className="text-slate-800 font-semibold text-xs sm:text-sm">{card.layout}</span>
+                    <span className="text-slate-800 font-semibold text-xs sm:text-sm text-right">{card.layout}</span>
                   </div>
 
                   {/* PRICING ROW */}
@@ -184,7 +195,7 @@ const FloorPlanSection = ({ onOpenBrochure }) => {
             {/* MODAL FOOTER */}
             <div className="mt-4 pt-3 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200">
               <div className="text-left text-xs text-slate-500">
-                <span className="font-semibold text-slate-700">Starting Price:</span> <span className="text-[#C5A059] font-bold">{selectedPlan.price}</span> • {selectedPlan.layout}
+                <span className="font-semibold text-slate-700">Category:</span> <span className="text-[#C5A059] font-bold">{selectedPlan.typology}</span> • {selectedPlan.layout}
               </div>
               <button
                 onClick={() => {

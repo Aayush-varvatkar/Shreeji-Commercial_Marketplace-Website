@@ -2,11 +2,11 @@ import React from 'react';
 import { Check } from 'lucide-react';
 import { projectDetails } from '../data/projectData';
 
-const AboutSection = ({ onExploreAmenities }) => {
+const AboutSection = () => {
   const { about } = projectDetails;
 
   return (
-    <section id="overview" className="w-full bg-[#F8F6F0] py-16 sm:py-24 border-b border-[#DFC181]/40 overflow-hidden relative">
+    <section id="about" className="w-full bg-[#F8F6F0] py-16 sm:py-24 border-b border-[#DFC181]/40 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -78,7 +78,7 @@ const AboutSection = ({ onExploreAmenities }) => {
             {/* EXPLORE ACTION BUTTON */}
             <div className="pt-2">
               <a
-                href="#amenities"
+                href="#spaces"
                 className="inline-block bg-[#183342] hover:bg-[#102430] text-white px-8 py-3.5 rounded-sm font-bold text-xs sm:text-sm tracking-widest uppercase transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer active:scale-95 border border-[#C5A059]/40"
               >
                 {about.buttonText}

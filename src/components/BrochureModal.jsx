@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { X, Download, FileText, Check } from 'lucide-react';
-import { projectDetails } from '../data/projectData';
+import { X, Download, Check } from 'lucide-react';
 import { submitToGoogleSheet } from '../utils/submitToGoogleSheet';
 import { validateName, validateEmail, validatePhone, validateConsent } from '../utils/formValidation';
 

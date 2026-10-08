@@ -1,5 +1,4 @@
 import React from 'react';
-import { projectDetails } from '../data/projectData';
 
 const locationHighlights = [
   {
@@ -39,12 +38,12 @@ const LocationSection = () => {
 
             {/* MAIN HEADING */}
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#183342] leading-tight">
-              The Centre of Life’s Essentials
+              The Centre of<br />Life’s Essentials
             </h2>
 
             {/* INTRO PARAGRAPH */}
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-              {projectDetails.name} - {projectDetails.subName} is ideally located just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line, Ambernath (W), placing commercial businesses and residents at the center of essential infrastructure.
+              SKY VIEW - COMMERCIAL MARKETPLACE is ideally located just opposite to upcoming Chikhloli Railway Station and also 500m to proposed Metro line, Ambernath (W), placing commercial businesses and residents at the center of essential infrastructure.
             </p>
 
             {/* NUMBERED HIGHLIGHTS LIST (01, 02, 03) */}
@@ -70,7 +69,7 @@ const LocationSection = () => {
 
           </div>
 
-          {/* RIGHT COLUMN: MAP CONTAINER (~55% WIDTH FROM RIGHT SIDE) */}
+          {/* RIGHT COLUMN: MAP CONTAINER */}
           <div className="lg:col-span-7 relative max-w-xl mx-auto lg:max-w-none w-full reveal reveal-left delay-300">
 
             {/* MAP CARD CONTAINER */}
@@ -91,7 +90,7 @@ const LocationSection = () => {
               {/* OVERLAPPING CORNER BADGE */}
               <div className="absolute bottom-8 left-6 sm:left-8 z-20 bg-[#183342] text-white px-5 py-4 sm:px-6 sm:py-5 shadow-2xl rounded-sm border border-[#C5A059]/40 transform hover:scale-105 transition-transform max-w-[260px]">
                 <span className="text-[10px] font-bold tracking-widest text-[#DFC181] uppercase block font-sans">
-                  {projectDetails.name} 
+                  SKY VIEW
                 </span>
                 <span className="font-serif text-base sm:text-lg font-bold text-white block mt-0.5 leading-snug">
                   Opposite to upcoming Chikhloli Railway Station

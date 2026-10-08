@@ -1,14 +1,14 @@
 import React from 'react';
-import { Store, Briefcase, MapPin, ShieldCheck } from 'lucide-react';
+import { Building2, Briefcase, ShieldCheck, MapPin } from 'lucide-react';
 import { projectDetails } from '../data/projectData';
 
 const ProjectHighlights = () => {
   const highlights = [
     {
       id: 1,
-      icon: Store,
-      title: "Ground Floor Showroom Spaces",
-      description: "24 street-facing showroom spaces (Units 01 to 24) with wide 5'11\" Otla display promenade."
+      icon: Building2,
+      title: "Contemporary Architecture",
+      description: "A G+12 landmark by Shreeji Icon, blending luxury residences, retail showrooms, and office suites."
     },
     {
       id: 2,
@@ -18,17 +18,19 @@ const ProjectHighlights = () => {
     },
     {
       id: 3,
-      icon: MapPin,
-      title: "Prime Main Road Address",
-      description: "High footfall location just opposite to upcoming Chikhloli Railway Station, and also 500m to proposed Metro line."
+      icon: ShieldCheck,
+      title: "Gated Complex with CCTV & Intercom",
+      description: "Safe, secure living and working with 24/7 surveillance, intercom connectivity, and multi-tier security."
     },
     {
       id: 4,
-      icon: ShieldCheck,
-      title: "Commercial Infrastructure",
-      description: "100% power backup for common areas, MVPD digital entrance system & 24/7 CCTV surveillance."
+      icon: MapPin,
+      title: "Prime Main Road Address",
+      description: "High footfall location just opposite to upcoming Chikhloli Railway Station, and also 500m to proposed Metro line."
     }
   ];
+
+  const { highlights: dataHighlights } = projectDetails;
 
   return (
     <section id="overview" className="w-full bg-[#F8F6F0] py-16 sm:py-24 border-b border-[#DFC181]/40 relative">
@@ -37,13 +39,13 @@ const ProjectHighlights = () => {
         {/* HEADER SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 reveal reveal-up">
           <span className="text-xs sm:text-sm font-bold tracking-widest text-[#C5A059] uppercase font-sans mb-3 block">
-            COMMERCIAL MARKETPLACE HIGHLIGHTS
+            {dataHighlights?.tagline || "LUXURY REDEFINED"}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#183342] leading-tight mb-4">
-            Built for Maximum Business Success
+            {dataHighlights?.heading || "Above the Ordinary, Beyond Expectations"}
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-normal leading-relaxed max-w-2xl mx-auto">
-            High pedestrian footfall, prime main-road visibility, and top commercial infrastructure come together at {projectDetails.name}.
+            {dataHighlights?.description || "Why choose ordinary when life has more to offer? Step into a world that blends luxury with calm, where every corner feels thoughtfully curated. From refined amenities to scenic surroundings, Sky View is where your elevated lifestyle truly begins."}
           </p>
         </div>
 

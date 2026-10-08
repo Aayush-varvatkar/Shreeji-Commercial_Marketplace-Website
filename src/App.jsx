@@ -3,8 +3,8 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ProjectHighlights from './components/ProjectHighlights';
 import AboutSection from './components/AboutSection';
-import AmenitiesSection from './components/AmenitiesSection';
 import CommercialFloorsOverview from './components/CommercialFloorsOverview';
+import AmenitiesSection from './components/AmenitiesSection';
 import FloorPlanSection from './components/FloorPlanSection';
 import GallerySection from './components/GallerySection';
 import LocationSection from './components/LocationSection';
@@ -54,17 +54,15 @@ function App() {
         <ProjectHighlights />
 
         {/* ABOUT SECTION ("WELCOME TO SKY VIEW") */}
-        <AboutSection
-          onExploreAmenities={() => setIsBrochureOpen(true)}
-        />
+        <AboutSection />
 
-        {/* COMMERCIAL FLOORS OVERVIEW (GROUND SHOPS LEFT, 1ST & 2ND FLOORS RIGHT) */}
+        {/* SPACES & FLOOR PLANS + INTERIORS SECTION */}
         <CommercialFloorsOverview />
         
         {/* AMENITIES SECTION */}
         <AmenitiesSection />
 
-        {/* FLOOR PLAN SECTION */}
+        {/* FLOOR PLAN & PRICING SECTION */}
         <FloorPlanSection
           onOpenBrochure={() => setIsBrochureOpen(true)}
         />

@@ -26,10 +26,10 @@ const ImageSlider = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     }, 6000);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [slides.length]);
 
   return (
     <div className="relative w-full h-[480px] sm:h-[550px] lg:h-full min-h-[500px] lg:min-h-[640px] bg-slate-900 overflow-hidden group">
